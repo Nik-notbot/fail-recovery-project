@@ -2,20 +2,25 @@ import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/context";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export function Header() {
   const { t } = useLanguage();
   const location = useLocation();
+  const navigate = useNavigate();
   const isHomePage = location.pathname === "/";
 
-  const scrollToSection = (id: string) => {
+  const navigateToSection = (id: string) => {
     if (isHomePage) {
-      // На главной странице скроллим к нужному блоку
+      // На главной странице просто скроллим к секции
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     } else {
-      // На других страницах перенаправляем на главную с якорем
-      window.location.href = `/#${id}`;
+      // На других страницах перенаправляем на главную и затем скроллим к секции
+      navigate("/");
+      // Небольшая задержка, чтобы страница успела загрузиться
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
     }
   };
 
@@ -37,68 +42,35 @@ export function Header() {
           >
             {t("header.home")}
           </Link>
-          {isHomePage ? (
-            <>
-              <button
-                onClick={() => scrollToSection("banks")}
-                className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-              >
-                {t("header.services")}
-              </button>
-              <button
-                onClick={() => scrollToSection("services")}
-                className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-              >
-                {t("header.features")}
-              </button>
-              <button
-                onClick={() => scrollToSection("faq")}
-                className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-              >
-                {t("header.faq")}
-              </button>
-            </>
-          ) : (
-            <>
-              <Link
-                to="/#banks"
-                className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-              >
-                {t("header.services")}
-              </Link>
-              <Link
-                to="/#services"
-                className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-              >
-                {t("header.features")}
-              </Link>
-              <Link
-                to="/#faq"
-                className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-              >
-                {t("header.faq")}
-              </Link>
-            </>
-          )}
+          <button
+            onClick={() => navigateToSection("banks")}
+            className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+          >
+            {t("header.services")}
+          </button>
+          <button
+            onClick={() => navigateToSection("services")}
+            className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+          >
+            {t("header.features")}
+          </button>
+          <button
+            onClick={() => navigateToSection("faq")}
+            className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+          >
+            {t("header.faq")}
+          </button>
         </nav>
         <div className="flex items-center gap-4">
           <div className="h-9 flex items-center">
             <LanguageSwitcher />
           </div>
-          {isHomePage ? (
-            <Button
-              className="rounded-full bg-gray-900 hover:bg-gray-800"
-              onClick={() => scrollToSection("banks")}
-            >
-              {t("header.catalog")}
-            </Button>
-          ) : (
-            <Link to="/#banks">
-              <Button className="rounded-full bg-gray-900 hover:bg-gray-800">
-                {t("header.catalog")}
-              </Button>
-            </Link>
-          )}
+          <Button
+            className="rounded-full bg-gray-900 hover:bg-gray-800"
+            onClick={() => navigateToSection("banks")}
+          >
+            {t("header.catalog")}
+          </Button>
         </div>
       </div>
     </header>
