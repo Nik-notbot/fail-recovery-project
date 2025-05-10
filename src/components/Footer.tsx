@@ -36,7 +36,7 @@ export function Footer() {
               href="#"
               className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
             >
-              {t("footer.termsOfService")}
+              {t("footer.privacyPolicy")}
             </a>
           </div>
         </div>
