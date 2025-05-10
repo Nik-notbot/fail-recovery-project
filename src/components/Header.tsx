@@ -10,6 +10,18 @@ export function Header() {
   const navigate = useNavigate();
   const isHomePage = location.pathname === "/";
 
+  // Функция для перехода на главную и скролла вверх
+  const navigateHome = () => {
+    if (isHomePage) {
+      // На главной странице просто скроллим к верху
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      // На других страницах перенаправляем на главную
+      navigate("/");
+    }
+  };
+
+  // Функция для перехода на главную и скролла к определенной секции
   const navigateToSection = (id: string) => {
     if (isHomePage) {
       // На главной странице просто скроллим к секции
@@ -28,7 +40,14 @@ export function Header() {
     <header className="fixed top-0 w-full bg-white/80 backdrop-blur-sm z-50 border-b border-gray-200">
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
         <div className="flex items-center gap-2">
-          <Link to="/" className="flex items-center gap-2">
+          <Link
+            to="/"
+            className="flex items-center gap-2"
+            onClick={(e) => {
+              e.preventDefault();
+              navigateHome();
+            }}
+          >
             <div className="flex items-center justify-center bg-gray-900 w-8 h-8 rounded-full">
               <Check className="w-5 h-5 text-white" strokeWidth={3} />
             </div>
@@ -36,12 +55,12 @@ export function Header() {
           </Link>
         </div>
         <nav className="hidden md:flex gap-6">
-          <Link
-            to="/"
+          <button
+            onClick={navigateHome}
             className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
           >
             {t("header.home")}
-          </Link>
+          </button>
           <button
             onClick={() => navigateToSection("banks")}
             className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
