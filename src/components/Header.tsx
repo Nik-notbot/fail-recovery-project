@@ -37,35 +37,68 @@ export function Header() {
           >
             {t("header.home")}
           </Link>
-          <button
-            onClick={() => scrollToSection("banks")}
-            className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            {t("header.services")}
-          </button>
-          <button
-            onClick={() => scrollToSection("services")}
-            className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            {t("header.features")}
-          </button>
-          <button
-            onClick={() => scrollToSection("faq")}
-            className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            {t("header.faq")}
-          </button>
+          {isHomePage ? (
+            <>
+              <button
+                onClick={() => scrollToSection("banks")}
+                className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                {t("header.services")}
+              </button>
+              <button
+                onClick={() => scrollToSection("services")}
+                className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                {t("header.features")}
+              </button>
+              <button
+                onClick={() => scrollToSection("faq")}
+                className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                {t("header.faq")}
+              </button>
+            </>
+          ) : (
+            <>
+              <Link
+                to="/#banks"
+                className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                {t("header.services")}
+              </Link>
+              <Link
+                to="/#services"
+                className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                {t("header.features")}
+              </Link>
+              <Link
+                to="/#faq"
+                className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                {t("header.faq")}
+              </Link>
+            </>
+          )}
         </nav>
         <div className="flex items-center gap-4">
           <div className="h-9 flex items-center">
             <LanguageSwitcher />
           </div>
-          <Button
-            className="rounded-full bg-gray-900 hover:bg-gray-800"
-            onClick={() => scrollToSection("banks")}
-          >
-            {t("header.catalog")}
-          </Button>
+          {isHomePage ? (
+            <Button
+              className="rounded-full bg-gray-900 hover:bg-gray-800"
+              onClick={() => scrollToSection("banks")}
+            >
+              {t("header.catalog")}
+            </Button>
+          ) : (
+            <Link to="/#banks">
+              <Button className="rounded-full bg-gray-900 hover:bg-gray-800">
+                {t("header.catalog")}
+              </Button>
+            </Link>
+          )}
         </div>
       </div>
     </header>
