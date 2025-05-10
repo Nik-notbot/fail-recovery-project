@@ -16,11 +16,7 @@ export function Header() {
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     } else {
       // На других страницах перенаправляем на главную и затем скроллим к секции
-      navigate("/");
-      // Небольшая задержка, чтобы страница успела загрузиться
-      setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-      }, 100);
+      navigate("/#" + id);
     }
   };
 
@@ -36,12 +32,21 @@ export function Header() {
           </Link>
         </div>
         <nav className="hidden md:flex gap-6">
-          <Link
-            to="/"
-            className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            {t("header.home")}
-          </Link>
+          {isHomePage ? (
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              {t("header.home")}
+            </button>
+          ) : (
+            <Link
+              to="/"
+              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              {t("header.home")}
+            </Link>
+          )}
           <button
             onClick={() => navigateToSection("banks")}
             className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
