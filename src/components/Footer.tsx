@@ -32,12 +32,12 @@ export function Footer() {
             >
               Публичная оферта
             </Link>
-            <a
-              href="#"
+            <Link
+              to="/privacy-policy"
               className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
             >
               {t("footer.privacyPolicy")}
-            </a>
+            </Link>
           </div>
         </div>
       </div>
