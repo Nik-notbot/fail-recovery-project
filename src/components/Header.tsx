@@ -3,12 +3,18 @@ import { Check } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/context";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export function Header() {
   const { t } = useLanguage();
   const location = useLocation();
   const navigate = useNavigate();
   const isHomePage = location.pathname === "/";
+
+  // Автоматический скролл вверх при загрузке страницы
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   // Функция для перехода на главную и скролла вверх
   const navigateHome = () => {
@@ -18,6 +24,10 @@ export function Header() {
     } else {
       // На других страницах перенаправляем на главную
       navigate("/");
+      // Добавляем задержку для скролла вверх после перехода
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 100);
     }
   };
 
@@ -29,10 +39,10 @@ export function Header() {
     } else {
       // На других страницах перенаправляем на главную и затем скроллим к секции
       navigate("/");
-      // Небольшая задержка, чтобы страница успела загрузиться
+      // Увеличиваем задержку для надежной загрузки страницы
       setTimeout(() => {
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-      }, 100);
+      }, 300);
     }
   };
 
