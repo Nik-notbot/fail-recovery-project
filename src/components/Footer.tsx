@@ -1,10 +1,11 @@
 import { Separator } from "@/components/ui/separator";
 import { Check } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/context";
+import { Link } from "react-router-dom";
 
 export function Footer() {
   const { t } = useLanguage();
-  
+
   return (
     <footer className="w-full py-12 bg-white">
       <div className="container px-4 md:px-6">
@@ -23,14 +24,18 @@ export function Footer() {
         </div>
         <Separator className="my-6 bg-gray-200" />
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-gray-500">
-            {t("footer.copyright")}
-          </p>
+          <p className="text-sm text-gray-500">{t("footer.copyright")}</p>
           <div className="flex items-center gap-6">
-            <a href="#" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
-              {t("footer.privacyPolicy")}
-            </a>
-            <a href="#" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+            <Link
+              to="/offer"
+              className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
+            >
+              Публичная оферта
+            </Link>
+            <a
+              href="#"
+              className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
+            >
               {t("footer.termsOfService")}
             </a>
           </div>
