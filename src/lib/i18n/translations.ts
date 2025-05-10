@@ -193,7 +193,7 @@ export const translations: Record<Locale, Translations> = {
     footer: {
       slogan:
         "Профессиональное сопровождение верификации для финансовых сервисов",
-      privacyPolicy: "Политика конфиденциальности",
+      privacyPolicy: "Политика обработки персональных данных",
       termsOfService: "Условия использования",
       copyright: "© 2024-2025 HEY, KYC! Все права защищены.",
     },
