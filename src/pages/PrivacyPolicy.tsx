@@ -1,15 +1,14 @@
-
+import { useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { useEffect } from "react";
 import { PolicySection } from "@/components/PolicySection";
 import { PolicyPageHeader } from "@/components/PolicyPageHeader";
 import { PolicyContainer } from "@/components/PolicyContainer";
-import { privacyPolicyData, privacyPolicyMeta } from "@/data/privacyPolicyData";
+import { privacyPolicySections, privacyPolicyMeta } from "@/data/privacy";
 
 /**
  * Страница политики конфиденциальности
- * Структура страницы разделена на компоненты для лучшей читаемости
+ * Структура страницы разделена на компоненты для лучшей читаемости и поддерживаемости
  */
 const PrivacyPolicy = () => {
   // Автоматический скролл вверх при загрузке страницы
@@ -22,14 +21,14 @@ const PrivacyPolicy = () => {
       <Header />
       <main className="flex-1 pt-28 pb-16">
         <PolicyContainer>
-          <PolicyPageHeader 
-            title={privacyPolicyMeta.title} 
-            publicationDate={privacyPolicyMeta.publicationDate} 
+          <PolicyPageHeader
+            title={privacyPolicyMeta.title}
+            publicationDate={privacyPolicyMeta.publicationDate}
           />
 
           <div className="prose prose-gray max-w-none">
-            {privacyPolicyData.map((section) => (
-              <PolicySection 
+            {privacyPolicySections.map((section) => (
+              <PolicySection
                 key={section.id}
                 title={section.title}
                 content={section.content}
