@@ -27,16 +27,16 @@ export function Footer() {
           <p className="text-sm text-gray-500">{t("footer.copyright")}</p>
           <div className="flex items-center gap-6">
             <Link
-              to="/offer"
-              className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
-            >
-              Публичная оферта
-            </Link>
-            <Link
               to="/privacy-policy"
               className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
             >
               {t("footer.privacyPolicy")}
+            </Link>
+            <Link
+              to="/offer"
+              className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
+            >
+              Публичная оферта
             </Link>
           </div>
         </div>
