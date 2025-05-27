@@ -94,7 +94,9 @@ export function BankServices() {
                     <Button
                       variant="outline"
                       className="w-full border-gray-300 text-gray-700 hover:bg-gray-100"
-                      onClick={openTelegram}
+                      onClick={
+                        bank.name === "RedotPay" ? handleBuyClick : openTelegram
+                      }
                     >
                       {t("bankServices.buyButton")} {bank.price}
                     </Button>
