@@ -7,6 +7,7 @@ import { LanguageProvider } from "@/lib/i18n/context";
 import Index from "./pages/Index";
 import Offer from "./pages/Offer";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import RedotPayPurchase from "./pages/RedotPayPurchase";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/offer" element={<Offer />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/redotpay-purchase" element={<RedotPayPurchase />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
