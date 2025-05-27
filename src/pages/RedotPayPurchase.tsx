@@ -18,9 +18,8 @@ export default function RedotPayPurchase() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
-    amount: "",
-    currency: "USD",
-    comment: "",
+    manualEmail: "",
+    telegramNick: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -64,7 +63,7 @@ export default function RedotPayPurchase() {
               {/* Email */}
               <div className="space-y-2">
                 <Label htmlFor="email" className="text-lg font-medium">
-                  Email для связи
+                  Email
                 </Label>
                 <Input
                   id="email"
@@ -77,44 +76,43 @@ export default function RedotPayPurchase() {
                 />
               </div>
 
-              {/* Сумма и валюта */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="amount" className="text-lg font-medium">
-                    Сумма
-                  </Label>
-                  <Input
-                    id="amount"
-                    type="number"
-                    placeholder="100"
-                    value={formData.amount}
-                    onChange={(e) =>
-                      handleInputChange("amount", e.target.value)
-                    }
-                    required
-                    className="h-12 text-lg"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label className="text-lg font-medium">Валюта</Label>
-                  <Select
-                    value={formData.currency}
-                    onValueChange={(value) =>
-                      handleInputChange("currency", value)
-                    }
-                  >
-                    <SelectTrigger className="h-12 text-lg">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="USD">USD - Доллар США</SelectItem>
-                      <SelectItem value="EUR">EUR - Евро</SelectItem>
-                      <SelectItem value="GBP">GBP - Фунт стерлингов</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
+              {/* Ручной ввод Email */}
+              <div className="space-y-2">
+                <Label htmlFor="manualEmail" className="text-lg font-medium">
+                  Ручной ввод Email
+                </Label>
+                <Input
+                  id="manualEmail"
+                  type="email"
+                  placeholder="дополнительный@email.com"
+                  value={formData.manualEmail}
+                  onChange={(e) =>
+                    handleInputChange("manualEmail", e.target.value)
+                  }
+                  className="h-12 text-lg"
+                />
               </div>
+
+              {/* Ник в телеграмм */}
+              <div className="space-y-2">
+                <Label htmlFor="telegramNick" className="text-lg font-medium">
+                  Ник в телеграмм
+                </Label>
+                <Input
+                  id="telegramNick"
+                  type="text"
+                  placeholder="@ваш_ник"
+                  value={formData.telegramNick}
+                  onChange={(e) =>
+                    handleInputChange("telegramNick", e.target.value)
+                  }
+                  required
+                  className="h-12 text-lg"
+                />
+              </div>
+
+              {/* Информационный блок */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4"></div>
 
               {/* Комментарий */}
               <div className="space-y-2">
