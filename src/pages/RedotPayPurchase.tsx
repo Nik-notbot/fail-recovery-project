@@ -99,12 +99,12 @@ export default function RedotPayPurchase() {
               </div>
 
               {/* Информационный блок */}
-              <div className="bg-gradient-to-r from-gray-50 to-slate-50 border-2 border-gray-200 rounded-xl p-6">
+              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl p-6">
                 <div className="flex items-start gap-4">
                   <Icon
                     name="Info"
                     size={24}
-                    className="text-gray-600 mt-1 flex-shrink-0"
+                    className="text-blue-600 mt-1 flex-shrink-0"
                   />
                   <div className="text-sm">
                     <p className="font-semibold mb-3 text-gray-800 text-lg">
@@ -112,16 +112,20 @@ export default function RedotPayPurchase() {
                     </p>
                     <ul className="space-y-2 text-gray-700">
                       <li className="flex items-start gap-2">
-                        <span className="text-gray-500 font-bold">•</span>
-                        Карта будет выпущена в течение 1-2 рабочих дней
+                        <span className="text-blue-500 font-bold">•</span>
+                        Инструкции по активации карты будут отправлены на вашу
+                        почту
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-gray-500 font-bold">•</span>
-                        После оформления мы свяжемся с вами для подтверждения
+                        <span className="text-blue-500 font-bold">•</span>
+                        Для использования карты VPN не требуется
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-gray-500 font-bold">•</span>
-                        Минимальная сумма пополнения - 50 USD
+                        <span className="text-blue-500 font-bold">•</span>
+                        По всем вопросам обращайтесь к{" "}
+                        <span className="font-semibold text-blue-700">
+                          @forbidden_john
+                        </span>
                       </li>
                     </ul>
                   </div>
