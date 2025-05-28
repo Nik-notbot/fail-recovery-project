@@ -18,8 +18,8 @@ export default function RedotPayPurchase() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
-    manualEmail: "",
     telegramNick: "",
+    comment: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -76,23 +76,6 @@ export default function RedotPayPurchase() {
                 />
               </div>
 
-              {/* Ручной ввод Email */}
-              <div className="space-y-2">
-                <Label htmlFor="manualEmail" className="text-lg font-medium">
-                  Ручной ввод Email
-                </Label>
-                <Input
-                  id="manualEmail"
-                  type="email"
-                  placeholder="дополнительный@email.com"
-                  value={formData.manualEmail}
-                  onChange={(e) =>
-                    handleInputChange("manualEmail", e.target.value)
-                  }
-                  className="h-12 text-lg"
-                />
-              </div>
-
               {/* Ник в телеграмм */}
               <div className="space-y-2">
                 <Label htmlFor="telegramNick" className="text-lg font-medium">
@@ -113,6 +96,20 @@ export default function RedotPayPurchase() {
 
               {/* Информационный блок */}
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4"></div>
+
+              {/* Комментарий */}
+              <div className="space-y-2">
+                <Label htmlFor="comment" className="text-lg font-medium">
+                  Дополнительные пожелания (необязательно)
+                </Label>
+                <Textarea
+                  id="comment"
+                  placeholder="Укажите особые требования или вопросы..."
+                  value={formData.comment}
+                  onChange={(e) => handleInputChange("comment", e.target.value)}
+                  className="min-h-24 text-lg"
+                />
+              </div>
 
               {/* Комментарий */}
               <div className="space-y-2">
