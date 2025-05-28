@@ -136,6 +136,7 @@ export default function RedotPayPurchase() {
                 <h3 className="text-xl font-semibold text-blue-800 mb-4">
                   Важная информация
                 </h3>
+                {/* Комментарий */}
                 <ul className="space-y-3 text-blue-700">
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
