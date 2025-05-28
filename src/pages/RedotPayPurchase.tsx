@@ -35,7 +35,7 @@ export default function RedotPayPurchase() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-violet-50 via-purple-50 to-indigo-100 py-12 px-4">
+    <div className="min-h-screen bg-white py-12 px-4">
       <div className="max-w-2xl mx-auto">
         {/* Кнопка назад */}
         <Button
@@ -47,7 +47,7 @@ export default function RedotPayPurchase() {
           Вернуться на главную
         </Button>
 
-        <Card className="shadow-2xl border-0 bg-white/80 backdrop-blur-sm">
+        <Card className="shadow-xl border border-gray-200 bg-white">
           <CardHeader className="text-center pb-8 pt-10">
             <CardTitle className="text-4xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent mb-4">
               Заказ карты RedotPay
@@ -99,12 +99,12 @@ export default function RedotPayPurchase() {
               </div>
 
               {/* Информационный блок */}
-              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl p-6">
+              <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
                 <div className="flex items-start gap-4">
                   <Icon
                     name="Info"
                     size={24}
-                    className="text-blue-600 mt-1 flex-shrink-0"
+                    className="text-gray-600 mt-1 flex-shrink-0"
                   />
                   <div className="text-sm">
                     <p className="font-semibold mb-3 text-gray-800 text-lg">
@@ -112,18 +112,18 @@ export default function RedotPayPurchase() {
                     </p>
                     <ul className="space-y-2 text-gray-700">
                       <li className="flex items-start gap-2">
-                        <span className="text-blue-500 font-bold">•</span>
+                        <span className="text-gray-500 font-bold">•</span>
                         Инструкции по активации карты будут отправлены на вашу
                         почту
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-blue-500 font-bold">•</span>
+                        <span className="text-gray-500 font-bold">•</span>
                         Для использования карты VPN не требуется
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-blue-500 font-bold">•</span>
+                        <span className="text-gray-500 font-bold">•</span>
                         По всем вопросам обращайтесь к{" "}
-                        <span className="font-semibold text-blue-700">
+                        <span className="font-semibold text-gray-800">
                           @forbidden_john
                         </span>
                       </li>
