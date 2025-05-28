@@ -132,6 +132,9 @@ export default function RedotPayPurchase() {
                 </div>
               </div>
 
+              {/* Кнопка отправки */}
+              <button
+
               <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
                 <h3 className="text-xl font-semibold text-blue-800 mb-4">
                   Важная информация
