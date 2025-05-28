@@ -4,6 +4,7 @@ import Icon from "@/components/ui/icon";
 import FormField from "./FormField";
 import InfoBlock from "./InfoBlock";
 import { RedotPayFormData } from "@/types/redot-pay";
+import { saveUserInfo } from "@/lib/supabase";
 
 interface OrderFormProps {
   onSubmit: (data: RedotPayFormData) => void;
@@ -15,10 +16,34 @@ export default function OrderForm({ onSubmit }: OrderFormProps) {
     telegramNick: "",
     comment: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit(formData);
+    setIsSubmitting(true);
+
+    try {
+      // Сохраняем в Supabase
+      const result = await saveUserInfo({
+        gmail: formData.email,
+        telegram: formData.telegramNick,
+        status: "pending",
+      });
+
+      if (result.success) {
+        console.log("Данные успешно сохранены в Supabase");
+        onSubmit(formData);
+      } else {
+        console.error("Ошибка сохранения:", result.error);
+        // Показываем ошибку пользователю
+        alert("Ошибка отправки данных. Попробуйте снова.");
+      }
+    } catch (error) {
+      console.error("Неожиданная ошибка:", error);
+      alert("Произошла ошибка. Попробуйте снова.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (field: keyof RedotPayFormData, value: string) => {
@@ -60,10 +85,20 @@ export default function OrderForm({ onSubmit }: OrderFormProps) {
 
       <Button
         type="submit"
-        className="w-full h-16 text-xl font-bold bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 hover:from-gray-900 hover:via-gray-800 hover:to-gray-700 transition-all duration-300 transform hover:scale-[1.02] shadow-xl hover:shadow-2xl rounded-xl text-white"
+        className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+        disabled={isSubmitting}
       >
-        <Icon name="ShoppingCart" size={24} className="mr-3" />
-        Оформить заказ
+        {isSubmitting ? (
+          <>
+            <Icon name="Loader2" className="mr-2 h-4 w-4 animate-spin" />
+            Отправка...
+          </>
+        ) : (
+          <>
+            <Icon name="Send" className="mr-2 h-4 w-4" />
+            Отправить заявку
+          </>
+        )}
       </Button>
     </form>
   );
