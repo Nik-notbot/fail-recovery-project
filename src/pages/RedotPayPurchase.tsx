@@ -47,18 +47,16 @@ export default function RedotPayPurchase() {
           Вернуться на главную
         </Button>
 
-        <Card className="shadow-2xl border-0 backdrop-blur-sm bg-white/90">
-          <CardHeader className="text-center bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 text-white rounded-t-lg p-8">
-            <CardTitle className="text-4xl font-bold flex items-center justify-center gap-3 mb-2">
-              <Icon name="CreditCard" size={36} />
-              Покупка RedotPay карты
+        <Card className="shadow-2xl border-0 bg-white/80 backdrop-blur-sm">
+          <CardHeader className="text-center pb-8 pt-10">
+            <CardTitle className="text-4xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent mb-4">
+              Заказ карты RedotPay
             </CardTitle>
-            <p className="text-violet-100 text-lg">
-              Заполните форму для оформления заказа
+            <p className="text-gray-600 text-lg leading-relaxed max-w-md mx-auto">
+              Заполните форму для оформления виртуальной карты RedotPay
             </p>
           </CardHeader>
-
-          <CardContent className="p-8">
+          <CardContent className="px-10 pb-10">
             <form onSubmit={handleSubmit} className="space-y-8">
               {/* Email */}
               <div className="space-y-3">
@@ -75,7 +73,7 @@ export default function RedotPayPurchase() {
                   value={formData.email}
                   onChange={(e) => handleInputChange("email", e.target.value)}
                   required
-                  className="h-14 text-lg border-2 border-gray-200 focus:border-violet-500 focus:ring-violet-500/20 rounded-xl"
+                  className="h-14 text-lg border-2 border-gray-200 focus:border-gray-400 focus:ring-gray-400/20 rounded-xl"
                 />
               </div>
 
@@ -96,33 +94,33 @@ export default function RedotPayPurchase() {
                     handleInputChange("telegramNick", e.target.value)
                   }
                   required
-                  className="h-14 text-lg border-2 border-gray-200 focus:border-violet-500 focus:ring-violet-500/20 rounded-xl"
+                  className="h-14 text-lg border-2 border-gray-200 focus:border-gray-400 focus:ring-gray-400/20 rounded-xl"
                 />
               </div>
 
               {/* Информационный блок */}
-              <div className="bg-gradient-to-r from-violet-50 to-purple-50 border-2 border-violet-200 rounded-xl p-6">
+              <div className="bg-gradient-to-r from-gray-50 to-slate-50 border-2 border-gray-200 rounded-xl p-6">
                 <div className="flex items-start gap-4">
                   <Icon
                     name="Info"
                     size={24}
-                    className="text-violet-600 mt-1 flex-shrink-0"
+                    className="text-gray-600 mt-1 flex-shrink-0"
                   />
                   <div className="text-sm">
-                    <p className="font-semibold mb-3 text-violet-800 text-lg">
+                    <p className="font-semibold mb-3 text-gray-800 text-lg">
                       Важная информация:
                     </p>
-                    <ul className="space-y-2 text-violet-700">
+                    <ul className="space-y-2 text-gray-700">
                       <li className="flex items-start gap-2">
-                        <span className="text-violet-500 font-bold">•</span>
+                        <span className="text-gray-500 font-bold">•</span>
                         Карта будет выпущена в течение 1-2 рабочих дней
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-violet-500 font-bold">•</span>
+                        <span className="text-gray-500 font-bold">•</span>
                         После оформления мы свяжемся с вами для подтверждения
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-violet-500 font-bold">•</span>
+                        <span className="text-gray-500 font-bold">•</span>
                         Минимальная сумма пополнения - 50 USD
                       </li>
                     </ul>
@@ -146,14 +144,14 @@ export default function RedotPayPurchase() {
                   placeholder="Укажите особые требования или вопросы..."
                   value={formData.comment}
                   onChange={(e) => handleInputChange("comment", e.target.value)}
-                  className="min-h-32 text-lg border-2 border-gray-200 focus:border-violet-500 focus:ring-violet-500/20 rounded-xl resize-none"
+                  className="min-h-32 text-lg border-2 border-gray-200 focus:border-gray-400 focus:ring-gray-400/20 rounded-xl resize-none"
                 />
               </div>
 
               {/* Кнопка отправки */}
               <Button
                 type="submit"
-                className="w-full h-16 text-xl font-bold bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 hover:from-violet-700 hover:via-purple-700 hover:to-indigo-700 transition-all duration-300 transform hover:scale-[1.02] shadow-xl hover:shadow-2xl rounded-xl"
+                className="w-full h-16 text-xl font-bold bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 hover:from-gray-900 hover:via-gray-800 hover:to-gray-700 transition-all duration-300 transform hover:scale-[1.02] shadow-xl hover:shadow-2xl rounded-xl text-white"
               >
                 <Icon name="ShoppingCart" size={24} className="mr-3" />
                 Оформить заказ
