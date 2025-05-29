@@ -1,4 +1,6 @@
 const MERCHANT_API_URL = "https://api.merchant001.io/v1";
+const API_TOKEN =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJWSm9ZdXFhN2RraFo1R1VXOWVOd2tKTmZlNHMxIiwiZGF0ZSI6IjIwMjUtMDUtMjlUMDg6MDM6MzMuMDg4WiIsImlhdCI6MTc0ODUwNTgxM30.4mSCsAQFaSlqHPb4cH4IFRWkdF638P9oliV5rKweCCg";
 
 export interface PaymentRequest {
   amount: number;
@@ -16,7 +18,7 @@ export async function createPaymentSession(data: PaymentRequest) {
 
     // Формируем данные согласно документации merchant001.io
     const transactionData = {
-      project_id: process.env.VITE_MERCHANT_PROJECT_ID || "your_project_id", // Нужно добавить в .env
+      project_id: import.meta.env.VITE_MERCHANT_PROJECT_ID || "your_project_id",
       amount: data.amount,
       currency: data.currency || "RUB",
       order_id: `redotpay_${Date.now()}`,
@@ -38,6 +40,7 @@ export async function createPaymentSession(data: PaymentRequest) {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${API_TOKEN}`,
       },
       body: JSON.stringify(transactionData),
     });
