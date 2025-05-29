@@ -24,33 +24,43 @@ export default function OrderForm({ onSubmit }: OrderFormProps) {
     setIsSubmitting(true);
 
     try {
+      console.log("🎯 Начинаем обработку заказа...");
+
       // Сохраняем данные в Supabase
+      console.log("💾 Сохраняем данные пользователя...");
       await saveUserInfo({
         email: formData.email,
         telegram_nick: formData.telegramNick,
         comment: formData.comment,
       });
+      console.log("✅ Данные сохранены");
 
       // Создаем платежную сессию
+      console.log("💳 Создаем платежную сессию...");
       const paymentData = await createPaymentSession({
-        amount: 2500, // Цена карты RedotPay в рублях
+        amount: 2500,
         currency: "RUB",
         description: "Заказ виртуальной карты RedotPay",
         customer_email: formData.email,
         return_url: window.location.origin + "/payment-success",
         callback_url: window.location.origin + "/api/payment-callback",
       });
-
-      // Перенаправляем на форму оплаты
-      redirectToPayment(paymentData.payment_url);
+      console.log("✅ Платежная сессия создана:", paymentData);
 
       // Отправляем данные формы
       onSubmit(formData);
+
+      // Перенаправляем на форму оплаты
+      console.log("🔄 Перенаправляем на оплату...");
+      redirectToPayment(paymentData.payment_url);
     } catch (error) {
-      console.error("Ошибка отправки:", error);
+      console.error("💥 Ошибка отправки:", error);
       const errorMessage =
         error instanceof Error ? error.message : "Произошла неизвестная ошибка";
-      alert(`Ошибка: ${errorMessage}`);
+
+      alert(
+        `❌ Ошибка: ${errorMessage}\n\nПроверьте консоль браузера для подробностей.`,
+      );
     } finally {
       setIsSubmitting(false);
     }

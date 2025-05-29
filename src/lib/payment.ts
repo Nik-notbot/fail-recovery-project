@@ -14,11 +14,11 @@ export interface PaymentRequest {
 
 export async function createPaymentSession(data: PaymentRequest) {
   try {
-    console.log("Отправляем запрос на создание транзакции:", data);
+    console.log("🚀 Отправляем запрос на создание транзакции:", data);
 
     // Формируем данные согласно документации merchant001.io
     const transactionData = {
-      project_id: import.meta.env.VITE_MERCHANT_PROJECT_ID || "your_project_id",
+      project_id: import.meta.env.VITE_MERCHANT_PROJECT_ID || "test_project_id",
       amount: data.amount,
       currency: data.currency || "RUB",
       order_id: `redotpay_${Date.now()}`,
@@ -32,8 +32,9 @@ export async function createPaymentSession(data: PaymentRequest) {
         email: data.customer_email,
         phone: data.customer_phone || "",
       },
-      // sign будет генерироваться на бэкенде для безопасности
     };
+
+    console.log("📤 Данные для отправки:", transactionData);
 
     const response = await fetch(`${MERCHANT_API_URL}/transaction`, {
       method: "POST",
@@ -45,33 +46,44 @@ export async function createPaymentSession(data: PaymentRequest) {
       body: JSON.stringify(transactionData),
     });
 
-    console.log("Ответ от API:", response.status, response.statusText);
+    console.log("📨 Ответ от API:", response.status, response.statusText);
 
     if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
-      console.error("Ошибка API:", errorData);
+      const errorText = await response.text();
+      console.error("❌ Ошибка API (текст):", errorText);
+
+      let errorData;
+      try {
+        errorData = JSON.parse(errorText);
+      } catch {
+        errorData = { message: errorText };
+      }
+
       throw new Error(
         `Ошибка создания транзакции: ${response.status} - ${errorData.message || "Неизвестная ошибка"}`,
       );
     }
 
     const result = await response.json();
-    console.log("Данные транзакции:", result);
+    console.log("✅ Данные транзакции:", result);
 
-    // Согласно документации, URL находится в поле url
-    if (!result.url) {
-      console.error("URL оплаты не найден в ответе:", result);
+    // Проверяем различные варианты URL в ответе
+    const paymentUrl = result.url || result.payment_url || result.redirect_url;
+
+    if (!paymentUrl) {
+      console.error("❌ URL оплаты не найден в ответе:", result);
       throw new Error("Не получен URL для оплаты от платежной системы");
     }
 
+    console.log("🔗 URL для оплаты:", paymentUrl);
+
     return {
       ...result,
-      payment_url: result.url, // Для совместимости с текущим кодом
+      payment_url: paymentUrl,
     };
   } catch (error) {
-    console.error("Ошибка API кассы:", error);
+    console.error("💥 Ошибка API кассы:", error);
 
-    // Показываем более понятную ошибку пользователю
     if (error instanceof TypeError && error.message.includes("fetch")) {
       throw new Error(
         "Не удается подключиться к платежной системе. Проверьте интернет-соединение.",
@@ -83,14 +95,24 @@ export async function createPaymentSession(data: PaymentRequest) {
 }
 
 export function redirectToPayment(paymentUrl: string) {
-  console.log("Перенаправляем на оплату:", paymentUrl);
+  console.log("🔄 Попытка перенаправления на:", paymentUrl);
 
-  // Проверяем валидность URL
+  if (!paymentUrl) {
+    console.error("❌ Пустой URL для перенаправления");
+    throw new Error("URL для оплаты не указан");
+  }
+
   try {
-    new URL(paymentUrl);
-    window.location.href = paymentUrl;
+    const url = new URL(paymentUrl);
+    console.log("✅ URL валиден:", url.toString());
+
+    // Добавляем небольшую задержку для завершения логирования
+    setTimeout(() => {
+      console.log("🚀 Выполняем перенаправление...");
+      window.location.href = paymentUrl;
+    }, 100);
   } catch (error) {
-    console.error("Некорректный URL оплаты:", paymentUrl);
+    console.error("❌ Некорректный URL оплаты:", paymentUrl, error);
     throw new Error("Получен некорректный URL для оплаты");
   }
 }
