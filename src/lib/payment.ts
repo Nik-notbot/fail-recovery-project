@@ -14,23 +14,22 @@ export async function createPaymentSession(data: PaymentRequest) {
   try {
     console.log("Отправляем запрос на создание платежа:", data);
 
-    // Формируем данные согласно API merchant001.io
+    // Формируем данные согласно документации merchant001.io
     const paymentData = {
       amount: data.amount,
       currency: data.currency || "RUB",
       description: data.description,
-      order_id: `order_${Date.now()}`, // Уникальный ID заказа
-      customer: {
-        email: data.customer_email,
-        phone: data.customer_phone,
-      },
+      order_id: `redotpay_${Date.now()}`, // Уникальный ID заказа
+      customer_email: data.customer_email,
+      customer_phone: data.customer_phone || "",
       success_url:
         data.return_url || `${window.location.origin}/payment-success`,
       fail_url: `${window.location.origin}/payment-failed`,
-      callback_url: data.callback_url,
+      notification_url:
+        data.callback_url || `${window.location.origin}/api/payment-callback`,
     };
 
-    const response = await fetch(`${MERCHANT_API_URL}/payment/create`, {
+    const response = await fetch(`${MERCHANT_API_URL}/create-payment`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,13 +51,16 @@ export async function createPaymentSession(data: PaymentRequest) {
     const result = await response.json();
     console.log("Данные платежа:", result);
 
-    // Проверяем поле payment_url в ответе
-    if (!result.payment_url) {
+    // Согласно документации, URL находится в поле redirect_url
+    if (!result.redirect_url) {
       console.error("URL оплаты не найден в ответе:", result);
       throw new Error("Не получен URL для оплаты от платежной системы");
     }
 
-    return result;
+    return {
+      ...result,
+      payment_url: result.redirect_url, // Для совместимости с текущим кодом
+    };
   } catch (error) {
     console.error("Ошибка API кассы:", error);
 
