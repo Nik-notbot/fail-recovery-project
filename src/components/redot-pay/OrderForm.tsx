@@ -42,17 +42,15 @@ export default function OrderForm({ onSubmit }: OrderFormProps) {
       });
 
       // Перенаправляем на форму оплаты
-      if (paymentData.payment_url) {
-        redirectToPayment(paymentData.payment_url);
-      } else {
-        throw new Error("Не получен URL для оплаты");
-      }
+      redirectToPayment(paymentData.payment_url);
 
       // Отправляем данные формы
       onSubmit(formData);
     } catch (error) {
       console.error("Ошибка отправки:", error);
-      alert("Произошла ошибка. Попробуйте снова.");
+      const errorMessage =
+        error instanceof Error ? error.message : "Произошла неизвестная ошибка";
+      alert(`Ошибка: ${errorMessage}`);
     } finally {
       setIsSubmitting(false);
     }
