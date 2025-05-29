@@ -1,4 +1,11 @@
-// Временная заглушка для Supabase (база данных в разработке)
+import { createClient } from "@supabase/supabase-js";
+
+const supabaseUrl = "https://nwcleyhnnbzxetcqtlim.supabase.co";
+const supabaseAnonKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53Y2xleWhubmJ6eGV0Y3F0bGltIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDczODEzODUsImV4cCI6MjA2Mjk1NzM4NX0.3ss3IMHLlhipHY1u8610mCX6TBG4e3doZULjvoQ1Ijg";
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
 export interface UserInfo {
   email: string;
   telegram_nick: string;
@@ -7,22 +14,20 @@ export interface UserInfo {
 }
 
 export async function saveUserInfo(data: UserInfo): Promise<any> {
-  // Временная заглушка - просто логируем данные
-  console.log("Данные пользователя (сохранение в разработке):", data);
+  try {
+    const { data: result, error } = await supabase
+      .from("user_info")
+      .insert([data])
+      .select();
 
-  // Имитируем асинхронную операцию
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({ success: true, data });
-    }, 500);
-  });
+    if (error) {
+      console.error("Ошибка сохранения данных:", error);
+      throw error;
+    }
+
+    return { success: true, data: result };
+  } catch (error) {
+    console.error("Ошибка при сохранении:", error);
+    throw error;
+  }
 }
-
-// Заглушка для supabase клиента
-export const supabase = {
-  from: () => ({
-    insert: () => ({
-      select: () => Promise.resolve({ data: [], error: null }),
-    }),
-  }),
-};
