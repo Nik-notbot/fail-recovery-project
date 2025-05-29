@@ -1,4 +1,4 @@
-const MERCHANT_API_URL = "https://app.merchant001.io/api/v1";
+const MERCHANT_API_URL = "https://api.merchant001.io/v1";
 
 export interface PaymentRequest {
   amount: number;
@@ -12,30 +12,34 @@ export interface PaymentRequest {
 
 export async function createPaymentSession(data: PaymentRequest) {
   try {
-    console.log("Отправляем запрос на создание платежа:", data);
+    console.log("Отправляем запрос на создание транзакции:", data);
 
     // Формируем данные согласно документации merchant001.io
-    const paymentData = {
+    const transactionData = {
+      project_id: process.env.VITE_MERCHANT_PROJECT_ID || "your_project_id", // Нужно добавить в .env
       amount: data.amount,
       currency: data.currency || "RUB",
+      order_id: `redotpay_${Date.now()}`,
       description: data.description,
-      order_id: `redotpay_${Date.now()}`, // Уникальный ID заказа
-      customer_email: data.customer_email,
-      customer_phone: data.customer_phone || "",
       success_url:
         data.return_url || `${window.location.origin}/payment-success`,
       fail_url: `${window.location.origin}/payment-failed`,
-      notification_url:
+      callback_url:
         data.callback_url || `${window.location.origin}/api/payment-callback`,
+      customer: {
+        email: data.customer_email,
+        phone: data.customer_phone || "",
+      },
+      // sign будет генерироваться на бэкенде для безопасности
     };
 
-    const response = await fetch(`${MERCHANT_API_URL}/create-payment`, {
+    const response = await fetch(`${MERCHANT_API_URL}/transaction`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify(paymentData),
+      body: JSON.stringify(transactionData),
     });
 
     console.log("Ответ от API:", response.status, response.statusText);
@@ -44,22 +48,22 @@ export async function createPaymentSession(data: PaymentRequest) {
       const errorData = await response.json().catch(() => ({}));
       console.error("Ошибка API:", errorData);
       throw new Error(
-        `Ошибка создания платежа: ${response.status} - ${errorData.message || "Неизвестная ошибка"}`,
+        `Ошибка создания транзакции: ${response.status} - ${errorData.message || "Неизвестная ошибка"}`,
       );
     }
 
     const result = await response.json();
-    console.log("Данные платежа:", result);
+    console.log("Данные транзакции:", result);
 
-    // Согласно документации, URL находится в поле redirect_url
-    if (!result.redirect_url) {
+    // Согласно документации, URL находится в поле url
+    if (!result.url) {
       console.error("URL оплаты не найден в ответе:", result);
       throw new Error("Не получен URL для оплаты от платежной системы");
     }
 
     return {
       ...result,
-      payment_url: result.redirect_url, // Для совместимости с текущим кодом
+      payment_url: result.url, // Для совместимости с текущим кодом
     };
   } catch (error) {
     console.error("Ошибка API кассы:", error);
