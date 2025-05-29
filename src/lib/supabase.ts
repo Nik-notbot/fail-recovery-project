@@ -1,10 +1,25 @@
-import { createClient } from "@supabase/supabase-js";
+// Mock implementation of Supabase client
+const createMockClient = () => ({
+  from: (tableName: string) => ({
+    insert: (data: any[]) => ({
+      select: () => ({
+        then: (callback: (result: { data: any; error: null }) => void) => {
+          // Simulate successful insertion with mock data
+          setTimeout(() => {
+            callback({
+              data: data.map((item, index) => ({ ...item, id: index + 1 })),
+              error: null,
+            });
+          }, 100);
+          return Promise.resolve();
+        },
+        catch: (callback: (error: any) => void) => Promise.resolve(),
+      }),
+    }),
+  }),
+});
 
-const supabaseUrl = "https://nwcleyhnnbzxetcqtlim.supabase.co";
-const supabaseAnonKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53Y2xleWhubmJ6eGV0Y3F0bGltIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDczODEzODUsImV4cCI6MjA2Mjk1NzM4NX0.3ss3IMHLlhipHY1u8610mCX6TBG4e3doZULjvoQ1Ijg";
-
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+export const supabase = createMockClient();
 
 export interface UserInfo {
   email: string;
@@ -15,17 +30,18 @@ export interface UserInfo {
 
 export async function saveUserInfo(data: UserInfo): Promise<any> {
   try {
-    const { data: result, error } = await supabase
-      .from("user_info")
-      .insert([data])
-      .select();
+    // Mock implementation - simulate API call
+    await new Promise((resolve) => setTimeout(resolve, 500));
 
-    if (error) {
-      console.error("Ошибка сохранения данных:", error);
-      throw error;
-    }
+    console.log("Mock: Сохранение данных пользователя:", data);
 
-    return { success: true, data: result };
+    const mockResult = {
+      ...data,
+      id: Math.random().toString(36).substr(2, 9),
+      created_at: new Date().toISOString(),
+    };
+
+    return { success: true, data: [mockResult] };
   } catch (error) {
     console.error("Ошибка при сохранении:", error);
     throw error;
