@@ -5,6 +5,7 @@ import FormField from "./FormField";
 import InfoBlock from "./InfoBlock";
 import { RedotPayFormData } from "@/types/redot-pay";
 import { saveUserInfo } from "@/lib/supabase";
+import { createPaymentSession, redirectToPayment } from "@/lib/payment";
 
 interface OrderFormProps {
   onSubmit: (data: RedotPayFormData) => void;
@@ -29,6 +30,23 @@ export default function OrderForm({ onSubmit }: OrderFormProps) {
         telegram_nick: formData.telegramNick,
         comment: formData.comment,
       });
+
+      // Создаем платежную сессию
+      const paymentData = await createPaymentSession({
+        amount: 2500, // Цена карты RedotPay в рублях
+        currency: "RUB",
+        description: "Заказ виртуальной карты RedotPay",
+        customer_email: formData.email,
+        return_url: window.location.origin + "/payment-success",
+        callback_url: window.location.origin + "/api/payment-callback",
+      });
+
+      // Перенаправляем на форму оплаты
+      if (paymentData.payment_url) {
+        redirectToPayment(paymentData.payment_url);
+      } else {
+        throw new Error("Не получен URL для оплаты");
+      }
 
       // Отправляем данные формы
       onSubmit(formData);
