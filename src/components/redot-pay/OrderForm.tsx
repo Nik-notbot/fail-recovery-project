@@ -4,7 +4,6 @@ import Icon from "@/components/ui/icon";
 import FormField from "./FormField";
 import InfoBlock from "./InfoBlock";
 import { RedotPayFormData } from "@/types/redot-pay";
-import { saveUserInfo } from "@/lib/supabase";
 
 interface OrderFormProps {
   onSubmit: (data: RedotPayFormData) => void;
@@ -23,23 +22,10 @@ export default function OrderForm({ onSubmit }: OrderFormProps) {
     setIsSubmitting(true);
 
     try {
-      // Сохраняем в Supabase
-      const result = await saveUserInfo({
-        gmail: formData.email,
-        telegram: formData.telegramNick,
-        status: "pending",
-      });
-
-      if (result.success) {
-        console.log("Данные успешно сохранены в Supabase");
-        onSubmit(formData);
-      } else {
-        console.error("Ошибка сохранения:", result.error);
-        // Показываем ошибку пользователю
-        alert("Ошибка отправки данных. Попробуйте снова.");
-      }
+      // Отправляем данные формы
+      onSubmit(formData);
     } catch (error) {
-      console.error("Неожиданная ошибка:", error);
+      console.error("Ошибка отправки:", error);
       alert("Произошла ошибка. Попробуйте снова.");
     } finally {
       setIsSubmitting(false);
