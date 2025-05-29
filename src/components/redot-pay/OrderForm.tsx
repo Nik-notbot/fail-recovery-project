@@ -4,6 +4,7 @@ import Icon from "@/components/ui/icon";
 import FormField from "./FormField";
 import InfoBlock from "./InfoBlock";
 import { RedotPayFormData } from "@/types/redot-pay";
+import { saveUserInfo } from "@/lib/supabase";
 
 interface OrderFormProps {
   onSubmit: (data: RedotPayFormData) => void;
@@ -22,6 +23,13 @@ export default function OrderForm({ onSubmit }: OrderFormProps) {
     setIsSubmitting(true);
 
     try {
+      // Сохраняем данные в Supabase
+      await saveUserInfo({
+        email: formData.email,
+        telegram_nick: formData.telegramNick,
+        comment: formData.comment,
+      });
+
       // Отправляем данные формы
       onSubmit(formData);
     } catch (error) {
