@@ -103,22 +103,23 @@ export default function OrderForm({ onSubmit }: OrderFormProps) {
         multiline
       />
 
-      <div className="flex justify-center">
-        <Button
-          type="submit"
-          disabled={isSubmitting}
-          className="bg-gradient-to-r from-gray-600 to-gray-800 hover:from-gray-700 hover:to-gray-900 text-white font-semibold px-8 py-2 h-10 text-sm w-auto min-w-[120px]"
-        >
-          {isSubmitting ? (
-            <>
-              <Icon name="Loader2" className="mr-2 h-4 w-4 animate-spin" />
-              Обработка...
-            </>
-          ) : (
-            "Купить за 2500₽"
-          )}
-        </Button>
-      </div>
+      <Button
+        type="submit"
+        className="w-full bg-gradient-to-r from-gray-800 to-gray-600 hover:from-gray-700 hover:to-gray-500 text-white px-4 py-2 text-sm font-medium transition-all duration-200"
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? (
+          <>
+            <Icon name="Loader2" className="mr-1.5 h-3.5 w-3.5 animate-spin" />
+            Отправка...
+          </>
+        ) : (
+          <>
+            <Icon name="Send" className="mr-1.5 h-3.5 w-3.5" />
+            Купить
+          </>
+        )}
+      </Button>
     </form>
   );
 }
