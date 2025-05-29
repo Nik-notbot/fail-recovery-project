@@ -4,8 +4,6 @@ import Icon from "@/components/ui/icon";
 import FormField from "./FormField";
 import InfoBlock from "./InfoBlock";
 import { RedotPayFormData } from "@/types/redot-pay";
-import { saveUserInfo } from "@/lib/supabase";
-import { createPaymentSession, redirectToPayment } from "@/lib/payment";
 
 interface OrderFormProps {
   onSubmit: (data: RedotPayFormData) => void;
@@ -24,43 +22,11 @@ export default function OrderForm({ onSubmit }: OrderFormProps) {
     setIsSubmitting(true);
 
     try {
-      console.log("🎯 Начинаем обработку заказа...");
-
-      // Сохраняем данные в Supabase
-      console.log("💾 Сохраняем данные пользователя...");
-      await saveUserInfo({
-        email: formData.email,
-        telegram_nick: formData.telegramNick,
-        comment: formData.comment,
-      });
-      console.log("✅ Данные сохранены");
-
-      // Создаем платежную сессию
-      console.log("💳 Создаем платежную сессию...");
-      const paymentData = await createPaymentSession({
-        amount: 2500,
-        currency: "RUB",
-        description: "Заказ виртуальной карты RedotPay",
-        customer_email: formData.email,
-        return_url: window.location.origin + "/payment-success",
-        callback_url: window.location.origin + "/api/payment-callback",
-      });
-      console.log("✅ Платежная сессия создана:", paymentData);
-
       // Отправляем данные формы
       onSubmit(formData);
-
-      // Перенаправляем на форму оплаты
-      console.log("🔄 Перенаправляем на оплату...");
-      redirectToPayment(paymentData.payment_url);
     } catch (error) {
-      console.error("💥 Ошибка отправки:", error);
-      const errorMessage =
-        error instanceof Error ? error.message : "Произошла неизвестная ошибка";
-
-      alert(
-        `❌ Ошибка: ${errorMessage}\n\nПроверьте консоль браузера для подробностей.`,
-      );
+      console.error("Ошибка отправки:", error);
+      alert("Произошла ошибка. Попробуйте снова.");
     } finally {
       setIsSubmitting(false);
     }
@@ -105,18 +71,18 @@ export default function OrderForm({ onSubmit }: OrderFormProps) {
 
       <Button
         type="submit"
-        className="w-full bg-gradient-to-r from-gray-800 to-gray-600 hover:from-gray-700 hover:to-gray-500 text-white px-4 py-2 text-sm font-medium transition-all duration-200"
+        className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
         disabled={isSubmitting}
       >
         {isSubmitting ? (
           <>
-            <Icon name="Loader2" className="mr-1.5 h-3.5 w-3.5 animate-spin" />
+            <Icon name="Loader2" className="mr-2 h-4 w-4 animate-spin" />
             Отправка...
           </>
         ) : (
           <>
-            <Icon name="Send" className="mr-1.5 h-3.5 w-3.5" />
-            Купить
+            <Icon name="Send" className="mr-2 h-4 w-4" />
+            Отправить заявку
           </>
         )}
       </Button>
