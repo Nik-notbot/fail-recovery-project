@@ -39,6 +39,15 @@ export function Footer() {
               Публичная оферта
             </Link>
           </div>
+          <div className="flex flex-col items-center md:items-end gap-2 text-xs text-gray-500">
+            <div className="text-center md:text-right">
+              <p className="font-medium">COPRA LIMITED</p>
+              <p>Company number 04175903</p>
+              <p className="mt-1">Registered office address:</p>
+              <p>Ivy Todd, Northchurch Common,</p>
+              <p>Berkhamsted, Hertfordshire, HP4 1LR</p>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
