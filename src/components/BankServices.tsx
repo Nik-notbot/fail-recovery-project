@@ -100,7 +100,7 @@ export function BankServices() {
                     >
                       {bank.name.toLowerCase().includes("bybit")
                         ? "Купить 2700"
-                        : bank.name === "WISE"
+                        : bank.name.toLowerCase().includes("wise")
                           ? "Купить 8000"
                           : bank.name === "RedotPay"
                             ? "Купить 2700"
