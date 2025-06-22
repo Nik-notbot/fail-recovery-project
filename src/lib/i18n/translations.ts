@@ -52,48 +52,6 @@ export const translations: Record<Locale, Translations> = {
             "Сопровождение процесса KYC для получения доступа к платёжной системе RedotPay",
           price: "2 999 ₽",
         },
-        {
-          id: 4,
-          name: "Binance",
-          description:
-            "Сопровождение процесса верификации KYC на криптовалютной бирже Binance",
-          price: "2 499 ₽",
-        },
-        {
-          id: 5,
-          name: "Revolut",
-          description:
-            "Консультации по прохождению верификации и получению полного доступа к функциям Revolut",
-          price: "11 999 ₽",
-        },
-        {
-          id: 6,
-          name: "Bitget",
-          description:
-            "Полная поддержка в оформлении и верификации аккаунта на платформе Bitget",
-          price: "2 499 ₽",
-        },
-        {
-          id: 7,
-          name: "Coinbase",
-          description:
-            "Консультации и помощь в прохождении верификации на платформе Coinbase",
-          price: "2 499 ₽",
-        },
-        {
-          id: 8,
-          name: "OKX",
-          description:
-            "Содействие в успешном прохождении KYC-процедур на бирже OKX",
-          price: "2 499 ₽",
-        },
-        {
-          id: 9,
-          name: "BingX",
-          description:
-            "Сопровождение регистрации и верификации аккаунта BingX с соблюдением всех требований",
-          price: "2 499 ₽",
-        },
       ],
     },
     features: {
@@ -244,48 +202,6 @@ export const translations: Record<Locale, Translations> = {
           description:
             "Support for the KYC process to gain access to the RedotPay payment system",
           price: "30 USDT",
-        },
-        {
-          id: 4,
-          name: "Binance",
-          description:
-            "Support through the KYC verification process on the Binance cryptocurrency exchange",
-          price: "25 USDT",
-        },
-        {
-          id: 5,
-          name: "Revolut",
-          description:
-            "Consultation on verification and gaining full access to Revolut features",
-          price: "120 USDT",
-        },
-        {
-          id: 6,
-          name: "Bitget",
-          description:
-            "Full support in setting up and verifying your account on the Bitget platform",
-          price: "20 USDT",
-        },
-        {
-          id: 7,
-          name: "Coinbase",
-          description:
-            "Consultations and assistance in passing verification on the Coinbase platform",
-          price: "20 USDT",
-        },
-        {
-          id: 8,
-          name: "OKX",
-          description:
-            "Assistance in successfully completing KYC procedures on the OKX exchange",
-          price: "20 USDT",
-        },
-        {
-          id: 9,
-          name: "BingX",
-          description:
-            "Support for registration and verification of your BingX account in compliance with all requirements",
-          price: "20 USDT",
         },
       ],
     },
