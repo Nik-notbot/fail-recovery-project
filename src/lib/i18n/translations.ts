@@ -52,6 +52,13 @@ export const translations: Record<Locale, Translations> = {
             "Сопровождение процесса KYC для получения доступа к платёжной системе RedotPay",
           price: "2 999 ₽",
         },
+        {
+          id: 4,
+          name: "ESIM",
+          description:
+            "европейская симкарта для регистрации в зарубежных сервисах",
+          price: "2 400 ₽",
+        },
       ],
     },
     features: {
@@ -202,6 +209,12 @@ export const translations: Record<Locale, Translations> = {
           description:
             "Support for the KYC process to gain access to the RedotPay payment system",
           price: "30 USDT",
+        },
+        {
+          id: 4,
+          name: "ESIM",
+          description: "European SIM card for registration in foreign services",
+          price: "25 USDT",
         },
       ],
     },
