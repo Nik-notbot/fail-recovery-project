@@ -98,7 +98,13 @@ export function BankServices() {
                         bank.name === "RedotPay" ? handleBuyClick : openTelegram
                       }
                     >
-                      {t("bankServices.buyButton")} {bank.price}
+                      {bank.name === "Bybit"
+                        ? "Купить 2700"
+                        : bank.name === "WISE"
+                          ? "Купить 8000"
+                          : bank.name === "RedotPay"
+                            ? "Купить 2700"
+                            : `${t("bankServices.buyButton")} ${bank.price}`}
                     </Button>
                   </div>
                 </CardContent>
