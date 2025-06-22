@@ -37,7 +37,7 @@ export function BankServices() {
       "https://seeklogo.com/images/C/coinbase-coin-logo-C86F46D7B8-seeklogo.com.png",
     okx: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/OKX_Logo.svg/2048px-OKX_Logo.svg.png",
     bingx: "https://www.cryptunit.com/exchangeicons/176.png",
-    esim: "https://images.unsplash.com/photo-1640552435388-a54879e72b28?w=400&h=400&fit=crop&crop=center",
+    esim: "https://images.unsplash.com/photo-1563906267088-b029e7101114?w=400&h=400&fit=crop&crop=center",
   };
 
   return (
