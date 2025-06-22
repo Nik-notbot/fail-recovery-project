@@ -58,6 +58,7 @@ export const translations: Record<Locale, Translations> = {
           description:
             "европейская симкарта для регистрации в зарубежных сервисах",
           price: "2 400 ₽",
+          buttonText: "Купить 2400",
         },
       ],
     },
@@ -215,6 +216,7 @@ export const translations: Record<Locale, Translations> = {
           name: "ESIM",
           description: "European SIM card for registration in foreign services",
           price: "25 USDT",
+          buttonText: "Buy 2400",
         },
       ],
     },

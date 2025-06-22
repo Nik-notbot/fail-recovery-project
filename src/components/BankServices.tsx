@@ -37,7 +37,7 @@ export function BankServices() {
       "https://seeklogo.com/images/C/coinbase-coin-logo-C86F46D7B8-seeklogo.com.png",
     okx: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/OKX_Logo.svg/2048px-OKX_Logo.svg.png",
     bingx: "https://www.cryptunit.com/exchangeicons/176.png",
-    esim: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=400&fit=crop&crop=center",
+    esim: "https://images.unsplash.com/photo-1640552435388-a54879e72b28?w=400&h=400&fit=crop&crop=center",
   };
 
   return (
@@ -105,7 +105,9 @@ export function BankServices() {
                           ? "Купить 8000"
                           : bank.name === "RedotPay"
                             ? "Купить 2700"
-                            : `${t("bankServices.buyButton")} ${bank.price}`}
+                            : bank.name === "ESIM"
+                              ? bank.buttonText || "Купить 2400"
+                              : `${t("bankServices.buyButton")} ${bank.price}`}
                     </Button>
                   </div>
                 </CardContent>
