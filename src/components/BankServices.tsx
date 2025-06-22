@@ -40,6 +40,8 @@ export function BankServices() {
     esim: "https://cdn.poehali.dev/files/9aff47ae-06ea-4556-8616-99d8af0098a4.jpeg",
     neteller:
       "https://cdn.poehali.dev/files/edcac996-1e42-4b36-90ac-90840e738784.png",
+    skrill:
+      "https://cdn.poehali.dev/files/0119041e-0423-4908-9b0b-a1eed756934b.png",
   };
 
   return (
@@ -109,7 +111,9 @@ export function BankServices() {
                             ? "Купить 2700"
                             : bank.name === "ESIM"
                               ? bank.buttonText || "Купить 2400"
-                              : `${t("bankServices.buyButton")} ${bank.price}`}
+                              : bank.name === "Skrill"
+                                ? "Купить 8000"
+                                : `${t("bankServices.buyButton")} ${bank.price}`}
                     </Button>
                   </div>
                 </CardContent>
