@@ -38,6 +38,8 @@ export function BankServices() {
     okx: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/OKX_Logo.svg/2048px-OKX_Logo.svg.png",
     bingx: "https://www.cryptunit.com/exchangeicons/176.png",
     esim: "https://cdn.poehali.dev/files/9aff47ae-06ea-4556-8616-99d8af0098a4.jpeg",
+    neteller:
+      "https://cdn.poehali.dev/files/edcac996-1e42-4b36-90ac-90840e738784.png",
   };
 
   return (

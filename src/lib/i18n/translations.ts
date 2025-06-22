@@ -54,6 +54,13 @@ export const translations: Record<Locale, Translations> = {
         },
         {
           id: 4,
+          name: "Neteller",
+          description:
+            "Верификация в системе электронных платежей Neteller для международных переводов",
+          price: "8 000 ₽",
+        },
+        {
+          id: 5,
           name: "ESIM",
           description:
             "европейская симкарта для регистрации в зарубежных сервисах",
@@ -213,6 +220,13 @@ export const translations: Record<Locale, Translations> = {
         },
         {
           id: 4,
+          name: "Neteller",
+          description:
+            "Verification in the Neteller electronic payment system for international transfers",
+          price: "80 USDT",
+        },
+        {
+          id: 5,
           name: "ESIM",
           description: "European SIM card for registration in foreign services",
           price: "25 USDT",
