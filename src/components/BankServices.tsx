@@ -98,7 +98,7 @@ export function BankServices() {
                         bank.name === "RedotPay" ? handleBuyClick : openTelegram
                       }
                     >
-                      {bank.name === "Bybit"
+                      {bank.name.toLowerCase().includes("bybit")
                         ? "Купить 2700"
                         : bank.name === "WISE"
                           ? "Купить 8000"
