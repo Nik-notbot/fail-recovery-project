@@ -72,6 +72,7 @@ export function BankServices() {
                 <CardContent className="p-6 flex flex-col items-center h-full">
                   <div className="h-20 w-20 mb-6 flex items-center justify-center bg-white rounded-full overflow-hidden shadow-sm border border-gray-100">
                     <img
+                      className="max-h-14 max-w-14 object-contain rounded-md"
                       src={`https://s3-symbol-logo.tradingview.com/${logoKey}--600.png`}
                       onError={(e) => {
                         (e.target as HTMLImageElement).src =
