@@ -25,7 +25,7 @@ export function BankServices() {
 
   // Fallback-изображения для всех банков
   const logoFallbacks: Record<string, string> = {
-    bybit: "https://crypto-central.io/library/uploads/bybit_logo-min.png",
+    bybit: "https://s2.coinmarketcap.com/static/img/coins/64x64/11274.png",
     binance:
       "https://public.bnbstatic.com/20190405/eb2349c3-b2f8-4a93-a286-8f86a62ea9d8.png",
     revolut:
