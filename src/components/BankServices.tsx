@@ -72,7 +72,7 @@ export function BankServices() {
 
               const handleBuyClick = () => {
                 if (isRedotPay) {
-                  navigate("/redotpay-purchase");
+                  window.open("https://t.me/m/hT6UIwKhYmJk", "_blank");
                 } else {
                   openTelegram();
                 }
