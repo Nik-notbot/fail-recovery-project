@@ -115,14 +115,14 @@ export function BankServices() {
                         }
                       >
                         {bank.name.toLowerCase().includes("bybit")
-                          ? "Купить 2700"
+                          ? "Купить 2700 ₽"
                           : bank.name.toLowerCase().includes("wise")
-                            ? "Купить 8000"
+                            ? "Купить 8000 ₽"
                             : bank.name === "RedotPay"
-                              ? "Купить 2700"
+                              ? "Купить 2700 ₽"
                               : bank.name === "ESIM"
-                                ? bank.buttonText || "Купить 2400"
-                                : `${t("bankServices.buyButton")} ${bank.price}`}
+                                ? "Купить 2400 ₽"
+                                : `Купить ${bank.price} ₽`}
                       </Button>
                     </div>
                   </CardContent>
@@ -174,8 +174,8 @@ export function BankServices() {
                         onClick={openTelegram}
                       >
                         {bank.name === "Skrill" || bank.name === "Stripe"
-                          ? "Купить 8000"
-                          : `${t("bankServices.buyButton")} ${bank.price}`}
+                          ? "Купить 8000 ₽"
+                          : `Купить ${bank.price} ₽`}
                       </Button>
                     </div>
                   </CardContent>
