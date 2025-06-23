@@ -43,7 +43,7 @@ export function BankServices() {
     skrill:
       "https://cdn.poehali.dev/files/0119041e-0423-4908-9b0b-a1eed756934b.png",
     kraken:
-      "https://seeklogo.com/images/K/kraken-logo-7E90A8B7B8-seeklogo.com.png",
+      "https://cdn.poehali.dev/files/fbb86602-f694-4b26-bbd4-6054a54affee.png",
     stripe: "https://cdn.poehali.dev/files/stripe-logo.png",
   };
 
