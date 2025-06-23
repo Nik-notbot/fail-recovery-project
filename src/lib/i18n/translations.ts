@@ -54,13 +54,20 @@ export const translations: Record<Locale, Translations> = {
         },
         {
           id: 4,
+          name: "Kraken",
+          description:
+            "Помощь в прохождении верификации на криптобирже Kraken для торговли криптовалютами",
+          price: "8 000 ₽",
+        },
+        {
+          id: 5,
           name: "Neteller",
           description:
             "Верификация в системе электронных платежей Neteller для международных переводов",
           price: "8 000 ₽",
         },
         {
-          id: 5,
+          id: 6,
           name: "ESIM",
           description:
             "европейская симкарта для регистрации в зарубежных сервисах",
@@ -68,7 +75,7 @@ export const translations: Record<Locale, Translations> = {
           buttonText: "Купить 2400",
         },
         {
-          id: 6,
+          id: 7,
           name: "Skrill",
           description:
             "Верификация в международной платёжной системе Skrill для онлайн-платежей и переводов",
@@ -227,20 +234,27 @@ export const translations: Record<Locale, Translations> = {
         },
         {
           id: 4,
+          name: "Kraken",
+          description:
+            "Assistance in passing verification on the Kraken cryptocurrency exchange for crypto trading",
+          price: "80 USDT",
+        },
+        {
+          id: 5,
           name: "Neteller",
           description:
             "Verification in the Neteller electronic payment system for international transfers",
           price: "80 USDT",
         },
         {
-          id: 5,
+          id: 6,
           name: "ESIM",
           description: "European SIM card for registration in foreign services",
           price: "25 USDT",
           buttonText: "Buy 2400",
         },
         {
-          id: 6,
+          id: 7,
           name: "Skrill",
           description:
             "Verification in the international Skrill payment system for online payments and transfers",
@@ -403,20 +417,27 @@ export const translations: Record<Locale, Translations> = {
         },
         {
           id: 4,
+          name: "Kraken",
+          description:
+            "Криптовалюталармен сауда жасау үшін Kraken криптобиржасында тексеру өтуге көмек",
+          price: "40 000 ₸",
+        },
+        {
+          id: 5,
           name: "Neteller",
           description:
             "Халықаралық аударымдар үшін Neteller электронды төлем жүйесінде тексеру",
           price: "40 000 ₸",
         },
         {
-          id: 5,
+          id: 6,
           name: "ESIM",
           description: "шетелдік қызметтерде тіркелу үшін еуропалық сим-карта",
           price: "12 000 ₸",
           buttonText: "12000 сатып алу",
         },
         {
-          id: 6,
+          id: 7,
           name: "Skrill",
           description:
             "Онлайн төлемдер мен аударымдар үшін халықаралық Skrill төлем жүйесінде тексеру",
