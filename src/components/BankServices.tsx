@@ -82,16 +82,15 @@ export function BankServices() {
                   className="overflow-hidden border-none shadow-lg transition-all duration-300 hover:shadow-xl flex flex-col h-full"
                 >
                   <CardContent className="p-6 flex flex-col items-center h-full">
-                    <div className="h-24 w-24 mb-6 flex items-center justify-center bg-white overflow-hidden shadow-sm border border-gray-100 rounded-full">
+                    <div className="h-20 w-20 mb-6 flex items-center justify-center bg-white overflow-hidden shadow-sm border border-gray-100 rounded-lg">
                       <img
-                        className="h-16 w-16 object-contain rounded-full"
+                        className="h-12 w-12 object-contain"
                         src={`https://s3-symbol-logo.tradingview.com/${logoKey}--600.png`}
                         onError={(e) => {
                           (e.target as HTMLImageElement).src =
                             logoFallbacks[logoKey] || "/placeholder.svg";
                         }}
                         alt={bank.name}
-                        className="h-16 w-16 object-contain"
                         onLoad={() =>
                           console.log(`Успешно загружено: ${bank.name}`)
                         }
@@ -146,7 +145,7 @@ export function BankServices() {
                   className="overflow-hidden border-none shadow-lg transition-all duration-300 hover:shadow-xl flex flex-col h-full w-full max-w-sm"
                 >
                   <CardContent className="p-6 flex flex-col items-center h-full">
-                    <div className="h-24 w-24 mb-6 flex items-center justify-center bg-white rounded-full overflow-hidden shadow-sm border border-gray-100">
+                    <div className="h-20 w-20 mb-6 flex items-center justify-center bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100">
                       <img
                         src={`https://s3-symbol-logo.tradingview.com/${logoKey}--600.png`}
                         onError={(e) => {
@@ -154,7 +153,7 @@ export function BankServices() {
                             logoFallbacks[logoKey] || "/placeholder.svg";
                         }}
                         alt={bank.name}
-                        className="h-16 w-16 object-contain"
+                        className="h-12 w-12 object-contain"
                         onLoad={() =>
                           console.log(`Успешно загружено: ${bank.name}`)
                         }
