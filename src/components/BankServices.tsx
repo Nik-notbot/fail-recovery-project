@@ -152,7 +152,11 @@ export function BankServices() {
                               ? "Купить 2700 ₽"
                               : bank.name === "ESIM"
                                 ? "Купить 2400 ₽"
-                                : `Купить ${bank.price} ₽`}
+                                : bank.name.toLowerCase().includes("kraken")
+                                  ? `Купить ${bank.price}`
+                                  : bank.name.toLowerCase().includes("neteller")
+                                    ? `Купить ${bank.price}`
+                                    : `Купить ${bank.price} ₽`}
                       </Button>
                     </div>
                   </CardContent>
