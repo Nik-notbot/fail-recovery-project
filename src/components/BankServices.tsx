@@ -111,13 +111,19 @@ export function BankServices() {
                         onClick={
                           bank.name === "RedotPay"
                             ? handleBuyClick
-                            : bank.name.toLowerCase().includes("wise")
+                            : bank.name.toLowerCase().includes("bybit")
                               ? () =>
                                   window.open(
-                                    "https://t.me/m/0F_E6lYlNjQ8",
+                                    "https://t.me/m/RN5tSaCbZmI0",
                                     "_blank",
                                   )
-                              : openTelegram
+                              : bank.name.toLowerCase().includes("wise")
+                                ? () =>
+                                    window.open(
+                                      "https://t.me/m/0F_E6lYlNjQ8",
+                                      "_blank",
+                                    )
+                                : openTelegram
                         }
                       >
                         {bank.name.toLowerCase().includes("bybit")
