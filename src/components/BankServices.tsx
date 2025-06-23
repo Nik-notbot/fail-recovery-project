@@ -60,73 +60,120 @@ export function BankServices() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-          {t("bankServices.banks").map((bank: any) => {
-            const logoKey = getCleanLogoKey(bank.name);
-            const isRedotPay = logoKey === "redotpay";
+          {t("bankServices.banks")
+            .filter(
+              (bank: any) => bank.name !== "Stripe" && bank.name !== "Skrill",
+            )
+            .map((bank: any) => {
+              const logoKey = getCleanLogoKey(bank.name);
+              const isRedotPay = logoKey === "redotpay";
 
-            const handleBuyClick = () => {
-              if (isRedotPay) {
-                navigate("/redotpay-purchase");
-              } else {
-                openTelegram();
-              }
-            };
-            return (
-              <Card
-                key={bank.id}
-                className="overflow-hidden border-none shadow-lg transition-all duration-300 hover:shadow-xl flex flex-col h-full"
-              >
-                <CardContent className="p-6 flex flex-col items-center h-full">
-                  <div className="h-24 w-24 mb-6 flex items-center justify-center bg-white rounded-full overflow-hidden shadow-sm border border-gray-100">
-                    <img
-                      src={`https://s3-symbol-logo.tradingview.com/${logoKey}--600.png`}
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src =
-                          logoFallbacks[logoKey] || "/placeholder.svg";
-                      }}
-                      alt={bank.name}
-                      className="h-16 w-16 object-contain"
-                      onLoad={() =>
-                        console.log(`Успешно загружено: ${bank.name}`)
-                      }
-                      onErrorCapture={() =>
-                        console.log(`Ошибка загрузки: ${bank.name}`)
-                      }
-                    />
-                  </div>
-                  <h3 className="text-xl font-bold mb-3">{bank.name}</h3>
-                  <p className="text-center text-muted-foreground mb-auto">
-                    {bank.description}
-                  </p>
-                  <div className="w-full mt-6">
-                    <Button
-                      variant="outline"
-                      className="w-full border-gray-300 text-gray-700 hover:bg-gray-100"
-                      onClick={
-                        bank.name === "RedotPay" ? handleBuyClick : openTelegram
-                      }
-                    >
-                      {bank.name.toLowerCase().includes("bybit")
-                        ? "Купить 2700"
-                        : bank.name.toLowerCase().includes("wise")
+              const handleBuyClick = () => {
+                if (isRedotPay) {
+                  navigate("/redotpay-purchase");
+                } else {
+                  openTelegram();
+                }
+              };
+              return (
+                <Card
+                  key={bank.id}
+                  className="overflow-hidden border-none shadow-lg transition-all duration-300 hover:shadow-xl flex flex-col h-full"
+                >
+                  <CardContent className="p-6 flex flex-col items-center h-full">
+                    <div className="h-24 w-24 mb-6 flex items-center justify-center bg-white rounded-full overflow-hidden shadow-sm border border-gray-100">
+                      <img
+                        src={`https://s3-symbol-logo.tradingview.com/${logoKey}--600.png`}
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src =
+                            logoFallbacks[logoKey] || "/placeholder.svg";
+                        }}
+                        alt={bank.name}
+                        className="h-16 w-16 object-contain"
+                        onLoad={() =>
+                          console.log(`Успешно загружено: ${bank.name}`)
+                        }
+                        onErrorCapture={() =>
+                          console.log(`Ошибка загрузки: ${bank.name}`)
+                        }
+                      />
+                    </div>
+                    <h3 className="text-xl font-bold mb-3">{bank.name}</h3>
+                    <p className="text-center text-muted-foreground mb-auto">
+                      {bank.description}
+                    </p>
+                    <div className="w-full mt-6">
+                      <Button
+                        variant="outline"
+                        className="w-full border-gray-300 text-gray-700 hover:bg-gray-100"
+                        onClick={
+                          bank.name === "RedotPay"
+                            ? handleBuyClick
+                            : openTelegram
+                        }
+                      >
+                        {bank.name.toLowerCase().includes("bybit")
+                          ? "Купить 2700"
+                          : bank.name.toLowerCase().includes("wise")
+                            ? "Купить 8000"
+                            : bank.name === "RedotPay"
+                              ? "Купить 2700"
+                              : bank.name === "ESIM"
+                                ? bank.buttonText || "Купить 2400"
+                                : `${t("bankServices.buyButton")} ${bank.price}`}
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+        </div>
+
+        {/* Центрированные карточки Stripe и Skrill */}
+        <div className="flex justify-center gap-8 mb-10">
+          {t("bankServices.banks")
+            .filter(
+              (bank: any) => bank.name === "Stripe" || bank.name === "Skrill",
+            )
+            .map((bank: any) => {
+              const logoKey = getCleanLogoKey(bank.name);
+
+              return (
+                <Card
+                  key={bank.id}
+                  className="overflow-hidden border-none shadow-lg transition-all duration-300 hover:shadow-xl flex flex-col h-full w-full max-w-sm"
+                >
+                  <CardContent className="p-6 flex flex-col items-center h-full">
+                    <div className="h-24 w-24 mb-6 flex items-center justify-center bg-white rounded-full overflow-hidden shadow-sm border border-gray-100">
+                      <img
+                        src={`https://s3-symbol-logo.tradingview.com/${logoKey}--600.png`}
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src =
+                            logoFallbacks[logoKey] || "/placeholder.svg";
+                        }}
+                        alt={bank.name}
+                        className="h-16 w-16 object-contain"
+                      />
+                    </div>
+                    <h3 className="text-xl font-bold mb-3">{bank.name}</h3>
+                    <p className="text-center text-muted-foreground mb-auto">
+                      {bank.description}
+                    </p>
+                    <div className="w-full mt-6">
+                      <Button
+                        variant="outline"
+                        className="w-full border-gray-300 text-gray-700 hover:bg-gray-100"
+                        onClick={openTelegram}
+                      >
+                        {bank.name === "Skrill" || bank.name === "Stripe"
                           ? "Купить 8000"
-                          : bank.name === "RedotPay"
-                            ? "Купить 2700"
-                            : bank.name === "ESIM"
-                              ? bank.buttonText || "Купить 2400"
-                              : bank.name === "Skrill"
-                                ? "Купить 8000"
-                                : bank.name === "Kraken"
-                                  ? "Купить 8000"
-                                  : bank.name === "Stripe"
-                                    ? "Купить 8000"
-                                    : `${t("bankServices.buyButton")} ${bank.price}`}
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            );
-          })}
+                          : `${t("bankServices.buyButton")} ${bank.price}`}
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
         </div>
 
         {/* Блок индивидуального запроса */}
