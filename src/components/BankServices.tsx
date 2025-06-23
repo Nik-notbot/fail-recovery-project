@@ -44,7 +44,8 @@ export function BankServices() {
       "https://cdn.poehali.dev/files/0119041e-0423-4908-9b0b-a1eed756934b.png",
     kraken:
       "https://cdn.poehali.dev/files/fbb86602-f694-4b26-bbd4-6054a54affee.png",
-    stripe: "https://cdn.poehali.dev/files/stripe-logo.png",
+    stripe:
+      "https://cdn.poehali.dev/files/586e6cb7-c129-442e-9202-c96e740df789.png",
   };
 
   return (
