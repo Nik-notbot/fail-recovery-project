@@ -83,7 +83,6 @@ export function BankServices() {
                   <CardContent className="p-6 flex flex-col items-center h-full">
                     <div className="h-24 w-24 mb-6 flex items-center justify-center bg-white rounded-full overflow-hidden shadow-sm border border-gray-100">
                       <img
-                        className="h-16 w-16 object-contain rounded-full"
                         src={`https://s3-symbol-logo.tradingview.com/${logoKey}--600.png`}
                         onError={(e) => {
                           (e.target as HTMLImageElement).src =
@@ -154,6 +153,12 @@ export function BankServices() {
                         }}
                         alt={bank.name}
                         className="h-16 w-16 object-contain"
+                        onLoad={() =>
+                          console.log(`Успешно загружено: ${bank.name}`)
+                        }
+                        onErrorCapture={() =>
+                          console.log(`Ошибка загрузки: ${bank.name}`)
+                        }
                       />
                     </div>
                     <h3 className="text-xl font-bold mb-3">{bank.name}</h3>
