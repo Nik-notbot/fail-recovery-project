@@ -82,9 +82,9 @@ export function BankServices() {
                   className="overflow-hidden border-none shadow-lg transition-all duration-300 hover:shadow-xl flex flex-col h-full"
                 >
                   <CardContent className="p-6 flex flex-col items-center h-full">
-                    <div className="h-12 w-12 mb-6 flex items-center justify-center bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100">
+                    <div className="h-20 w-20 mb-6 flex items-center justify-center bg-white rounded-lg overflow-hidden shadow-sm border-2 border-gray-200">
                       <img
-                        className="h-12 w-12 object-contain"
+                        className="h-16 w-16 object-contain"
                         src={`https://s3-symbol-logo.tradingview.com/${logoKey}--600.png`}
                         onError={(e) => {
                           (e.target as HTMLImageElement).src =
@@ -145,7 +145,7 @@ export function BankServices() {
                   className="overflow-hidden border-none shadow-lg transition-all duration-300 hover:shadow-xl flex flex-col h-full w-full max-w-sm"
                 >
                   <CardContent className="p-6 flex flex-col items-center h-full">
-                    <div className="h-12 w-12 mb-6 flex items-center justify-center bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100">
+                    <div className="h-20 w-20 mb-6 flex items-center justify-center bg-white rounded-lg overflow-hidden shadow-sm border-2 border-gray-200">
                       <img
                         src={`https://s3-symbol-logo.tradingview.com/${logoKey}--600.png`}
                         onError={(e) => {
@@ -153,7 +153,7 @@ export function BankServices() {
                             logoFallbacks[logoKey] || "/placeholder.svg";
                         }}
                         alt={bank.name}
-                        className="h-12 w-12 object-contain"
+                        className="h-16 w-16 object-contain"
                         onLoad={() =>
                           console.log(`Успешно загружено: ${bank.name}`)
                         }
