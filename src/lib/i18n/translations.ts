@@ -70,7 +70,7 @@ export const translations: Record<Locale, Translations> = {
           id: 6,
           name: "ESIM",
           description:
-            "европейская симкарта для регистрации в зарубежных сервисах",
+            "Европейская симкарта для регистрации в зарубежных сервисах",
           price: "2 400 ₽",
           buttonText: "Купить 2400",
         },
