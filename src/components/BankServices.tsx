@@ -39,7 +39,7 @@ export function BankServices() {
     bingx: "https://www.cryptunit.com/exchangeicons/176.png",
     esim: "https://cdn.poehali.dev/files/9aff47ae-06ea-4556-8616-99d8af0098a4.jpeg",
     neteller:
-      "https://cdn.poehali.dev/files/edcac996-1e42-4b36-90ac-90840e738784.png",
+      "https://cdn.poehali.dev/files/4ebb3203-5e80-4200-a43e-6a6adea739e3.png",
     skrill:
       "https://cdn.poehali.dev/files/0119041e-0423-4908-9b0b-a1eed756934b.png",
     kraken:
