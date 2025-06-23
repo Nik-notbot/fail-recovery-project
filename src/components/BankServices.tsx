@@ -135,7 +135,13 @@ export function BankServices() {
                                           "https://t.me/m/l0fyHDctZTFk",
                                           "_blank",
                                         )
-                                    : openTelegram
+                                    : bank.name === "ESIM"
+                                      ? () =>
+                                          window.open(
+                                            "https://t.me/m/s3YBfElRZGRk",
+                                            "_blank",
+                                          )
+                                      : openTelegram
                         }
                       >
                         {bank.name.toLowerCase().includes("bybit")
