@@ -41,7 +41,7 @@ export function BankServices() {
     neteller:
       "https://cdn.poehali.dev/files/4ebb3203-5e80-4200-a43e-6a6adea739e3.png",
     skrill:
-      "https://cdn.poehali.dev/files/0119041e-0423-4908-9b0b-a1eed756934b.png",
+      "https://cdn.poehali.dev/files/7468311a-cd9f-452c-aed1-984204b9f730.png",
     kraken:
       "https://cdn.poehali.dev/files/fbb86602-f694-4b26-bbd4-6054a54affee.png",
     stripe:
