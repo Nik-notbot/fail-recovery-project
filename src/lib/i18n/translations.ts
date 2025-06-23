@@ -81,6 +81,13 @@ export const translations: Record<Locale, Translations> = {
             "Верификация в международной платёжной системе Skrill для онлайн-платежей и переводов",
           price: "8 000 ₽",
         },
+        {
+          id: 8,
+          name: "Stripe",
+          description:
+            "Верификация в международной платёжной системе Stripe для приёма онлайн-платежей",
+          price: "8 000 ₽",
+        },
       ],
     },
     features: {
@@ -258,6 +265,13 @@ export const translations: Record<Locale, Translations> = {
           name: "Skrill",
           description:
             "Verification in the international Skrill payment system for online payments and transfers",
+          price: "80 USDT",
+        },
+        {
+          id: 8,
+          name: "Stripe",
+          description:
+            "Verification in the international Stripe payment system for accepting online payments",
           price: "80 USDT",
         },
       ],
@@ -441,6 +455,13 @@ export const translations: Record<Locale, Translations> = {
           name: "Skrill",
           description:
             "Онлайн төлемдер мен аударымдар үшін халықаралық Skrill төлем жүйесінде тексеру",
+          price: "40 000 ₸",
+        },
+        {
+          id: 8,
+          name: "Stripe",
+          description:
+            "Халықаралық Stripe төлем жүйесінде онлайн төлемдерді қабылдау үшін тексеру",
           price: "40 000 ₸",
         },
       ],
