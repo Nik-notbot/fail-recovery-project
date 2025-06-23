@@ -195,7 +195,15 @@ export function BankServices() {
                       <Button
                         variant="outline"
                         className="w-full border-gray-300 text-gray-700 hover:bg-gray-100"
-                        onClick={openTelegram}
+                        onClick={
+                          bank.name === "Skrill"
+                            ? () =>
+                                window.open(
+                                  "https://t.me/m/5dpj--uyYjg0",
+                                  "_blank",
+                                )
+                            : openTelegram
+                        }
                       >
                         {bank.name === "Skrill" || bank.name === "Stripe"
                           ? "Купить 8000 ₽"
