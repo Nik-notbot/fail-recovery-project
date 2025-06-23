@@ -123,7 +123,13 @@ export function BankServices() {
                                       "https://t.me/m/0F_E6lYlNjQ8",
                                       "_blank",
                                     )
-                                : openTelegram
+                                : bank.name.toLowerCase().includes("kraken")
+                                  ? () =>
+                                      window.open(
+                                        "https://t.me/m/HIJwHavMMTk0",
+                                        "_blank",
+                                      )
+                                  : openTelegram
                         }
                       >
                         {bank.name.toLowerCase().includes("bybit")
