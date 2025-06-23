@@ -129,7 +129,13 @@ export function BankServices() {
                                         "https://t.me/m/HIJwHavMMTk0",
                                         "_blank",
                                       )
-                                  : openTelegram
+                                  : bank.name.toLowerCase().includes("neteller")
+                                    ? () =>
+                                        window.open(
+                                          "https://t.me/m/l0fyHDctZTFk",
+                                          "_blank",
+                                        )
+                                    : openTelegram
                         }
                       >
                         {bank.name.toLowerCase().includes("bybit")
