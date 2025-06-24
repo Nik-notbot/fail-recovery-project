@@ -22,6 +22,7 @@ export function BankServices() {
   const { t } = useLanguage();
   const navigate = useNavigate();
   const [isWiseModalOpen, setIsWiseModalOpen] = useState(false);
+  const [isRedotPayModalOpen, setIsRedotPayModalOpen] = useState(false);
 
   const openTelegram = () => {
     window.open("https://t.me/forbidden_john", "_blank");
@@ -138,6 +139,23 @@ export function BankServices() {
                             variant="outline"
                             className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-100"
                             onClick={() => setIsWiseModalOpen(true)}
+                          >
+                            Подробнее
+                          </Button>
+                        </div>
+                      ) : bank.name === "RedotPay" ? (
+                        <div className="flex gap-2 w-full">
+                          <Button
+                            variant="outline"
+                            className="flex-1 bg-white text-gray-900 border-gray-300 hover:bg-gray-50"
+                            onClick={handleBuyClick}
+                          >
+                            Купить 2700 ₽
+                          </Button>
+                          <Button
+                            variant="outline"
+                            className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-100"
+                            onClick={() => setIsRedotPayModalOpen(true)}
                           >
                             Подробнее
                           </Button>
@@ -432,6 +450,165 @@ export function BankServices() {
               <Button
                 variant="outline"
                 onClick={() => setIsWiseModalOpen(false)}
+                className="px-8 py-3 text-lg"
+              >
+                Закрыть
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Модальное окно для RedotPay */}
+      <Dialog open={isRedotPayModalOpen} onOpenChange={setIsRedotPayModalOpen}>
+        <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader className="pb-6">
+            <DialogTitle className="text-3xl font-bold text-center">
+              Криптовалютная карта RedotPay
+            </DialogTitle>
+          </DialogHeader>
+          <div className="space-y-8">
+            {/* Основная информация */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Левая колонка - основная информация */}
+              <div className="space-y-6">
+                <div className="text-center">
+                  <div className="h-24 w-24 mx-auto mb-6 flex items-center justify-center bg-white rounded-lg overflow-hidden shadow-sm border-2 border-gray-200">
+                    <img
+                      className="h-20 w-20 object-contain"
+                      src="https://play-lh.googleusercontent.com/kvP-BmU-swM_AqJSTgCFZEc44L2qgC32LWF2xctra2Px8FkSriGv9D7aqMp5FU2u2Q"
+                      alt="RedotPay"
+                    />
+                  </div>
+                  <div className="text-4xl font-bold text-gray-900 mb-3">
+                    2 700 ₽
+                  </div>
+                  <p className="text-gray-600 text-lg mb-6">
+                    Криптовалютная карта с мгновенным пополнением
+                  </p>
+                  <div className="bg-gray-100 rounded-lg p-4 mb-6">
+                    <span className="text-base font-medium">Карта: </span>
+                    <span className="text-base">Visa (виртуальная)</span>
+                  </div>
+                </div>
+
+                {/* Особенности карты */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-white border rounded-lg p-4">
+                    <h4 className="font-semibold mb-2 text-gray-900">
+                      Криптовалютная
+                    </h4>
+                    <p className="text-sm text-gray-600">
+                      Прямая конвертация крипты
+                    </p>
+                  </div>
+                  <div className="bg-white border rounded-lg p-4">
+                    <h4 className="font-semibold mb-2 text-gray-900">
+                      Мгновенное пополнение
+                    </h4>
+                    <p className="text-sm text-gray-600">
+                      Криптовалютой напрямую
+                    </p>
+                  </div>
+                  <div className="bg-white border rounded-lg p-4">
+                    <h4 className="font-semibold mb-2 text-gray-900">
+                      Низкие комиссии
+                    </h4>
+                    <p className="text-sm text-gray-600">Оптимальные тарифы</p>
+                  </div>
+                  <div className="bg-white border rounded-lg p-4">
+                    <h4 className="font-semibold mb-2 text-gray-900">
+                      Анонимность
+                    </h4>
+                    <p className="text-sm text-gray-600">
+                      Минимальная верификация
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Правая колонка - преимущества и комплектация */}
+              <div className="space-y-6">
+                {/* Ключевые преимущества */}
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    Ключевые преимущества
+                  </h3>
+                  <div className="space-y-4">
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                      <h4 className="font-semibold mb-2 text-blue-800">
+                        Поддержка 20+ криптовалют
+                      </h4>
+                      <p className="text-sm text-blue-700">
+                        Bitcoin, Ethereum, USDT, USDC и другие
+                      </p>
+                    </div>
+                    <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
+                      <h4 className="font-semibold mb-2 text-purple-800">
+                        Глобальное использование
+                      </h4>
+                      <p className="text-sm text-purple-700">
+                        Принимается во всем мире где есть Visa
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Что входит в пакет */}
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold mb-4 text-gray-900">
+                    Что входит в пакет
+                  </h3>
+                  <div className="space-y-3">
+                    <div className="flex items-start">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
+                      <span className="text-sm text-gray-700">
+                        Готовый аккаунт RedotPay
+                      </span>
+                    </div>
+                    <div className="flex items-start">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
+                      <span className="text-sm text-gray-700">
+                        Виртуальная карта Visa
+                      </span>
+                    </div>
+                    <div className="flex items-start">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
+                      <span className="text-sm text-gray-700">
+                        Доступ к мобильному приложению
+                      </span>
+                    </div>
+                    <div className="flex items-start">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
+                      <span className="text-sm text-gray-700">
+                        Инструкции по использованию
+                      </span>
+                    </div>
+                    <div className="flex items-start">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
+                      <span className="text-sm text-gray-700">
+                        Техподдержка 24/7
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Кнопки действий */}
+            <div className="flex gap-4 pt-6 border-t">
+              <Button
+                className="flex-1 bg-white hover:bg-gray-50 text-gray-900 border border-gray-300 py-3 text-lg"
+                onClick={() => {
+                  window.open("https://t.me/m/hT6UIwKhYmJk", "_blank");
+                  setIsRedotPayModalOpen(false);
+                }}
+              >
+                Заказать карту — 2 700 ₽
+              </Button>
+              <Button
+                variant="outline"
+                onClick={() => setIsRedotPayModalOpen(false)}
                 className="px-8 py-3 text-lg"
               >
                 Закрыть
