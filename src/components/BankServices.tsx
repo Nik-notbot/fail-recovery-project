@@ -1,12 +1,27 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MessageSquare, Star } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import {
+  MessageSquare,
+  Star,
+  CheckCircle,
+  Shield,
+  CreditCard,
+} from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/lib/i18n/context";
+import { useState } from "react";
 
 export function BankServices() {
   const { t } = useLanguage();
   const navigate = useNavigate();
+  const [isWiseModalOpen, setIsWiseModalOpen] = useState(false);
 
   const openTelegram = () => {
     window.open("https://t.me/forbidden_john", "_blank");
@@ -121,7 +136,7 @@ export function BankServices() {
                           <Button
                             variant="outline"
                             className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-100"
-                            onClick={() => navigate("/wise")}
+                            onClick={() => setIsWiseModalOpen(true)}
                           >
                             Подробнее
                           </Button>
@@ -269,6 +284,93 @@ export function BankServices() {
           </Card>
         </div>
       </div>
+
+      {/* Модальное окно для WISE */}
+      <Dialog open={isWiseModalOpen} onOpenChange={setIsWiseModalOpen}>
+        <DialogContent className="max-w-2xl">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-center">
+              WISE — Международные переводы без границ
+            </DialogTitle>
+          </DialogHeader>
+          <div className="space-y-6">
+            <div className="text-center">
+              <div className="h-20 w-20 mx-auto mb-4 flex items-center justify-center bg-white rounded-lg overflow-hidden shadow-sm border-2 border-gray-200">
+                <img
+                  className="h-16 w-16 object-contain"
+                  src="https://s3-symbol-logo.tradingview.com/wise--600.png"
+                  alt="WISE"
+                />
+              </div>
+              <p className="text-gray-600">
+                Международная платформа для переводов денег с минимальными
+                комиссиями
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex items-start space-x-3">
+                <CheckCircle className="h-5 w-5 text-green-500 mt-1" />
+                <div>
+                  <h4 className="font-semibold">Низкие комиссии</h4>
+                  <p className="text-sm text-gray-600">
+                    В 8 раз дешевле банков
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <Shield className="h-5 w-5 text-blue-500 mt-1" />
+                <div>
+                  <h4 className="font-semibold">Безопасность</h4>
+                  <p className="text-sm text-gray-600">FCA регулирование</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <CreditCard className="h-5 w-5 text-purple-500 mt-1" />
+                <div>
+                  <h4 className="font-semibold">Мультивалютная карта</h4>
+                  <p className="text-sm text-gray-600">50+ валют</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <MessageSquare className="h-5 w-5 text-orange-500 mt-1" />
+                <div>
+                  <h4 className="font-semibold">Поддержка 24/7</h4>
+                  <p className="text-sm text-gray-600">На русском языке</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 p-4 rounded-lg">
+              <h4 className="font-semibold mb-2">Что входит в пакет:</h4>
+              <ul className="space-y-1 text-sm text-gray-600">
+                <li>• Готовый аккаунт WISE с подтвержденной личностью</li>
+                <li>• Мультивалютная карта с доставкой</li>
+                <li>• Инструкция по использованию</li>
+                <li>• Техническая поддержка 30 дней</li>
+              </ul>
+            </div>
+
+            <div className="flex gap-3">
+              <Button
+                className="flex-1 bg-gray-900 hover:bg-gray-800 text-white"
+                onClick={() => {
+                  window.open("https://t.me/m/0F_E6lYlNjQ8", "_blank");
+                  setIsWiseModalOpen(false);
+                }}
+              >
+                Купить за 8000 ₽
+              </Button>
+              <Button
+                variant="outline"
+                onClick={() => setIsWiseModalOpen(false)}
+              >
+                Закрыть
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
