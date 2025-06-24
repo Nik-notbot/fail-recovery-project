@@ -288,116 +288,140 @@ export function BankServices() {
 
       {/* Модальное окно для WISE */}
       <Dialog open={isWiseModalOpen} onOpenChange={setIsWiseModalOpen}>
-        <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-bold text-center">
+        <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader className="pb-6">
+            <DialogTitle className="text-3xl font-bold text-center">
               Европейская карта Wise
             </DialogTitle>
           </DialogHeader>
-          <div className="space-y-6">
-            <div className="text-center">
-              <div className="h-20 w-20 mx-auto mb-4 flex items-center justify-center bg-white rounded-lg overflow-hidden shadow-sm border-2 border-gray-200">
-                <img
-                  className="h-16 w-16 object-contain"
-                  src="https://s3-symbol-logo.tradingview.com/wise--600.png"
-                  alt="WISE"
-                />
-              </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">
-                8 000 ₽
-              </div>
-              <p className="text-gray-600 mb-4">
-                Британская платежная система для международных переводов
-              </p>
-              <div className="bg-gray-100 rounded-lg p-3 mb-4">
-                <span className="text-sm font-medium">Карта: </span>
-                <span className="text-sm">Visa (виртуальная)</span>
-              </div>
-            </div>
+          <div className="space-y-8">
+            {/* Основная информация */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Левая колонка - основная информация */}
+              <div className="space-y-6">
+                <div className="text-center">
+                  <div className="h-24 w-24 mx-auto mb-6 flex items-center justify-center bg-white rounded-lg overflow-hidden shadow-sm border-2 border-gray-200">
+                    <img
+                      className="h-20 w-20 object-contain"
+                      src="https://s3-symbol-logo.tradingview.com/wise--600.png"
+                      alt="WISE"
+                    />
+                  </div>
+                  <div className="text-4xl font-bold text-gray-900 mb-3">
+                    8 000 ₽
+                  </div>
+                  <p className="text-gray-600 text-lg mb-6">
+                    Британская платежная система для международных переводов
+                  </p>
+                  <div className="bg-gray-100 rounded-lg p-4 mb-6">
+                    <span className="text-base font-medium">Карта: </span>
+                    <span className="text-base">Visa (виртуальная)</span>
+                  </div>
+                </div>
 
-            {/* Особенности карты */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              <div className="bg-white border rounded-lg p-3">
-                <h4 className="font-semibold mb-1 text-gray-900 text-sm">
-                  Без доверенности
-                </h4>
-                <p className="text-xs text-gray-600">
-                  Полноценная европейская карта
-                </p>
+                {/* Особенности карты */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-white border rounded-lg p-4">
+                    <h4 className="font-semibold mb-2 text-gray-900">
+                      Без доверенности
+                    </h4>
+                    <p className="text-sm text-gray-600">
+                      Полноценная европейская карта
+                    </p>
+                  </div>
+                  <div className="bg-white border rounded-lg p-4">
+                    <h4 className="font-semibold mb-2 text-gray-900">
+                      Европейская карта
+                    </h4>
+                    <p className="text-sm text-gray-600">Выпущена в ЕС</p>
+                  </div>
+                  <div className="bg-white border rounded-lg p-4">
+                    <h4 className="font-semibold mb-2 text-gray-900">
+                      Исходящий Swift
+                    </h4>
+                    <p className="text-sm text-gray-600">Переводы по миру</p>
+                  </div>
+                  <div className="bg-white border rounded-lg p-4">
+                    <h4 className="font-semibold mb-2 text-gray-900">
+                      Поддержка платежей
+                    </h4>
+                    <p className="text-sm text-gray-600">GooglePay, ApplePay</p>
+                  </div>
+                </div>
               </div>
-              <div className="bg-white border rounded-lg p-3">
-                <h4 className="font-semibold mb-1 text-gray-900 text-sm">
-                  Европейская карта
-                </h4>
-                <p className="text-xs text-gray-600">Выпущена в ЕС</p>
-              </div>
-              <div className="bg-white border rounded-lg p-3">
-                <h4 className="font-semibold mb-1 text-gray-900 text-sm">
-                  Исходящий Swift
-                </h4>
-                <p className="text-xs text-gray-600">Переводы по миру</p>
-              </div>
-              <div className="bg-white border rounded-lg p-3">
-                <h4 className="font-semibold mb-1 text-gray-900 text-sm">
-                  Поддержка платежей
-                </h4>
-                <p className="text-xs text-gray-600">GooglePay, ApplePay</p>
-              </div>
-            </div>
 
-            {/* Ключевые преимущества в две колонки */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              <div className="bg-orange-50 border border-orange-200 rounded-lg p-3">
-                <h4 className="font-semibold mb-1 text-orange-800 text-sm">
-                  SWIFT переводы по миру
-                </h4>
-                <p className="text-xs text-orange-700">
-                  Не нужно декларировать. Бесплатное обслуживание
-                </p>
-              </div>
-              <div className="bg-green-50 border border-green-200 rounded-lg p-3">
-                <h4 className="font-semibold mb-1 text-green-800 text-sm">
-                  Легкое пополнение
-                </h4>
-                <p className="text-xs text-green-700">
-                  Через криптовалюту с подробными инструкциями
-                </p>
-              </div>
-            </div>
+              {/* Правая колонка - преимущества и комплектация */}
+              <div className="space-y-6">
+                {/* Ключевые преимущества */}
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    Ключевые преимущества
+                  </h3>
+                  <div className="space-y-4">
+                    <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
+                      <h4 className="font-semibold mb-2 text-orange-800">
+                        SWIFT переводы по миру
+                      </h4>
+                      <p className="text-sm text-orange-700">
+                        Не нужно декларировать. Бесплатное обслуживание
+                      </p>
+                    </div>
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                      <h4 className="font-semibold mb-2 text-green-800">
+                        Легкое пополнение
+                      </h4>
+                      <p className="text-sm text-green-700">
+                        Через криптовалюту с подробными инструкциями
+                      </p>
+                    </div>
+                  </div>
+                </div>
 
-            {/* Что входит в пакет - компактно */}
-            <div className="bg-gray-50 p-3 rounded-lg">
-              <h4 className="font-semibold mb-2 text-sm">
-                Что входит в пакет:
-              </h4>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-1 text-xs text-gray-600">
-                <div className="flex items-start">
-                  <CheckCircle className="h-3 w-3 text-green-500 mt-0.5 mr-1 flex-shrink-0" />
-                  Готовый аккаунт WISE
-                </div>
-                <div className="flex items-start">
-                  <CheckCircle className="h-3 w-3 text-green-500 mt-0.5 mr-1 flex-shrink-0" />
-                  Виртуальная карта Visa
-                </div>
-                <div className="flex items-start">
-                  <CheckCircle className="h-3 w-3 text-green-500 mt-0.5 mr-1 flex-shrink-0" />
-                  SWIFT переводы
-                </div>
-                <div className="flex items-start">
-                  <CheckCircle className="h-3 w-3 text-green-500 mt-0.5 mr-1 flex-shrink-0" />
-                  Инструкции по пополнению
-                </div>
-                <div className="flex items-start">
-                  <CheckCircle className="h-3 w-3 text-green-500 mt-0.5 mr-1 flex-shrink-0" />
-                  Техподдержка
+                {/* Что входит в пакет */}
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold mb-4 text-gray-900">
+                    Что входит в пакет
+                  </h3>
+                  <div className="space-y-3">
+                    <div className="flex items-start">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
+                      <span className="text-sm text-gray-700">
+                        Готовый аккаунт WISE
+                      </span>
+                    </div>
+                    <div className="flex items-start">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
+                      <span className="text-sm text-gray-700">
+                        Виртуальная карта Visa
+                      </span>
+                    </div>
+                    <div className="flex items-start">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
+                      <span className="text-sm text-gray-700">
+                        SWIFT переводы
+                      </span>
+                    </div>
+                    <div className="flex items-start">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
+                      <span className="text-sm text-gray-700">
+                        Инструкции по пополнению
+                      </span>
+                    </div>
+                    <div className="flex items-start">
+                      <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
+                      <span className="text-sm text-gray-700">
+                        Техподдержка
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Кнопки действий */}
-            <div className="flex gap-3 pt-2">
+            <div className="flex gap-4 pt-6 border-t">
               <Button
-                className="flex-1 bg-white hover:bg-gray-50 text-gray-900 border border-gray-300"
+                className="flex-1 bg-white hover:bg-gray-50 text-gray-900 border border-gray-300 py-3 text-lg"
                 onClick={() => {
                   window.open("https://t.me/m/0F_E6lYlNjQ8", "_blank");
                   setIsWiseModalOpen(false);
@@ -408,7 +432,7 @@ export function BankServices() {
               <Button
                 variant="outline"
                 onClick={() => setIsWiseModalOpen(false)}
-                className="px-6"
+                className="px-8 py-3 text-lg"
               >
                 Закрыть
               </Button>
