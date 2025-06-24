@@ -123,7 +123,7 @@ export function BankServices() {
                       {bank.name.toLowerCase().includes("wise") ? (
                         <div className="flex gap-2 w-full">
                           <Button
-                            className="flex-1 bg-gray-900 hover:bg-gray-800 text-white"
+                            className="flex-1"
                             onClick={() =>
                               window.open(
                                 "https://t.me/m/0F_E6lYlNjQ8",
