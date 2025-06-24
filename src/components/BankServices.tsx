@@ -304,7 +304,7 @@ export function BankServices() {
                 />
               </div>
               <div className="text-3xl font-bold text-gray-900 mb-2">
-                22 990 ₽
+                8 000 ₽
               </div>
               <p className="text-gray-600 mb-4">
                 Британская платежная система для международных переводов
@@ -316,129 +316,99 @@ export function BankServices() {
             </div>
 
             {/* Особенности карты */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="bg-white border rounded-lg p-4">
-                <h4 className="font-semibold mb-2 text-gray-900">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <div className="bg-white border rounded-lg p-3">
+                <h4 className="font-semibold mb-1 text-gray-900 text-sm">
                   Без доверенности
                 </h4>
-                <p className="text-sm text-gray-600">
-                  Полноценная европейская карта без дополнительных документов
+                <p className="text-xs text-gray-600">
+                  Полноценная европейская карта
                 </p>
               </div>
-              <div className="bg-white border rounded-lg p-4">
-                <h4 className="font-semibold mb-2 text-gray-900">
+              <div className="bg-white border rounded-lg p-3">
+                <h4 className="font-semibold mb-1 text-gray-900 text-sm">
                   Европейская карта
                 </h4>
-                <p className="text-sm text-gray-600">
-                  Выпущена в ЕС с европейскими реквизитами
-                </p>
+                <p className="text-xs text-gray-600">Выпущена в ЕС</p>
               </div>
-              <div className="bg-white border rounded-lg p-4">
-                <h4 className="font-semibold mb-2 text-gray-900">
+              <div className="bg-white border rounded-lg p-3">
+                <h4 className="font-semibold mb-1 text-gray-900 text-sm">
                   Исходящий Swift
                 </h4>
-                <p className="text-sm text-gray-600">
-                  Международные переводы по всему миру
-                </p>
+                <p className="text-xs text-gray-600">Переводы по миру</p>
               </div>
-              <div className="bg-white border rounded-lg p-4">
-                <h4 className="font-semibold mb-2 text-gray-900">
+              <div className="bg-white border rounded-lg p-3">
+                <h4 className="font-semibold mb-1 text-gray-900 text-sm">
                   Поддержка платежей
                 </h4>
-                <p className="text-sm text-gray-600">
-                  GooglePay, ApplePay совместимость
+                <p className="text-xs text-gray-600">GooglePay, ApplePay</p>
+              </div>
+            </div>
+
+            {/* Ключевые преимущества в две колонки */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="bg-orange-50 border border-orange-200 rounded-lg p-3">
+                <h4 className="font-semibold mb-1 text-orange-800 text-sm">
+                  SWIFT переводы по миру
+                </h4>
+                <p className="text-xs text-orange-700">
+                  Не нужно декларировать. Бесплатное обслуживание
+                </p>
+              </div>
+              <div className="bg-green-50 border border-green-200 rounded-lg p-3">
+                <h4 className="font-semibold mb-1 text-green-800 text-sm">
+                  Легкое пополнение
+                </h4>
+                <p className="text-xs text-green-700">
+                  Через криптовалюту с подробными инструкциями
                 </p>
               </div>
             </div>
 
-            {/* Переводы SWIFT */}
-            <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
-              <h4 className="font-semibold mb-2 text-orange-800">
-                Переводы SWIFT по всему миру. Не нужно декларировать в России.
-                Бесплатное обслуживание.
+            {/* Что входит в пакет - компактно */}
+            <div className="bg-gray-50 p-3 rounded-lg">
+              <h4 className="font-semibold mb-2 text-sm">
+                Что входит в пакет:
               </h4>
-              <p className="text-sm text-orange-700">
-                Отправляйте деньги в любую страну мира через международную
-                систему SWIFT
-              </p>
-            </div>
-
-            {/* Пополнение карты */}
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-              <h4 className="font-semibold mb-2 text-yellow-800">
-                Очень легко пополнить
-              </h4>
-              <p className="text-sm text-yellow-700 mb-2">
-                Вы сможете очень легко пополнить карту Wise через покупку и
-                продажу криптовалюты. Вместе с картой предоставляем подробные
-                инструкции по её пополнению.
-              </p>
-            </div>
-
-            {/* Хороший курс */}
-            <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-              <h4 className="font-semibold mb-2 text-green-800">
-                Хороший курс
-              </h4>
-              <p className="text-sm text-green-700">
-                Карта пополняется через покупку криптовалюты с карты РФ банка и
-                продажи криптовалюты на карту Wise.
-              </p>
-            </div>
-
-            {/* Система переводов */}
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <h4 className="font-semibold mb-2 text-blue-800">
-                Отличная система переводов
-              </h4>
-              <p className="text-sm text-blue-700">
-                Можно отправить SWIFT перевод из приложения банка. Есть
-                незначительные ограничения, о них расскажем перед оформлением.
-                Самое главное — можно отправить и физ. лицу и юр. лицу.
-              </p>
-            </div>
-
-            {/* Что входит в пакет */}
-            <div className="bg-gray-50 p-4 rounded-lg">
-              <h4 className="font-semibold mb-3">Что входит в пакет:</h4>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li className="flex items-start">
-                  <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
-                  Готовый аккаунт WISE с подтвержденной личностью
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
-                  Виртуальная карта Visa с европейскими реквизитами
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
-                  Возможность SWIFT переводов по всему миру
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
-                  Подробные инструкции по пополнению через криптовалюту
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
-                  Техническая поддержка и консультации
-                </li>
-              </ul>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-1 text-xs text-gray-600">
+                <div className="flex items-start">
+                  <CheckCircle className="h-3 w-3 text-green-500 mt-0.5 mr-1 flex-shrink-0" />
+                  Готовый аккаунт WISE
+                </div>
+                <div className="flex items-start">
+                  <CheckCircle className="h-3 w-3 text-green-500 mt-0.5 mr-1 flex-shrink-0" />
+                  Виртуальная карта Visa
+                </div>
+                <div className="flex items-start">
+                  <CheckCircle className="h-3 w-3 text-green-500 mt-0.5 mr-1 flex-shrink-0" />
+                  SWIFT переводы
+                </div>
+                <div className="flex items-start">
+                  <CheckCircle className="h-3 w-3 text-green-500 mt-0.5 mr-1 flex-shrink-0" />
+                  Инструкции по пополнению
+                </div>
+                <div className="flex items-start">
+                  <CheckCircle className="h-3 w-3 text-green-500 mt-0.5 mr-1 flex-shrink-0" />
+                  Техподдержка
+                </div>
+              </div>
             </div>
 
             {/* Кнопки действий */}
-            <div className="flex gap-3">
+            <div className="flex gap-3 pt-2">
               <Button
-                className="flex-1 bg-gray-900 hover:bg-gray-800 text-white"
+                className="flex-1 bg-white hover:bg-gray-50 text-gray-900 border border-gray-300"
                 onClick={() => {
                   window.open("https://t.me/m/0F_E6lYlNjQ8", "_blank");
                   setIsWiseModalOpen(false);
                 }}
               >
-                Заказать карту — 22 990 ₽
+                Заказать карту — 8 000 ₽
               </Button>
               <Button
                 variant="outline"
                 onClick={() => setIsWiseModalOpen(false)}
+                className="px-6"
               >
                 Закрыть
               </Button>
