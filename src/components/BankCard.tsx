@@ -13,6 +13,12 @@ interface BankCardProps {
   bank: Bank;
   onWiseModal: () => void;
   onRedotPayModal: () => void;
+  onBybitModal: () => void;
+  onKrakenModal: () => void;
+  onNetellerModal: () => void;
+  onEsimModal: () => void;
+  onSkrillModal: () => void;
+  onStripeModal: () => void;
   onTelegramOpen: () => void;
 }
 
@@ -93,6 +99,12 @@ export default function BankCard({
   bank,
   onWiseModal,
   onRedotPayModal,
+  onBybitModal,
+  onKrakenModal,
+  onNetellerModal,
+  onEsimModal,
+  onSkrillModal,
+  onStripeModal,
   onTelegramOpen,
 }: BankCardProps) {
   const logoKey = getCleanLogoKey(bank.name);
@@ -107,29 +119,23 @@ export default function BankCard({
     }
   };
 
-  const renderButtons = () => {
-    if (bank.name.toLowerCase().includes("wise")) {
-      return (
-        <div className="flex gap-2 w-full">
-          <Button
-            variant="outline"
-            className="flex-1 bg-white text-gray-900 border-gray-300 hover:bg-gray-50"
-            onClick={handleBuyClick}
-          >
-            Купить {price}
-          </Button>
-          <Button
-            variant="outline"
-            className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-100"
-            onClick={onWiseModal}
-          >
-            Подробнее
-          </Button>
-        </div>
-      );
-    }
+  const getModalHandler = () => {
+    const name = bank.name.toLowerCase();
+    if (name.includes("wise")) return onWiseModal;
+    if (name === "redotpay") return onRedotPayModal;
+    if (name.includes("bybit")) return onBybitModal;
+    if (name.includes("kraken")) return onKrakenModal;
+    if (name.includes("neteller")) return onNetellerModal;
+    if (name.includes("esim")) return onEsimModal;
+    if (name === "skrill") return onSkrillModal;
+    if (name === "stripe") return onStripeModal;
+    return null;
+  };
 
-    if (bank.name === "RedotPay") {
+  const renderButtons = () => {
+    const modalHandler = getModalHandler();
+
+    if (modalHandler) {
       return (
         <div className="flex gap-2 w-full">
           <Button
@@ -142,7 +148,7 @@ export default function BankCard({
           <Button
             variant="outline"
             className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-100"
-            onClick={onRedotPayModal}
+            onClick={modalHandler}
           >
             Подробнее
           </Button>

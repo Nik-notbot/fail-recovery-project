@@ -3,12 +3,24 @@ import { useLanguage } from "@/lib/i18n/context";
 import BankCard from "./BankCard";
 import WiseModal from "./modals/WiseModal";
 import RedotPayModal from "./modals/RedotPayModal";
+import BybitModal from "./modals/BybitModal";
+import KrakenModal from "./modals/KrakenModal";
+import NetellerModal from "./modals/NetellerModal";
+import EsimModal from "./modals/EsimModal";
+import SkrillModal from "./modals/SkrillModal";
+import StripeModal from "./modals/StripeModal";
 import CustomRequestCard from "./CustomRequestCard";
 
 export function BankServices() {
   const { t } = useLanguage();
   const [isWiseModalOpen, setIsWiseModalOpen] = useState(false);
   const [isRedotPayModalOpen, setIsRedotPayModalOpen] = useState(false);
+  const [isBybitModalOpen, setIsBybitModalOpen] = useState(false);
+  const [isKrakenModalOpen, setIsKrakenModalOpen] = useState(false);
+  const [isNetellerModalOpen, setIsNetellerModalOpen] = useState(false);
+  const [isEsimModalOpen, setIsEsimModalOpen] = useState(false);
+  const [isSkrillModalOpen, setIsSkrillModalOpen] = useState(false);
+  const [isStripeModalOpen, setIsStripeModalOpen] = useState(false);
 
   const openTelegram = () => {
     window.open("https://t.me/forbidden_john", "_blank");
@@ -42,6 +54,12 @@ export function BankServices() {
               bank={bank}
               onWiseModal={() => setIsWiseModalOpen(true)}
               onRedotPayModal={() => setIsRedotPayModalOpen(true)}
+              onBybitModal={() => setIsBybitModalOpen(true)}
+              onKrakenModal={() => setIsKrakenModalOpen(true)}
+              onNetellerModal={() => setIsNetellerModalOpen(true)}
+              onEsimModal={() => setIsEsimModalOpen(true)}
+              onSkrillModal={() => setIsSkrillModalOpen(true)}
+              onStripeModal={() => setIsStripeModalOpen(true)}
               onTelegramOpen={openTelegram}
             />
           ))}
@@ -55,6 +73,12 @@ export function BankServices() {
                 bank={bank}
                 onWiseModal={() => setIsWiseModalOpen(true)}
                 onRedotPayModal={() => setIsRedotPayModalOpen(true)}
+                onBybitModal={() => setIsBybitModalOpen(true)}
+                onKrakenModal={() => setIsKrakenModalOpen(true)}
+                onNetellerModal={() => setIsNetellerModalOpen(true)}
+                onEsimModal={() => setIsEsimModalOpen(true)}
+                onSkrillModal={() => setIsSkrillModalOpen(true)}
+                onStripeModal={() => setIsStripeModalOpen(true)}
                 onTelegramOpen={openTelegram}
               />
             </div>
@@ -73,6 +97,30 @@ export function BankServices() {
       <RedotPayModal
         isOpen={isRedotPayModalOpen}
         onClose={() => setIsRedotPayModalOpen(false)}
+      />
+      <BybitModal
+        isOpen={isBybitModalOpen}
+        onClose={() => setIsBybitModalOpen(false)}
+      />
+      <KrakenModal
+        isOpen={isKrakenModalOpen}
+        onClose={() => setIsKrakenModalOpen(false)}
+      />
+      <NetellerModal
+        isOpen={isNetellerModalOpen}
+        onClose={() => setIsNetellerModalOpen(false)}
+      />
+      <EsimModal
+        isOpen={isEsimModalOpen}
+        onClose={() => setIsEsimModalOpen(false)}
+      />
+      <SkrillModal
+        isOpen={isSkrillModalOpen}
+        onClose={() => setIsSkrillModalOpen(false)}
+      />
+      <StripeModal
+        isOpen={isStripeModalOpen}
+        onClose={() => setIsStripeModalOpen(false)}
       />
     </section>
   );
