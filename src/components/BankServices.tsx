@@ -105,22 +105,38 @@ export function BankServices() {
                       {bank.description}
                     </p>
                     <div className="w-full mt-6">
-                      <Button
-                        variant="outline"
-                        className="w-full border-gray-300 text-gray-700 hover:bg-gray-100"
-                        onClick={
-                          bank.name === "RedotPay"
-                            ? handleBuyClick
-                            : bank.name.toLowerCase().includes("bybit")
-                              ? () =>
-                                  window.open(
-                                    "https://t.me/m/RN5tSaCbZmI0",
-                                    "_blank",
-                                  )
-                              : bank.name.toLowerCase().includes("wise")
+                      {bank.name.toLowerCase().includes("wise") ? (
+                        <div className="flex gap-2 w-full">
+                          <Button
+                            className="flex-1 bg-gray-900 hover:bg-gray-800 text-white"
+                            onClick={() =>
+                              window.open(
+                                "https://t.me/m/0F_E6lYlNjQ8",
+                                "_blank",
+                              )
+                            }
+                          >
+                            Купить 8000 ₽
+                          </Button>
+                          <Button
+                            variant="outline"
+                            className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-100"
+                            onClick={() => navigate("/wise")}
+                          >
+                            Подробнее
+                          </Button>
+                        </div>
+                      ) : (
+                        <Button
+                          variant="outline"
+                          className="w-full border-gray-300 text-gray-700 hover:bg-gray-100"
+                          onClick={
+                            bank.name === "RedotPay"
+                              ? handleBuyClick
+                              : bank.name.toLowerCase().includes("bybit")
                                 ? () =>
                                     window.open(
-                                      "https://t.me/m/0F_E6lYlNjQ8",
+                                      "https://t.me/m/RN5tSaCbZmI0",
                                       "_blank",
                                     )
                                 : bank.name.toLowerCase().includes("kraken")
@@ -142,12 +158,10 @@ export function BankServices() {
                                             "_blank",
                                           )
                                       : openTelegram
-                        }
-                      >
-                        {bank.name.toLowerCase().includes("bybit")
-                          ? "Купить 2700 ₽"
-                          : bank.name.toLowerCase().includes("wise")
-                            ? "Купить 8000 ₽"
+                          }
+                        >
+                          {bank.name.toLowerCase().includes("bybit")
+                            ? "Купить 2700 ₽"
                             : bank.name === "RedotPay"
                               ? "Купить 2700 ₽"
                               : bank.name === "ESIM"
@@ -157,7 +171,8 @@ export function BankServices() {
                                   : bank.name.toLowerCase().includes("neteller")
                                     ? `Купить 8000 ₽`
                                     : `Купить ${bank.price} ₽`}
-                      </Button>
+                        </Button>
+                      )}
                     </div>
                   </CardContent>
                 </Card>
