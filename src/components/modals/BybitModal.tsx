@@ -27,11 +27,7 @@ export default function BybitModal({ isOpen, onClose }: BybitModalProps) {
           <DialogHeader>
             <div className="flex items-center justify-center mb-4">
               <div className="h-16 w-16 bg-white rounded-full flex items-center justify-center shadow-lg">
-                <img
-                  className="h-12 w-12 object-contain"
-                  src="https://cryptologos.cc/logos/bybit-bit-logo.png"
-                  alt="Bybit"
-                />
+                <div className="text-3xl font-bold text-yellow-500">B</div>
               </div>
             </div>
             <DialogTitle className="text-3xl font-bold text-center text-white">
