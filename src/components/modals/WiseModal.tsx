@@ -28,7 +28,7 @@ export default function WiseModal({ isOpen, onClose }: WiseModalProps) {
             <div className="flex items-center justify-center mb-4">
               <div className="h-16 w-16 bg-white rounded-full flex items-center justify-center shadow-lg">
                 <img
-                  className="h-12 w-12 object-contain"
+                  className="h-12 w-12 object-fill rounded-full"
                   src="https://s3-symbol-logo.tradingview.com/wise--600.png"
                   alt="WISE"
                 />
