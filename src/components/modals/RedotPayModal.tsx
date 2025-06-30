@@ -28,7 +28,7 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
             <div className="flex items-center justify-center mb-4">
               <div className="h-16 w-16 bg-white rounded-full flex items-center justify-center shadow-lg">
                 <img
-                  className="h-12 w-12 object-contain"
+                  className="h-12 w-12 object-contain rounded-full"
                   src="https://play-lh.googleusercontent.com/kvP-BmU-swM_AqJSTgCFZEc44L2qgC32LWF2xctra2Px8FkSriGv9D7aqMp5FU2u2Q"
                   alt="RedotPay"
                 />
