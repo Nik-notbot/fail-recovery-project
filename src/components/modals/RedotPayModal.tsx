@@ -157,7 +157,7 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
             ].map((feature, index) => (
               <div
                 key={index}
-                className="bg-white border border-gray-200 rounded-lg p-3 hover:shadow-md transition-shadow">
+                className="bg-white border border-gray-200 rounded-lg p-3 hover:shadow-md transition-shadow"
               >
                 <Icon
                   name={feature.icon}
