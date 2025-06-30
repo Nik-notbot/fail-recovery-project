@@ -44,10 +44,10 @@ export default function SkrillModal({ isOpen, onClose }: SkrillModalProps) {
         </div>
 
         {/* Content */}
-        <div className="p-6 space-y-6 flex-1 overflow-y-auto">
+        <div className="p-4 space-y-3 flex-1 overflow-y-auto">
           {/* Price & Type */}
           <div className="text-center">
-            <div className="inline-flex items-center gap-3 bg-pink-50 rounded-2xl px-6 py-3 mb-4">
+            <div className="inline-flex items-center gap-2 bg-pink-50 rounded-xl px-4 py-2 mb-2">
               <Badge variant="secondary" className="bg-pink-100 text-pink-800">
                 E-wallet + карта
               </Badge>
@@ -58,7 +58,7 @@ export default function SkrillModal({ isOpen, onClose }: SkrillModalProps) {
                 FCA лицензия
               </Badge>
             </div>
-            <div className="text-4xl font-bold text-gray-900 mb-2">8 000 ₽</div>
+            <div className="text-3xl font-bold text-gray-900 mb-2">8 000 ₽</div>
           </div>
 
           {/* Features Grid */}

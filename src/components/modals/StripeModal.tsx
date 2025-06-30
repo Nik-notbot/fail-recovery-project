@@ -44,10 +44,10 @@ export default function StripeModal({ isOpen, onClose }: StripeModalProps) {
         </div>
 
         {/* Content */}
-        <div className="p-6 space-y-6 flex-1 overflow-y-auto">
+        <div className="p-4 space-y-3 flex-1 overflow-y-auto">
           {/* Price & Type */}
           <div className="text-center">
-            <div className="inline-flex items-center gap-3 bg-indigo-50 rounded-2xl px-6 py-3 mb-4">
+            <div className="inline-flex items-center gap-2 bg-indigo-50 rounded-xl px-4 py-2 mb-2">
               <Badge
                 variant="secondary"
                 className="bg-indigo-100 text-indigo-800"
@@ -58,17 +58,17 @@ export default function StripeModal({ isOpen, onClose }: StripeModalProps) {
                 Платежный процессинг
               </Badge>
             </div>
-            <div className="text-4xl font-bold text-gray-900 mb-2">8 000 ₽</div>
+            <div className="text-3xl font-bold text-gray-900 mb-2">8 000 ₽</div>
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-3">
+              <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
                 <Icon name="Star" className="h-5 w-5 text-indigo-600" />
                 Возможности для бизнеса
               </h3>
-              <div className="space-y-3">
+              <div className="space-y-2">
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                   <div className="flex items-start gap-3">
                     <Icon
@@ -120,13 +120,13 @@ export default function StripeModal({ isOpen, onClose }: StripeModalProps) {
               </div>
             </div>
 
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
+            <div className="space-y-3">
+              <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
                 <Icon name="Package" className="h-5 w-5 text-indigo-600" />
                 Что входит в пакет
               </h3>
               <div className="bg-gray-50 rounded-lg p-6">
-                <div className="space-y-3">
+                <div className="space-y-2">
                   {[
                     "Аккаунт Stripe",
                     "Полная верификация",
@@ -147,7 +147,7 @@ export default function StripeModal({ isOpen, onClose }: StripeModalProps) {
           </div>
 
           {/* Features Cards */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {[
               {
                 icon: "Code",
@@ -172,13 +172,13 @@ export default function StripeModal({ isOpen, onClose }: StripeModalProps) {
             ].map((feature, index) => (
               <div
                 key={index}
-                className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+                className="bg-white border border-gray-200 rounded-lg p-3 hover:shadow-md transition-shadow">
               >
                 <Icon
                   name={feature.icon}
                   className="h-6 w-6 text-indigo-600 mb-2"
                 />
-                <h4 className="font-semibold text-sm text-gray-900 mb-1">
+                <h4 className="font-semibold text-xs text-gray-900 mb-1">
                   {feature.title}
                 </h4>
                 <p className="text-xs text-gray-600">{feature.desc}</p>

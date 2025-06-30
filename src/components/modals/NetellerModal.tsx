@@ -44,10 +44,10 @@ export default function NetellerModal({ isOpen, onClose }: NetellerModalProps) {
         </div>
 
         {/* Content */}
-        <div className="p-6 space-y-6 flex-1 overflow-y-auto">
+        <div className="p-4 space-y-3 flex-1 overflow-y-auto">
           {/* Price & Type */}
           <div className="text-center">
-            <div className="inline-flex items-center gap-3 bg-green-50 rounded-2xl px-6 py-3 mb-4">
+            <div className="inline-flex items-center gap-2 bg-green-50 rounded-xl px-4 py-2 mb-2">
               <Badge
                 variant="secondary"
                 className="bg-green-100 text-green-800"
@@ -58,25 +58,25 @@ export default function NetellerModal({ isOpen, onClose }: NetellerModalProps) {
                 Глобальная система
               </Badge>
             </div>
-            <div className="text-4xl font-bold text-gray-900 mb-2">8 000 ₽</div>
+            <div className="text-3xl font-bold text-gray-900 mb-2">8 000 ₽</div>
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
+              <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
                 <Icon name="Star" className="h-5 w-5 text-green-600" />
                 E-wallet возможности
               </h3>
-              <div className="space-y-3">
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <div className="space-y-2">
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
                   <div className="flex items-start gap-3">
                     <Icon name="Zap" className="h-5 w-5 text-blue-600 mt-0.5" />
                     <div>
-                      <h4 className="font-semibold text-blue-800">
+                      <h4 className="font-semibold text-sm text-blue-800">
                         Мгновенные переводы
                       </h4>
-                      <p className="text-sm text-blue-700 mt-1">
+                      <p className="text-xs text-blue-700 mt-1">
                         Быстрые платежи по всему миру
                       </p>
                     </div>
@@ -118,12 +118,12 @@ export default function NetellerModal({ isOpen, onClose }: NetellerModalProps) {
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
+              <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
                 <Icon name="Package" className="h-5 w-5 text-green-600" />
                 Что входит в пакет
               </h3>
               <div className="bg-gray-50 rounded-lg p-6">
-                <div className="space-y-3">
+                <div className="space-y-2">
                   {[
                     "Верифицированный аккаунт",
                     "Активированная Net+ карта",

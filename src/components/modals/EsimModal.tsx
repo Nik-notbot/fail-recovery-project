@@ -44,10 +44,10 @@ export default function EsimModal({ isOpen, onClose }: EsimModalProps) {
         </div>
 
         {/* Content */}
-        <div className="p-6 space-y-6 flex-1 overflow-y-auto">
+        <div className="p-4 space-y-3 flex-1 overflow-y-auto">
           {/* Price & Type */}
           <div className="text-center">
-            <div className="inline-flex items-center gap-3 bg-blue-50 rounded-2xl px-6 py-3 mb-4">
+            <div className="inline-flex items-center gap-2 bg-blue-50 rounded-xl px-4 py-2 mb-2">
               <Badge variant="secondary" className="bg-blue-100 text-blue-800">
                 eSIM технология
               </Badge>
@@ -55,28 +55,28 @@ export default function EsimModal({ isOpen, onClose }: EsimModalProps) {
                 27 стран Европы
               </Badge>
             </div>
-            <div className="text-4xl font-bold text-gray-900 mb-2">2 400 ₽</div>
+            <div className="text-3xl font-bold text-gray-900 mb-2">2 400 ₽</div>
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-3">
+              <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
                 <Icon name="Star" className="h-5 w-5 text-blue-600" />
                 Покрытие и возможности
               </h3>
-              <div className="space-y-3">
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <div className="space-y-2">
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
                   <div className="flex items-start gap-3">
                     <Icon
                       name="Globe"
                       className="h-5 w-5 text-blue-600 mt-0.5"
                     />
                     <div>
-                      <h4 className="font-semibold text-blue-800">
+                      <h4 className="font-semibold text-sm text-blue-800">
                         27 стран Европы
                       </h4>
-                      <p className="text-sm text-blue-700 mt-1">
+                      <p className="text-xs text-blue-700 mt-1">
                         Полное покрытие Европейского союза
                       </p>
                     </div>
@@ -117,13 +117,13 @@ export default function EsimModal({ isOpen, onClose }: EsimModalProps) {
               </div>
             </div>
 
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
+            <div className="space-y-3">
+              <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
                 <Icon name="Package" className="h-5 w-5 text-blue-600" />
                 Что входит в пакет
               </h3>
               <div className="bg-gray-50 rounded-lg p-6">
-                <div className="space-y-3">
+                <div className="space-y-2">
                   {[
                     "eSIM профиль",
                     "QR-код для активации",
