@@ -28,7 +28,7 @@ export default function EsimModal({ isOpen, onClose }: EsimModalProps) {
             <div className="flex items-center justify-center mb-4">
               <div className="h-16 w-16 bg-white rounded-full flex items-center justify-center shadow-lg">
                 <img
-                  className="h-12 w-12 object-contain"
+                  className="h-12 w-12 object-contain rounded-2xl"
                   src="https://cdn.poehali.dev/files/9aff47ae-06ea-4556-8616-99d8af0098a4.jpeg"
                   alt="eSIM"
                 />
