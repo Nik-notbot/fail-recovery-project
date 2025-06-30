@@ -21,7 +21,7 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0">
+      <DialogContent className="max-w-4xl max-h-[85vh] p-0 flex flex-col">
         {/* Header */}
         <div className="relative bg-gradient-to-r from-purple-600 to-pink-600 text-white p-8">
           <DialogHeader>
@@ -44,7 +44,7 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
         </div>
 
         {/* Content */}
-        <div className="p-8 space-y-8">
+        <div className="p-8 space-y-8 flex-1 overflow-y-auto">
           {/* Price & Type */}
           <div className="text-center">
             <div className="inline-flex items-center gap-3 bg-purple-50 rounded-2xl px-6 py-3 mb-4">
@@ -173,7 +173,7 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
         </div>
 
         {/* Footer */}
-        <div className="bg-gray-50 p-6 border-t">
+        <div className="bg-gray-50 p-6 border-t flex-shrink-0">
           <div className="flex flex-col sm:flex-row gap-3">
             <Button
               onClick={handleOrderClick}

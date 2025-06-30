@@ -21,9 +21,9 @@ export default function WiseModal({ isOpen, onClose }: WiseModalProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0">
+      <DialogContent className="max-w-4xl max-h-[90vh] p-0 flex flex-col">
         {/* Header */}
-        <div className="relative bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8">
+        <div className="relative bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 flex-shrink-0">
           <DialogHeader>
             <div className="flex items-center justify-center mb-4">
               <div className="h-16 w-16 bg-white rounded-full flex items-center justify-center shadow-lg">
@@ -44,7 +44,7 @@ export default function WiseModal({ isOpen, onClose }: WiseModalProps) {
         </div>
 
         {/* Content */}
-        <div className="p-8 space-y-8">
+        <div className="p-6 space-y-6 flex-1 overflow-y-auto">
           {/* Price & Type */}
           <div className="text-center">
             <div className="inline-flex items-center gap-3 bg-blue-50 rounded-2xl px-6 py-3 mb-4">
@@ -173,7 +173,7 @@ export default function WiseModal({ isOpen, onClose }: WiseModalProps) {
         </div>
 
         {/* Footer */}
-        <div className="bg-gray-50 p-6 border-t">
+        <div className="bg-gray-50 p-6 border-t flex-shrink-0">
           <div className="flex flex-col sm:flex-row gap-3">
             <Button
               onClick={handleOrderClick}
