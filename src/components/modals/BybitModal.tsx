@@ -29,7 +29,7 @@ export default function BybitModal({ isOpen, onClose }: BybitModalProps) {
               <div className="h-16 w-16 bg-white rounded-full flex items-center justify-center shadow-lg">
                 <img
                   className="h-12 w-12 object-contain"
-                  src="https://s3-symbol-logo.tradingview.com/bybit--600.png"
+                  src="https://cryptologos.cc/logos/bybit-bit-logo.png"
                   alt="Bybit"
                 />
               </div>
