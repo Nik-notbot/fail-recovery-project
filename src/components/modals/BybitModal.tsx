@@ -27,7 +27,11 @@ export default function BybitModal({ isOpen, onClose }: BybitModalProps) {
           <DialogHeader>
             <div className="flex items-center justify-center mb-4">
               <div className="h-16 w-16 bg-white rounded-full flex items-center justify-center shadow-lg">
-                <div className="text-3xl font-bold text-yellow-500">B</div>
+                <img
+                  className="h-12 w-12 object-contain"
+                  src="https://cdn.poehali.dev/files/c050e044-b4ea-4a0b-a4a9-de2a418f3a8c.png"
+                  alt="Bybit"
+                />
               </div>
             </div>
             <DialogTitle className="text-3xl font-bold text-center text-white">
