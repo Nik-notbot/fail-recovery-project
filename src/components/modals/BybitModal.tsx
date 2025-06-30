@@ -6,7 +6,6 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
 
 interface BybitModalProps {
@@ -15,101 +14,194 @@ interface BybitModalProps {
 }
 
 export default function BybitModal({ isOpen, onClose }: BybitModalProps) {
+  const handleOrderClick = () => {
+    window.open("https://t.me/bankServices_bot", "_blank");
+    onClose();
+  };
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle className="flex items-center gap-3 text-2xl">
-            <img
-              src="https://cdn.poehali.dev/files/2e0c518c-ae63-4c4e-a5cd-e8328a9908fa.png"
-              className="h-8 w-8"
-              alt="Bybit"
-            />
-            Bybit Виртуальная Карта
-          </DialogTitle>
-        </DialogHeader>
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0">
+        {/* Header */}
+        <div className="relative bg-gradient-to-r from-yellow-500 to-orange-600 text-white p-8">
+          <DialogHeader>
+            <div className="flex items-center justify-center mb-4">
+              <div className="h-16 w-16 bg-white rounded-full flex items-center justify-center shadow-lg">
+                <img
+                  className="h-12 w-12 object-contain"
+                  src="https://cdn.worldvectorlogo.com/logos/bybit-logo.svg"
+                  alt="Bybit"
+                />
+              </div>
+            </div>
+            <DialogTitle className="text-3xl font-bold text-center text-white">
+              Bybit Виртуальная Карта
+            </DialogTitle>
+            <p className="text-center text-yellow-100 text-lg mt-2">
+              Ведущая криптобиржа с виртуальными картами
+            </p>
+          </DialogHeader>
+        </div>
 
-        <div className="space-y-6">
-          <div className="flex items-center gap-2">
-            <Badge variant="secondary" className="bg-green-100 text-green-800">
-              <Icon name="CreditCard" size={16} className="mr-1" />
-              Виртуальная карта
-            </Badge>
-            <Badge variant="secondary" className="bg-blue-100 text-blue-800">
-              <Icon name="TrendingUp" size={16} className="mr-1" />
-              Криптобиржа
-            </Badge>
+        {/* Content */}
+        <div className="p-8 space-y-8">
+          {/* Price & Type */}
+          <div className="text-center">
+            <div className="inline-flex items-center gap-3 bg-yellow-50 rounded-2xl px-6 py-3 mb-4">
+              <Badge
+                variant="secondary"
+                className="bg-yellow-100 text-yellow-800"
+              >
+                Виртуальная карта
+              </Badge>
+              <Badge
+                variant="secondary"
+                className="bg-orange-100 text-orange-800"
+              >
+                Криптобиржа
+              </Badge>
+            </div>
+            <div className="text-4xl font-bold text-gray-900 mb-2">2 700 ₽</div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Card>
-              <CardContent className="p-4">
-                <h3 className="font-semibold mb-2 flex items-center gap-2">
-                  <Icon name="CreditCard" size={20} />
-                  Виртуальная карта
-                </h3>
-                <ul className="text-sm space-y-1 text-muted-foreground">
-                  <li>• Instant пополнение криптой</li>
-                  <li>• Поддержка Visa/Mastercard</li>
-                  <li>• Онлайн покупки по всему миру</li>
-                  <li>• Низкие комиссии</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-4">
-                <h3 className="font-semibold mb-2 flex items-center gap-2">
-                  <Icon name="Shield" size={20} />
-                  Безопасность
-                </h3>
-                <ul className="text-sm space-y-1 text-muted-foreground">
-                  <li>• Регулируемая биржа</li>
-                  <li>• 2FA аутентификация</li>
-                  <li>• Страхование средств</li>
-                  <li>• KYC верификация</li>
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
-
-          <Card className="bg-gradient-to-r from-orange-50 to-yellow-50 border-orange-200">
-            <CardContent className="p-4">
-              <h3 className="font-semibold mb-3 text-orange-800">
-                Что включено в пакет:
+          {/* Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
+                <Icon name="Star" className="h-5 w-5 text-yellow-600" />
+                Ключевые преимущества
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
-                <div className="flex items-center gap-2">
-                  <Icon name="Check" size={16} className="text-green-600" />
-                  <span>Аккаунт Bybit с KYC</span>
+              <div className="space-y-3">
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                  <div className="flex items-start gap-3">
+                    <Icon name="Zap" className="h-5 w-5 text-blue-600 mt-0.5" />
+                    <div>
+                      <h4 className="font-semibold text-blue-800">
+                        Instant пополнение
+                      </h4>
+                      <p className="text-sm text-blue-700 mt-1">
+                        Мгновенное пополнение криптовалютой
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Icon name="Check" size={16} className="text-green-600" />
-                  <span>Активированная виртуальная карта</span>
+                <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                  <div className="flex items-start gap-3">
+                    <Icon
+                      name="Globe"
+                      className="h-5 w-5 text-green-600 mt-0.5"
+                    />
+                    <div>
+                      <h4 className="font-semibold text-green-800">
+                        Мировое покрытие
+                      </h4>
+                      <p className="text-sm text-green-700 mt-1">
+                        Онлайн покупки по всему миру
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Icon name="Check" size={16} className="text-green-600" />
-                  <span>Инструкция по использованию</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Icon name="Check" size={16} className="text-green-600" />
-                  <span>Поддержка 24/7</span>
+                <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
+                  <div className="flex items-start gap-3">
+                    <Icon
+                      name="Percent"
+                      className="h-5 w-5 text-purple-600 mt-0.5"
+                    />
+                    <div>
+                      <h4 className="font-semibold text-purple-800">
+                        Низкие комиссии
+                      </h4>
+                      <p className="text-sm text-purple-700 mt-1">
+                        Оптимальные тарифы за транзакции
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </CardContent>
-          </Card>
+            </div>
 
-          <div className="flex gap-3">
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
+                <Icon name="Package" className="h-5 w-5 text-yellow-600" />
+                Что входит в пакет
+              </h3>
+              <div className="bg-gray-50 rounded-lg p-6">
+                <div className="space-y-3">
+                  {[
+                    "Аккаунт Bybit с KYC",
+                    "Активированная виртуальная карта",
+                    "Инструкция по использованию",
+                    "Поддержка 24/7",
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-center gap-3">
+                      <Icon
+                        name="CheckCircle"
+                        className="h-5 w-5 text-green-500"
+                      />
+                      <span className="text-gray-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Features Cards */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              {
+                icon: "CreditCard",
+                title: "Поддержка карт",
+                desc: "Visa/Mastercard",
+              },
+              {
+                icon: "Shield",
+                title: "Безопасность",
+                desc: "Регулируемая биржа",
+              },
+              {
+                icon: "Lock",
+                title: "2FA защита",
+                desc: "Двухфакторная аутентификация",
+              },
+              {
+                icon: "CheckCircle",
+                title: "Страхование",
+                desc: "Страхование средств",
+              },
+            ].map((feature, index) => (
+              <div
+                key={index}
+                className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+              >
+                <Icon
+                  name={feature.icon}
+                  className="h-6 w-6 text-yellow-600 mb-2"
+                />
+                <h4 className="font-semibold text-sm text-gray-900 mb-1">
+                  {feature.title}
+                </h4>
+                <p className="text-xs text-gray-600">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="bg-gray-50 p-6 border-t">
+          <div className="flex flex-col sm:flex-row gap-3">
             <Button
-              className="flex-1 bg-orange-600 hover:bg-orange-700"
-              onClick={() =>
-                window.open("https://t.me/m/RN5tSaCbZmI0", "_blank")
-              }
+              onClick={handleOrderClick}
+              className="flex-1 bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white py-3 rounded-lg text-lg font-semibold"
             >
-              <Icon name="MessageCircle" size={16} className="mr-2" />
-              Купить за 2700 ₽
+              <Icon name="ShoppingCart" className="h-5 w-5 mr-2" />
+              Купить за 2 700 ₽
             </Button>
-            <Button variant="outline" onClick={onClose}>
+            <Button
+              variant="outline"
+              onClick={onClose}
+              className="px-8 py-3 text-lg"
+            >
               Закрыть
             </Button>
           </div>

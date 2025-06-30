@@ -5,7 +5,8 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { CheckCircle } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import Icon from "@/components/ui/icon";
 
 interface RedotPayModalProps {
   isOpen: boolean;
@@ -18,119 +19,111 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
     onClose();
   };
 
-  const features = [
-    { title: "Криптовалютная", description: "Прямая конвертация крипты" },
-    { title: "Мгновенное пополнение", description: "Криптовалютой напрямую" },
-    { title: "Низкие комиссии", description: "Оптимальные тарифы" },
-    { title: "Анонимность", description: "Минимальная верификация" },
-  ];
-
-  const advantages = [
-    {
-      title: "Поддержка 20+ криптовалют",
-      description: "Bitcoin, Ethereum, USDT, USDC и другие",
-      bgColor: "bg-blue-50 border-blue-200",
-      textColor: "text-blue-800",
-      descColor: "text-blue-700",
-    },
-    {
-      title: "Глобальное использование",
-      description: "Принимается во всем мире где есть Visa",
-      bgColor: "bg-purple-50 border-purple-200",
-      textColor: "text-purple-800",
-      descColor: "text-purple-700",
-    },
-  ];
-
-  const packageItems = [
-    "Готовый аккаунт RedotPay",
-    "Виртуальная карта Visa",
-    "Доступ к мобильному приложению",
-    "Инструкции по использованию",
-    "Техподдержка 24/7",
-  ];
-
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto">
-        <DialogHeader className="pb-6">
-          <DialogTitle className="text-3xl font-bold text-center">
-            Криптовалютная карта RedotPay
-          </DialogTitle>
-        </DialogHeader>
-
-        <div className="space-y-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Левая колонка */}
-            <div className="space-y-6">
-              <div className="text-center">
-                <div className="h-24 w-24 mx-auto mb-6 flex items-center justify-center bg-white rounded-lg overflow-hidden shadow-sm border-2 border-gray-200">
-                  <img
-                    className="h-20 w-20 object-contain"
-                    src="https://play-lh.googleusercontent.com/kvP-BmU-swM_AqJSTgCFZEc44L2qgC32LWF2xctra2Px8FkSriGv9D7aqMp5FU2u2Q"
-                    alt="RedotPay"
-                  />
-                </div>
-                <div className="text-4xl font-bold text-gray-900 mb-3">
-                  2 700 ₽
-                </div>
-                <p className="text-gray-600 text-lg mb-6">
-                  Криптовалютная карта с мгновенным пополнением
-                </p>
-                <div className="bg-gray-100 rounded-lg p-4 mb-6">
-                  <span className="text-base font-medium">Карта: </span>
-                  <span className="text-base">Visa (виртуальная)</span>
-                </div>
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0">
+        {/* Header */}
+        <div className="relative bg-gradient-to-r from-purple-600 to-pink-600 text-white p-8">
+          <DialogHeader>
+            <div className="flex items-center justify-center mb-4">
+              <div className="h-16 w-16 bg-white rounded-full flex items-center justify-center shadow-lg">
+                <img
+                  className="h-12 w-12 object-contain"
+                  src="https://play-lh.googleusercontent.com/kvP-BmU-swM_AqJSTgCFZEc44L2qgC32LWF2xctra2Px8FkSriGv9D7aqMp5FU2u2Q"
+                  alt="RedotPay"
+                />
               </div>
+            </div>
+            <DialogTitle className="text-3xl font-bold text-center text-white">
+              Криптовалютная карта RedotPay
+            </DialogTitle>
+            <p className="text-center text-purple-100 text-lg mt-2">
+              Криптовалютная карта с мгновенным пополнением
+            </p>
+          </DialogHeader>
+        </div>
 
-              <div className="grid grid-cols-2 gap-4">
-                {features.map((feature, index) => (
-                  <div key={index} className="bg-white border rounded-lg p-4">
-                    <h4 className="font-semibold mb-2 text-gray-900">
-                      {feature.title}
-                    </h4>
-                    <p className="text-sm text-gray-600">
-                      {feature.description}
-                    </p>
+        {/* Content */}
+        <div className="p-8 space-y-8">
+          {/* Price & Type */}
+          <div className="text-center">
+            <div className="inline-flex items-center gap-3 bg-purple-50 rounded-2xl px-6 py-3 mb-4">
+              <Badge
+                variant="secondary"
+                className="bg-purple-100 text-purple-800"
+              >
+                Виртуальная карта
+              </Badge>
+              <Badge variant="secondary" className="bg-pink-100 text-pink-800">
+                Visa
+              </Badge>
+            </div>
+            <div className="text-4xl font-bold text-gray-900 mb-2">2 700 ₽</div>
+          </div>
+
+          {/* Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
+                <Icon name="Star" className="h-5 w-5 text-purple-600" />
+                Ключевые преимущества
+              </h3>
+              <div className="space-y-3">
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                  <div className="flex items-start gap-3">
+                    <Icon
+                      name="Coins"
+                      className="h-5 w-5 text-blue-600 mt-0.5"
+                    />
+                    <div>
+                      <h4 className="font-semibold text-blue-800">
+                        Поддержка 20+ криптовалют
+                      </h4>
+                      <p className="text-sm text-blue-700 mt-1">
+                        Bitcoin, Ethereum, USDT, USDC и другие
+                      </p>
+                    </div>
                   </div>
-                ))}
+                </div>
+                <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
+                  <div className="flex items-start gap-3">
+                    <Icon
+                      name="Globe"
+                      className="h-5 w-5 text-purple-600 mt-0.5"
+                    />
+                    <div>
+                      <h4 className="font-semibold text-purple-800">
+                        Глобальное использование
+                      </h4>
+                      <p className="text-sm text-purple-700 mt-1">
+                        Принимается во всем мире где есть Visa
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Правая колонка */}
-            <div className="space-y-6">
-              <div className="space-y-4">
-                <h3 className="text-xl font-semibold text-gray-900">
-                  Ключевые преимущества
-                </h3>
-                <div className="space-y-4">
-                  {advantages.map((advantage, index) => (
-                    <div
-                      key={index}
-                      className={`${advantage.bgColor} border rounded-lg p-4`}
-                    >
-                      <h4
-                        className={`font-semibold mb-2 ${advantage.textColor}`}
-                      >
-                        {advantage.title}
-                      </h4>
-                      <p className={`text-sm ${advantage.descColor}`}>
-                        {advantage.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-4 text-gray-900">
-                  Что входит в пакет
-                </h3>
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
+                <Icon name="Package" className="h-5 w-5 text-purple-600" />
+                Что входит в пакет
+              </h3>
+              <div className="bg-gray-50 rounded-lg p-6">
                 <div className="space-y-3">
-                  {packageItems.map((item, index) => (
-                    <div key={index} className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
-                      <span className="text-sm text-gray-700">{item}</span>
+                  {[
+                    "Готовый аккаунт RedotPay",
+                    "Виртуальная карта Visa",
+                    "Доступ к мобильному приложению",
+                    "Инструкции по использованию",
+                    "Техподдержка 24/7",
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-center gap-3">
+                      <Icon
+                        name="CheckCircle"
+                        className="h-5 w-5 text-green-500"
+                      />
+                      <span className="text-gray-700">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -138,12 +131,56 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
             </div>
           </div>
 
-          <div className="flex gap-4 pt-6 border-t">
+          {/* Features Cards */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              {
+                icon: "Bitcoin",
+                title: "Криптовалютная",
+                desc: "Прямая конвертация крипты",
+              },
+              {
+                icon: "Zap",
+                title: "Мгновенное пополнение",
+                desc: "Криптовалютой напрямую",
+              },
+              {
+                icon: "Percent",
+                title: "Низкие комиссии",
+                desc: "Оптимальные тарифы",
+              },
+              {
+                icon: "UserCheck",
+                title: "Анонимность",
+                desc: "Минимальная верификация",
+              },
+            ].map((feature, index) => (
+              <div
+                key={index}
+                className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+              >
+                <Icon
+                  name={feature.icon}
+                  className="h-6 w-6 text-purple-600 mb-2"
+                />
+                <h4 className="font-semibold text-sm text-gray-900 mb-1">
+                  {feature.title}
+                </h4>
+                <p className="text-xs text-gray-600">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="bg-gray-50 p-6 border-t">
+          <div className="flex flex-col sm:flex-row gap-3">
             <Button
-              className="flex-1 bg-white hover:bg-gray-50 text-gray-900 border border-gray-300 py-3 text-lg"
               onClick={handleOrderClick}
+              className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-3 rounded-lg text-lg font-semibold"
             >
-              Заказать карту — 2 700 ₽
+              <Icon name="ShoppingCart" className="h-5 w-5 mr-2" />
+              Заказать за 2 700 ₽
             </Button>
             <Button
               variant="outline"

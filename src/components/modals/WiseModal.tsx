@@ -5,7 +5,8 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { CheckCircle } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import Icon from "@/components/ui/icon";
 
 interface WiseModalProps {
   isOpen: boolean;
@@ -18,119 +19,111 @@ export default function WiseModal({ isOpen, onClose }: WiseModalProps) {
     onClose();
   };
 
-  const features = [
-    { title: "Без доверенности", description: "Полноценная европейская карта" },
-    { title: "Европейская карта", description: "Выпущена в ЕС" },
-    { title: "Исходящий Swift", description: "Переводы по миру" },
-    { title: "Поддержка платежей", description: "GooglePay, ApplePay" },
-  ];
-
-  const advantages = [
-    {
-      title: "SWIFT переводы по миру",
-      description: "Не нужно декларировать. Бесплатное обслуживание",
-      bgColor: "bg-orange-50 border-orange-200",
-      textColor: "text-orange-800",
-      descColor: "text-orange-700",
-    },
-    {
-      title: "Легкое пополнение",
-      description: "Через криптовалюту с подробными инструкциями",
-      bgColor: "bg-green-50 border-green-200",
-      textColor: "text-green-800",
-      descColor: "text-green-700",
-    },
-  ];
-
-  const packageItems = [
-    "Готовый аккаунт WISE",
-    "Виртуальная карта Visa",
-    "SWIFT переводы",
-    "Инструкции по пополнению",
-    "Техподдержка",
-  ];
-
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto">
-        <DialogHeader className="pb-6">
-          <DialogTitle className="text-3xl font-bold text-center">
-            Европейская карта Wise
-          </DialogTitle>
-        </DialogHeader>
-
-        <div className="space-y-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Левая колонка */}
-            <div className="space-y-6">
-              <div className="text-center">
-                <div className="h-24 w-24 mx-auto mb-6 flex items-center justify-center bg-white rounded-lg overflow-hidden shadow-sm border-2 border-gray-200">
-                  <img
-                    className="h-20 w-20 object-contain"
-                    src="https://s3-symbol-logo.tradingview.com/wise--600.png"
-                    alt="WISE"
-                  />
-                </div>
-                <div className="text-4xl font-bold text-gray-900 mb-3">
-                  8 000 ₽
-                </div>
-                <p className="text-gray-600 text-lg mb-6">
-                  Британская платежная система для международных переводов
-                </p>
-                <div className="bg-gray-100 rounded-lg p-4 mb-6">
-                  <span className="text-base font-medium">Карта: </span>
-                  <span className="text-base">Visa (виртуальная)</span>
-                </div>
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0">
+        {/* Header */}
+        <div className="relative bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8">
+          <DialogHeader>
+            <div className="flex items-center justify-center mb-4">
+              <div className="h-16 w-16 bg-white rounded-full flex items-center justify-center shadow-lg">
+                <img
+                  className="h-12 w-12 object-contain"
+                  src="https://s3-symbol-logo.tradingview.com/wise--600.png"
+                  alt="WISE"
+                />
               </div>
+            </div>
+            <DialogTitle className="text-3xl font-bold text-center text-white">
+              Европейская карта Wise
+            </DialogTitle>
+            <p className="text-center text-blue-100 text-lg mt-2">
+              Британская платежная система для международных переводов
+            </p>
+          </DialogHeader>
+        </div>
 
-              <div className="grid grid-cols-2 gap-4">
-                {features.map((feature, index) => (
-                  <div key={index} className="bg-white border rounded-lg p-4">
-                    <h4 className="font-semibold mb-2 text-gray-900">
-                      {feature.title}
-                    </h4>
-                    <p className="text-sm text-gray-600">
-                      {feature.description}
-                    </p>
+        {/* Content */}
+        <div className="p-8 space-y-8">
+          {/* Price & Type */}
+          <div className="text-center">
+            <div className="inline-flex items-center gap-3 bg-blue-50 rounded-2xl px-6 py-3 mb-4">
+              <Badge variant="secondary" className="bg-blue-100 text-blue-800">
+                Виртуальная карта
+              </Badge>
+              <Badge
+                variant="secondary"
+                className="bg-green-100 text-green-800"
+              >
+                Visa
+              </Badge>
+            </div>
+            <div className="text-4xl font-bold text-gray-900 mb-2">8 000 ₽</div>
+          </div>
+
+          {/* Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
+                <Icon name="Star" className="h-5 w-5 text-blue-600" />
+                Ключевые преимущества
+              </h3>
+              <div className="space-y-3">
+                <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
+                  <div className="flex items-start gap-3">
+                    <Icon
+                      name="Send"
+                      className="h-5 w-5 text-orange-600 mt-0.5"
+                    />
+                    <div>
+                      <h4 className="font-semibold text-orange-800">
+                        SWIFT переводы по миру
+                      </h4>
+                      <p className="text-sm text-orange-700 mt-1">
+                        Не нужно декларировать. Бесплатное обслуживание
+                      </p>
+                    </div>
                   </div>
-                ))}
+                </div>
+                <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                  <div className="flex items-start gap-3">
+                    <Icon
+                      name="CreditCard"
+                      className="h-5 w-5 text-green-600 mt-0.5"
+                    />
+                    <div>
+                      <h4 className="font-semibold text-green-800">
+                        Легкое пополнение
+                      </h4>
+                      <p className="text-sm text-green-700 mt-1">
+                        Через криптовалюту с подробными инструкциями
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Правая колонка */}
-            <div className="space-y-6">
-              <div className="space-y-4">
-                <h3 className="text-xl font-semibold text-gray-900">
-                  Ключевые преимущества
-                </h3>
-                <div className="space-y-4">
-                  {advantages.map((advantage, index) => (
-                    <div
-                      key={index}
-                      className={`${advantage.bgColor} border rounded-lg p-4`}
-                    >
-                      <h4
-                        className={`font-semibold mb-2 ${advantage.textColor}`}
-                      >
-                        {advantage.title}
-                      </h4>
-                      <p className={`text-sm ${advantage.descColor}`}>
-                        {advantage.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-4 text-gray-900">
-                  Что входит в пакет
-                </h3>
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
+                <Icon name="Package" className="h-5 w-5 text-blue-600" />
+                Что входит в пакет
+              </h3>
+              <div className="bg-gray-50 rounded-lg p-6">
                 <div className="space-y-3">
-                  {packageItems.map((item, index) => (
-                    <div key={index} className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
-                      <span className="text-sm text-gray-700">{item}</span>
+                  {[
+                    "Готовый аккаунт WISE",
+                    "Виртуальная карта Visa",
+                    "SWIFT переводы",
+                    "Инструкции по пополнению",
+                    "Техподдержка 24/7",
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-center gap-3">
+                      <Icon
+                        name="CheckCircle"
+                        className="h-5 w-5 text-green-500"
+                      />
+                      <span className="text-gray-700">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -138,12 +131,56 @@ export default function WiseModal({ isOpen, onClose }: WiseModalProps) {
             </div>
           </div>
 
-          <div className="flex gap-4 pt-6 border-t">
+          {/* Features Cards */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              {
+                icon: "Shield",
+                title: "Без доверенности",
+                desc: "Полноценная европейская карта",
+              },
+              {
+                icon: "MapPin",
+                title: "Европейская карта",
+                desc: "Выпущена в ЕС",
+              },
+              {
+                icon: "Zap",
+                title: "Исходящий Swift",
+                desc: "Переводы по миру",
+              },
+              {
+                icon: "Smartphone",
+                title: "Поддержка платежей",
+                desc: "GooglePay, ApplePay",
+              },
+            ].map((feature, index) => (
+              <div
+                key={index}
+                className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+              >
+                <Icon
+                  name={feature.icon}
+                  className="h-6 w-6 text-blue-600 mb-2"
+                />
+                <h4 className="font-semibold text-sm text-gray-900 mb-1">
+                  {feature.title}
+                </h4>
+                <p className="text-xs text-gray-600">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="bg-gray-50 p-6 border-t">
+          <div className="flex flex-col sm:flex-row gap-3">
             <Button
-              className="flex-1 bg-white hover:bg-gray-50 text-gray-900 border border-gray-300 py-3 text-lg"
               onClick={handleOrderClick}
+              className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 rounded-lg text-lg font-semibold"
             >
-              Заказать карту — 8 000 ₽
+              <Icon name="ShoppingCart" className="h-5 w-5 mr-2" />
+              Заказать за 8 000 ₽
             </Button>
             <Button
               variant="outline"
