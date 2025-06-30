@@ -21,7 +21,7 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl max-h-[85vh] p-0 flex flex-col">
+      <DialogContent className="max-w-4xl max-h-[85vh] p-0 flex flex-col border-4 border-gray-800">
         {/* Header */}
         <div className="relative bg-gradient-to-r from-purple-600 to-pink-600 text-white p-8">
           <DialogHeader>

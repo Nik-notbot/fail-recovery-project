@@ -21,7 +21,7 @@ export default function WiseModal({ isOpen, onClose }: WiseModalProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl max-h-[90vh] p-0 flex flex-col">
+      <DialogContent className="max-w-4xl max-h-[90vh] p-0 flex flex-col border-4 border-gray-800">
         {/* Header */}
         <div className="relative bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 flex-shrink-0">
           <DialogHeader>
