@@ -87,7 +87,7 @@ const getBankPrice = (bankName: string) => {
     return "8000 ₽";
   }
   if (name.includes("bybit") || name === "redotpay") {
-    return "2700 ₽";
+    return "3100 ₽";
   }
   if (name === "esim") {
     return "2400 ₽";

@@ -51,7 +51,7 @@ export default function BybitModal({ isOpen, onClose }: BybitModalProps) {
               <Badge className="bg-yellow-100 text-yellow-800 hover:bg-yellow-100">
                 Виртуальная карта
               </Badge>
-              <div className="text-3xl font-bold text-yellow-700">2 700 ₽</div>
+              <div className="text-3xl font-bold text-yellow-700">3 100 ₽</div>
             </div>
           </div>
 
@@ -155,7 +155,7 @@ export default function BybitModal({ isOpen, onClose }: BybitModalProps) {
               className="flex-1 bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white py-3 rounded-lg text-lg font-semibold"
             >
               <Icon name="ShoppingCart" className="h-5 w-5 mr-2" />
-              Заказать за 2 700 ₽
+              Заказать за 3 100 ₽
             </Button>
             <Button
               variant="outline"

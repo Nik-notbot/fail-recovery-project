@@ -58,7 +58,7 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
                 Visa
               </Badge>
             </div>
-            <div className="text-3xl font-bold text-gray-900 mb-2">2 700 ₽</div>
+            <div className="text-3xl font-bold text-gray-900 mb-2">3 100 ₽</div>
           </div>
 
           {/* Features Grid */}
@@ -180,7 +180,7 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
               className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-3 rounded-lg text-lg font-semibold"
             >
               <Icon name="ShoppingCart" className="h-5 w-5 mr-2" />
-              Заказать за 2 700 ₽
+              Заказать за 3 100 ₽
             </Button>
             <Button
               variant="outline"
