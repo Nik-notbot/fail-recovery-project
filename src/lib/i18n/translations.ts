@@ -191,6 +191,95 @@ export const translations: Record<Locale, Translations> = {
       termsOfService: "Условия использования",
       copyright: "© 2024-2025 HEY, KYC! Все права защищены.",
     },
+    modals: {
+      common: {
+        closeButton: "Закрыть",
+        orderButton: "Заказать за",
+      },
+      redotpay: {
+        title: "Криптовалютная карта RedotPay",
+        subtitle: "Криптовалютная карта с мгновенным пополнением",
+        virtualCard: "Виртуальная карта",
+        visa: "Visa",
+        keyBenefits: "Ключевые преимущества",
+        cryptoSupport: "Поддержка 20+ криптовалют",
+        cryptoDesc: "Bitcoin, Ethereum, USDT, USDC и другие",
+        globalUse: "Глобальное использование",
+        globalDesc: "Принимается во всем мире где есть Visa",
+        packageIncludes: "Что входит в пакет",
+        packageItems: [
+          "Готовый аккаунт RedotPay",
+          "Виртуальная карта Visa",
+          "Доступ к мобильному приложению",
+          "Инструкции по использованию",
+          "Техподдержка 24/7"
+        ],
+        features: [
+          {
+            icon: "Bitcoin",
+            title: "Криптовалютная",
+            desc: "Прямая конвертация крипты"
+          },
+          {
+            icon: "Zap",
+            title: "Мгновенное пополнение",
+            desc: "Криптовалютой напрямую"
+          },
+          {
+            icon: "Percent",
+            title: "Низкие комиссии",
+            desc: "Оптимальные тарифы"
+          },
+          {
+            icon: "UserCheck",
+            title: "Анонимность",
+            desc: "Минимальная верификация"
+          }
+        ]
+      },
+      bybit: {
+        title: "Bybit виртуальная карта",
+        subtitle: "Криптовалютная биржа с виртуальными картами",
+        virtualCard: "Виртуальная карта",
+        whatYouGet: "Что вы получите",
+        cryptoTrading: "Торговля криптовалютами",
+        tradingFeatures: [
+          "Споттовая торговля",
+          "Фьючерсная торговля",
+          "Маржинальная торговля",
+          "Копи-трейдинг"
+        ],
+        cardServices: "Карточные услуги",
+        cardFeatures: [
+          "Виртуальная карта",
+          "Пополнение криптой",
+          "Покупки в интернете",
+          "Низкие комиссии"
+        ],
+        features: [
+          {
+            icon: "Bitcoin",
+            title: "Криптовалюты",
+            desc: "Торговля 400+ криптовалютами"
+          },
+          {
+            icon: "CreditCard",
+            title: "Виртуальная карта",
+            desc: "Для онлайн покупок"
+          },
+          {
+            icon: "TrendingUp",
+            title: "Фьючерсы",
+            desc: "Торговля с плечом до 100x"
+          },
+          {
+            icon: "Copy",
+            title: "Копи-трейдинг",
+            desc: "Копируйте прибыльных трейдеров"
+          }
+        ]
+      }
+    },
   },
   en: {
     header: {
@@ -223,41 +312,41 @@ export const translations: Record<Locale, Translations> = {
           name: "ByBit Virtual Card",
           description:
             "Assistance in passing all verification levels on the ByBit crypto exchange",
-          price: "30 USDT",
+          price: "40 USD",
         },
         {
           id: 2,
           name: "Wise",
           description:
             "Assistance in passing verification and opening an account in Wise for international transfers",
-          price: "60 USDT",
+          price: "100 USD",
         },
         {
           id: 3,
           name: "RedotPay",
           description:
             "Support for the KYC process to gain access to the RedotPay payment system",
-          price: "30 USDT",
+          price: "40 USD",
         },
         {
           id: 4,
           name: "Kraken",
           description:
             "Assistance in passing verification on the Kraken cryptocurrency exchange for crypto trading",
-          price: "80 USDT",
+          price: "100 USD",
         },
         {
           id: 5,
           name: "Neteller",
           description:
             "Verification in the Neteller electronic payment system for international transfers",
-          price: "80 USDT",
+          price: "100 USD",
         },
         {
           id: 6,
           name: "ESIM",
           description: "European SIM card for registration in foreign services",
-          price: "25 USDT",
+          price: "30 USD",
           buttonText: "Buy 2400",
         },
         {
@@ -265,14 +354,14 @@ export const translations: Record<Locale, Translations> = {
           name: "Skrill",
           description:
             "Verification in the international Skrill payment system for online payments and transfers",
-          price: "80 USDT",
+          price: "100 USD",
         },
         {
           id: 8,
           name: "Stripe",
           description:
             "Verification in the international Stripe payment system for accepting online payments",
-          price: "80 USDT",
+          price: "100 USD",
         },
       ],
     },
@@ -380,6 +469,95 @@ export const translations: Record<Locale, Translations> = {
       privacyPolicy: "Privacy Policy",
       termsOfService: "Terms of Service",
       copyright: "© 2024-2025 HEY, KYC! All rights reserved.",
+    },
+    modals: {
+      common: {
+        closeButton: "Close",
+        orderButton: "Order for",
+      },
+      redotpay: {
+        title: "RedotPay Cryptocurrency Card",
+        subtitle: "Cryptocurrency card with instant top-up",
+        virtualCard: "Virtual Card",
+        visa: "Visa",
+        keyBenefits: "Key Benefits",
+        cryptoSupport: "Support for 20+ cryptocurrencies",
+        cryptoDesc: "Bitcoin, Ethereum, USDT, USDC and others",
+        globalUse: "Global usage",
+        globalDesc: "Accepted worldwide where Visa is available",
+        packageIncludes: "What's included in the package",
+        packageItems: [
+          "Ready RedotPay account",
+          "Virtual Visa card",
+          "Mobile app access",
+          "Usage instructions",
+          "24/7 tech support"
+        ],
+        features: [
+          {
+            icon: "Bitcoin",
+            title: "Cryptocurrency",
+            desc: "Direct crypto conversion"
+          },
+          {
+            icon: "Zap",
+            title: "Instant top-up",
+            desc: "Directly with cryptocurrency"
+          },
+          {
+            icon: "Percent",
+            title: "Low fees",
+            desc: "Optimal rates"
+          },
+          {
+            icon: "UserCheck",
+            title: "Anonymity",
+            desc: "Minimal verification"
+          }
+        ]
+      },
+      bybit: {
+        title: "Bybit Virtual Card",
+        subtitle: "Cryptocurrency exchange with virtual cards",
+        virtualCard: "Virtual Card",
+        whatYouGet: "What you will get",
+        cryptoTrading: "Cryptocurrency trading",
+        tradingFeatures: [
+          "Spot trading",
+          "Futures trading",
+          "Margin trading",
+          "Copy trading"
+        ],
+        cardServices: "Card services",
+        cardFeatures: [
+          "Virtual card",
+          "Crypto top-up",
+          "Online purchases",
+          "Low fees"
+        ],
+        features: [
+          {
+            icon: "Bitcoin",
+            title: "Cryptocurrencies",
+            desc: "Trade 400+ cryptocurrencies"
+          },
+          {
+            icon: "CreditCard",
+            title: "Virtual card",
+            desc: "For online purchases"
+          },
+          {
+            icon: "TrendingUp",
+            title: "Futures",
+            desc: "Trade with leverage up to 100x"
+          },
+          {
+            icon: "Copy",
+            title: "Copy trading",
+            desc: "Copy profitable traders"
+          }
+        ]
+      }
     },
   },
   kz: {

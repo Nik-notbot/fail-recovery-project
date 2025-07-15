@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { useLanguage } from "@/lib/i18n/context";
 
 interface Bank {
   id: string;
@@ -75,24 +76,30 @@ const getBankUrls = (bankName: string) => {
   return null;
 };
 
-const getBankPrice = (bankName: string) => {
+const getBankPrice = (bankName: string, locale: string) => {
   const name = bankName.toLowerCase();
-  if (
+  
+  const isHighPrice = 
     name.includes("wise") ||
     name.includes("kraken") ||
     name.includes("neteller") ||
     name === "stripe" ||
-    name === "skrill"
-  ) {
-    return "8000 ₽";
+    name === "skrill";
+    
+  const isMediumPrice = name.includes("bybit") || name === "redotpay";
+  const isLowPrice = name === "esim";
+  
+  if (locale === 'en') {
+    if (isHighPrice) return "100 USD";
+    if (isMediumPrice) return "40 USD";
+    if (isLowPrice) return "30 USD";
+    return "Get price";
+  } else {
+    if (isHighPrice) return "8000 ₽";
+    if (isMediumPrice) return "3100 ₽";
+    if (isLowPrice) return "2400 ₽";
+    return "Узнать цену";
   }
-  if (name.includes("bybit") || name === "redotpay") {
-    return "3100 ₽";
-  }
-  if (name === "esim") {
-    return "2400 ₽";
-  }
-  return "Узнать цену";
 };
 
 export default function BankCard({
@@ -107,9 +114,10 @@ export default function BankCard({
   onStripeModal,
   onTelegramOpen,
 }: BankCardProps) {
+  const { locale } = useLanguage();
   const logoKey = getCleanLogoKey(bank.name);
   const bankUrl = getBankUrls(bank.name);
-  const price = getBankPrice(bank.name);
+  const price = getBankPrice(bank.name, locale);
 
   const handleBuyClick = () => {
     if (bankUrl) {
@@ -143,14 +151,14 @@ export default function BankCard({
             className="flex-1 bg-white text-gray-900 border-gray-300 hover:bg-gray-50"
             onClick={handleBuyClick}
           >
-            Купить {price}
+            {locale === 'en' ? 'Buy' : 'Купить'} {price}
           </Button>
           <Button
             variant="outline"
             className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-100"
             onClick={modalHandler}
           >
-            Подробнее
+            {locale === 'en' ? 'Details' : 'Подробнее'}
           </Button>
         </div>
       );
@@ -162,7 +170,7 @@ export default function BankCard({
         className="w-full border-gray-300 text-gray-700 hover:bg-gray-100"
         onClick={handleBuyClick}
       >
-        Купить {price}
+        {locale === 'en' ? 'Buy' : 'Купить'} {price}
       </Button>
     );
   };

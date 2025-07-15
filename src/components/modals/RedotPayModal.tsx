@@ -7,6 +7,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
+import { useLanguage } from "@/lib/i18n/context";
 
 interface RedotPayModalProps {
   isOpen: boolean;
@@ -14,6 +15,12 @@ interface RedotPayModalProps {
 }
 
 export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
+  const { t, locale } = useLanguage();
+  
+  const getPrice = () => {
+    return locale === 'en' ? '40 USD' : '3 100 ₽';
+  };
+  
   const handleOrderClick = () => {
     window.open("https://t.me/m/hT6UIwKhYmJk", "_blank");
     onClose();
@@ -35,10 +42,10 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
               </div>
             </div>
             <DialogTitle className="text-3xl font-bold text-center text-white">
-              Криптовалютная карта RedotPay
+              {t('modals.redotpay.title')}
             </DialogTitle>
             <p className="text-center text-purple-100 text-lg mt-2">
-              Криптовалютная карта с мгновенным пополнением
+              {t('modals.redotpay.subtitle')}
             </p>
           </DialogHeader>
         </div>
@@ -52,13 +59,13 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
                 variant="secondary"
                 className="bg-purple-100 text-purple-800"
               >
-                Виртуальная карта
+                {t('modals.redotpay.virtualCard')}
               </Badge>
               <Badge variant="secondary" className="bg-pink-100 text-pink-800">
-                Visa
+                {t('modals.redotpay.visa')}
               </Badge>
             </div>
-            <div className="text-3xl font-bold text-gray-900 mb-2">3 100 ₽</div>
+            <div className="text-3xl font-bold text-gray-900 mb-2">{getPrice()}</div>
           </div>
 
           {/* Features Grid */}
@@ -66,7 +73,7 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
             <div className="space-y-4">
               <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
                 <Icon name="Star" className="h-5 w-5 text-purple-600" />
-                Ключевые преимущества
+                {t('modals.redotpay.keyBenefits')}
               </h3>
               <div className="space-y-2">
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
@@ -77,10 +84,10 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
                     />
                     <div>
                       <h4 className="font-semibold text-sm text-blue-800">
-                        Поддержка 20+ криптовалют
+                        {t('modals.redotpay.cryptoSupport')}
                       </h4>
                       <p className="text-xs text-blue-700 mt-1">
-                        Bitcoin, Ethereum, USDT, USDC и другие
+                        {t('modals.redotpay.cryptoDesc')}
                       </p>
                     </div>
                   </div>
@@ -93,10 +100,10 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
                     />
                     <div>
                       <h4 className="font-semibold text-purple-800">
-                        Глобальное использование
+                        {t('modals.redotpay.globalUse')}
                       </h4>
                       <p className="text-sm text-purple-700 mt-1">
-                        Принимается во всем мире где есть Visa
+                        {t('modals.redotpay.globalDesc')}
                       </p>
                     </div>
                   </div>
@@ -107,7 +114,7 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
             <div className="space-y-4">
               <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
                 <Icon name="Package" className="h-5 w-5 text-purple-600" />
-                Что входит в пакет
+                {t('modals.redotpay.packageIncludes')}
               </h3>
               <div className="bg-gray-50 rounded-lg p-6">
                 <div className="space-y-2">
@@ -133,28 +140,7 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
 
           {/* Features Cards */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {[
-              {
-                icon: "Bitcoin",
-                title: "Криптовалютная",
-                desc: "Прямая конвертация крипты",
-              },
-              {
-                icon: "Zap",
-                title: "Мгновенное пополнение",
-                desc: "Криптовалютой напрямую",
-              },
-              {
-                icon: "Percent",
-                title: "Низкие комиссии",
-                desc: "Оптимальные тарифы",
-              },
-              {
-                icon: "UserCheck",
-                title: "Анонимность",
-                desc: "Минимальная верификация",
-              },
-            ].map((feature, index) => (
+            {t('modals.redotpay.features').map((feature: any, index: number) => (
               <div
                 key={index}
                 className="bg-white border border-gray-200 rounded-lg p-3 hover:shadow-md transition-shadow"
@@ -180,14 +166,14 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
               className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-3 rounded-lg text-lg font-semibold"
             >
               <Icon name="ShoppingCart" className="h-5 w-5 mr-2" />
-              Заказать за 3 100 ₽
+              {t('modals.common.orderButton')} {getPrice()}
             </Button>
             <Button
               variant="outline"
               onClick={onClose}
               className="px-8 py-3 text-lg"
             >
-              Закрыть
+              {t('modals.common.closeButton')}
             </Button>
           </div>
         </div>

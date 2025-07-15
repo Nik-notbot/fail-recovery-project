@@ -7,6 +7,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
+import { useLanguage } from "@/lib/i18n/context";
 
 interface BybitModalProps {
   isOpen: boolean;
@@ -14,6 +15,12 @@ interface BybitModalProps {
 }
 
 export default function BybitModal({ isOpen, onClose }: BybitModalProps) {
+  const { t, locale } = useLanguage();
+  
+  const getPrice = () => {
+    return locale === 'en' ? '40 USD' : '3 100 ₽';
+  };
+  
   const handleOrderClick = () => {
     window.open("https://t.me/m/gJc_SjqXNw40", "_blank");
     onClose();
@@ -35,10 +42,10 @@ export default function BybitModal({ isOpen, onClose }: BybitModalProps) {
               </div>
             </div>
             <DialogTitle className="text-3xl font-bold text-center text-white">
-              Bybit виртуальная карта
+              {t('modals.bybit.title')}
             </DialogTitle>
             <p className="text-center text-yellow-100 text-lg mt-2">
-              Криптовалютная биржа с виртуальными картами
+              {t('modals.bybit.subtitle')}
             </p>
           </DialogHeader>
         </div>
@@ -49,21 +56,21 @@ export default function BybitModal({ isOpen, onClose }: BybitModalProps) {
           <div className="text-center">
             <div className="inline-flex items-center gap-3 bg-yellow-50 rounded-2xl px-6 py-3 mb-4">
               <Badge className="bg-yellow-100 text-yellow-800 hover:bg-yellow-100">
-                Виртуальная карта
+                {t('modals.bybit.virtualCard')}
               </Badge>
-              <div className="text-3xl font-bold text-yellow-700">3 100 ₽</div>
+              <div className="text-3xl font-bold text-yellow-700">{getPrice()}</div>
             </div>
           </div>
 
           {/* Key Benefits */}
           <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl p-6">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-              Что вы получите
+              {t('modals.bybit.whatYouGet')}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <h3 className="font-semibold text-lg text-gray-900 mb-3">
-                  Торговля криптовалютами
+                  {t('modals.bybit.cryptoTrading')}
                 </h3>
                 <div className="space-y-2">
                   {[
@@ -84,7 +91,7 @@ export default function BybitModal({ isOpen, onClose }: BybitModalProps) {
               </div>
               <div>
                 <h3 className="font-semibold text-lg text-gray-900 mb-3">
-                  Карточные услуги
+                  {t('modals.bybit.cardServices')}
                 </h3>
                 <div className="space-y-2">
                   {[
@@ -108,28 +115,7 @@ export default function BybitModal({ isOpen, onClose }: BybitModalProps) {
 
           {/* Features Cards */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              {
-                icon: "Bitcoin",
-                title: "Криптовалюты",
-                desc: "Торговля 400+ криптовалютами",
-              },
-              {
-                icon: "CreditCard",
-                title: "Виртуальная карта",
-                desc: "Для онлайн покупок",
-              },
-              {
-                icon: "TrendingUp",
-                title: "Фьючерсы",
-                desc: "Торговля с плечом до 100x",
-              },
-              {
-                icon: "Copy",
-                title: "Копи-трейдинг",
-                desc: "Копируйте прибыльных трейдеров",
-              },
-            ].map((feature, index) => (
+            {t('modals.bybit.features').map((feature: any, index: number) => (
               <div
                 key={index}
                 className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
@@ -155,14 +141,14 @@ export default function BybitModal({ isOpen, onClose }: BybitModalProps) {
               className="flex-1 bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white py-3 rounded-lg text-lg font-semibold"
             >
               <Icon name="ShoppingCart" className="h-5 w-5 mr-2" />
-              Заказать за 3 100 ₽
+              {t('modals.common.orderButton')} {getPrice()}
             </Button>
             <Button
               variant="outline"
               onClick={onClose}
               className="px-8 py-3 text-lg"
             >
-              Закрыть
+              {t('modals.common.closeButton')}
             </Button>
           </div>
         </div>
