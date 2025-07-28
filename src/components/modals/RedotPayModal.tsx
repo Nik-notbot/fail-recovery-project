@@ -59,10 +59,10 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
                 variant="secondary"
                 className="bg-purple-100 text-purple-800"
               >
-{locale === 'en' ? 'Virtual Card' : 'Виртуальная карта'}
+                {locale === 'en' ? 'Virtual Card' : 'Виртуальная карта'}
               </Badge>
               <Badge variant="secondary" className="bg-pink-100 text-pink-800">
-{locale === 'en' ? 'Visa' : 'Visa'}
+                {locale === 'en' ? 'Visa' : 'Visa'}
               </Badge>
             </div>
             <div className="text-3xl font-bold text-gray-900 mb-2">{getPrice()}</div>
@@ -73,7 +73,7 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
             <div className="space-y-4">
               <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
                 <Icon name="Star" className="h-5 w-5 text-purple-600" />
-{locale === 'en' ? 'Key Benefits' : 'Основные преимущества'}
+                {locale === 'en' ? 'Key Benefits' : 'Основные преимущества'}
               </h3>
               <div className="space-y-2">
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
@@ -84,10 +84,10 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
                     />
                     <div>
                       <h4 className="font-semibold text-sm text-blue-800">
-{locale === 'en' ? 'Crypto Support' : 'Поддержка криптовалют'}
+                        {locale === 'en' ? 'Crypto Support' : 'Поддержка криптовалют'}
                       </h4>
                       <p className="text-xs text-blue-700 mt-1">
-{locale === 'en' ? 'Direct funding with cryptocurrencies' : 'Прямое пополнение криптовалютами'}
+                        {locale === 'en' ? 'Direct funding with cryptocurrencies' : 'Прямое пополнение криптовалютами'}
                       </p>
                     </div>
                   </div>
@@ -100,10 +100,10 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
                     />
                     <div>
                       <h4 className="font-semibold text-purple-800">
-{locale === 'en' ? 'Global Usage' : 'Глобальное использование'}
+                        {locale === 'en' ? 'Global Usage' : 'Глобальное использование'}
                       </h4>
                       <p className="text-sm text-purple-700 mt-1">
-{locale === 'en' ? 'Accepted worldwide for online payments' : 'Принимается по всему миру для онлайн-платежей'}
+                        {locale === 'en' ? 'Accepted worldwide for online payments' : 'Принимается по всему миру для онлайн-платежей'}
                       </p>
                     </div>
                   </div>
@@ -114,11 +114,11 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
             <div className="space-y-4">
               <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
                 <Icon name="Package" className="h-5 w-5 text-purple-600" />
-{locale === 'en' ? 'Package Includes' : 'Что входит в пакет'}
+                {locale === 'en' ? 'Package Includes' : 'Что входит в пакет'}
               </h3>
               <div className="bg-gray-50 rounded-lg p-6">
                 <div className="space-y-2">
-                  [
+                  {[
                     locale === 'en' ? 'Ready RedotPay Account' : 'Готовый аккаунт RedotPay',
                     locale === 'en' ? 'Virtual Visa Card' : 'Виртуальная карта Visa',
                     locale === 'en' ? 'Mobile App Access' : 'Доступ к мобильному приложению',
@@ -140,7 +140,7 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
 
           {/* Features Cards */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            [
+            {[
               {
                 icon: "CreditCard",
                 title: locale === 'en' ? 'Virtual Card' : 'Виртуальная карта',
@@ -187,14 +187,14 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
               className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-3 rounded-lg text-lg font-semibold"
             >
               <Icon name="ShoppingCart" className="h-5 w-5 mr-2" />
-{locale === 'en' ? `Buy for ${getPrice()}` : `Купить за ${getPrice()}`}
+              {locale === 'en' ? `Buy for ${getPrice()}` : `Купить за ${getPrice()}`}
             </Button>
             <Button
               variant="outline"
               onClick={onClose}
               className="px-8 py-3 text-lg"
             >
-{locale === 'en' ? 'Close' : 'Закрыть'}
+              {locale === 'en' ? 'Close' : 'Закрыть'}
             </Button>
           </div>
         </div>
