@@ -141,7 +141,7 @@ export default function KrakenModal({ isOpen, onClose }: KrakenModalProps) {
 
           {/* Features Cards */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            [
+            {[
               {
                 icon: "CreditCard",
                 title: locale === 'en' ? 'Virtual Card' : 'Виртуальная карта',
