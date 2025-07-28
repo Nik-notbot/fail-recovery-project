@@ -155,7 +155,7 @@ export default function StripeModal({ isOpen, onClose }: StripeModalProps) {
 
           {/* Features Cards */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            [
+            {[
               {
                 icon: "Code",
                 title: locale === 'en' ? 'API Integration' : 'API интеграция',
