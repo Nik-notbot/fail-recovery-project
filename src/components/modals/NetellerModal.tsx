@@ -131,7 +131,7 @@ export default function NetellerModal({ isOpen, onClose }: NetellerModalProps) {
               </h3>
               <div className="bg-gray-50 rounded-lg p-6">
                 <div className="space-y-2">
-                  [
+                  {[
                     locale === 'en' ? 'Verified Account' : 'Верифицированный аккаунт',
                     locale === 'en' ? 'Activated Net+ Card' : 'Активированная Net+ карта',
                     locale === 'en' ? 'Limit Configuration' : 'Настройка лимитов',
@@ -152,7 +152,7 @@ export default function NetellerModal({ isOpen, onClose }: NetellerModalProps) {
 
           {/* Features Cards */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            [
+            {[
               {
                 icon: "CreditCard",
                 title: locale === 'en' ? 'Net+ Card' : 'Net+ карта',

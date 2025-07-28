@@ -131,7 +131,7 @@ export default function SkrillModal({ isOpen, onClose }: SkrillModalProps) {
               </h3>
               <div className="bg-gray-50 rounded-lg p-6">
                 <div className="space-y-3">
-                  [
+                  {[
                     locale === 'en' ? 'Verified Account' : 'Верифицированный аккаунт',
                     locale === 'en' ? 'Activated Card' : 'Активированная карта',
                     locale === 'en' ? 'Cryptocurrency Access' : 'Доступ к криптовалютам',
