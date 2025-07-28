@@ -7,6 +7,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
+import { useLanguage } from "@/lib/i18n/context";
 
 interface WiseModalProps {
   isOpen: boolean;
@@ -14,6 +15,8 @@ interface WiseModalProps {
 }
 
 export default function WiseModal({ isOpen, onClose }: WiseModalProps) {
+  const { locale } = useLanguage();
+  
   const handleOrderClick = () => {
     window.open("https://t.me/m/0F_E6lYlNjQ8", "_blank");
     onClose();
@@ -35,10 +38,10 @@ export default function WiseModal({ isOpen, onClose }: WiseModalProps) {
               </div>
             </div>
             <DialogTitle className="text-3xl font-bold text-center text-white">
-              Европейская карта Wise
+{locale === 'en' ? 'European Wise Card' : 'Европейская карта Wise'}
             </DialogTitle>
             <p className="text-center text-blue-100 text-lg mt-2">
-              Британская платежная система для международных переводов
+{locale === 'en' ? 'British payment system for international transfers' : 'Британская платежная система для международных переводов'}
             </p>
           </DialogHeader>
         </div>
@@ -49,7 +52,7 @@ export default function WiseModal({ isOpen, onClose }: WiseModalProps) {
           <div className="text-center">
             <div className="inline-flex items-center gap-3 bg-blue-50 rounded-2xl px-6 py-3 mb-4">
               <Badge variant="secondary" className="bg-blue-100 text-blue-800">
-                Виртуальная карта
+{locale === 'en' ? 'Virtual Card' : 'Виртуальная карта'}
               </Badge>
               <Badge
                 variant="secondary"
@@ -58,7 +61,7 @@ export default function WiseModal({ isOpen, onClose }: WiseModalProps) {
                 Visa
               </Badge>
             </div>
-            <div className="text-4xl font-bold text-gray-900 mb-2">8 000 ₽</div>
+            <div className="text-4xl font-bold text-gray-900 mb-2">{locale === 'en' ? '100 USD' : '8 000 ₽'}</div>
           </div>
 
           {/* Features Grid */}
@@ -66,7 +69,7 @@ export default function WiseModal({ isOpen, onClose }: WiseModalProps) {
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
                 <Icon name="Star" className="h-5 w-5 text-blue-600" />
-                Ключевые преимущества
+{locale === 'en' ? 'Key advantages' : 'Ключевые преимущества'}
               </h3>
               <div className="space-y-3">
                 <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
@@ -77,10 +80,10 @@ export default function WiseModal({ isOpen, onClose }: WiseModalProps) {
                     />
                     <div>
                       <h4 className="font-semibold text-orange-800">
-                        SWIFT переводы по миру
+{locale === 'en' ? 'SWIFT transfers worldwide' : 'SWIFT переводы по миру'}
                       </h4>
                       <p className="text-sm text-orange-700 mt-1">
-                        Не нужно декларировать. Бесплатное обслуживание
+{locale === 'en' ? 'No declaration needed. Free service' : 'Не нужно декларировать. Бесплатное обслуживание'}
                       </p>
                     </div>
                   </div>
@@ -93,10 +96,10 @@ export default function WiseModal({ isOpen, onClose }: WiseModalProps) {
                     />
                     <div>
                       <h4 className="font-semibold text-green-800">
-                        Легкое пополнение
+{locale === 'en' ? 'Easy funding' : 'Легкое пополнение'}
                       </h4>
                       <p className="text-sm text-green-700 mt-1">
-                        Через криптовалюту с подробными инструкциями
+{locale === 'en' ? 'Via cryptocurrency with detailed instructions' : 'Через криптовалюту с подробными инструкциями'}
                       </p>
                     </div>
                   </div>
@@ -107,16 +110,16 @@ export default function WiseModal({ isOpen, onClose }: WiseModalProps) {
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
                 <Icon name="Package" className="h-5 w-5 text-blue-600" />
-                Что входит в пакет
+{locale === 'en' ? 'Package includes' : 'Что входит в пакет'}
               </h3>
               <div className="bg-gray-50 rounded-lg p-6">
                 <div className="space-y-3">
                   {[
-                    "Готовый аккаунт WISE",
-                    "Виртуальная карта Visa",
-                    "SWIFT переводы",
-                    "Инструкции по пополнению",
-                    "Техподдержка 24/7",
+                    locale === 'en' ? 'Ready WISE account' : 'Готовый аккаунт WISE',
+                    locale === 'en' ? 'Visa Virtual Card' : 'Виртуальная карта Visa',
+                    locale === 'en' ? 'SWIFT transfers' : 'SWIFT переводы',
+                    locale === 'en' ? 'Funding instructions' : 'Инструкции по пополнению',
+                    locale === 'en' ? '24/7 Support' : 'Техподдержка 24/7',
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-3">
                       <Icon
@@ -136,23 +139,23 @@ export default function WiseModal({ isOpen, onClose }: WiseModalProps) {
             {[
               {
                 icon: "Shield",
-                title: "Без доверенности",
-                desc: "Полноценная европейская карта",
+                title: locale === 'en' ? 'Without proxy' : 'Без доверенности',
+                desc: locale === 'en' ? 'Full European card' : 'Полноценная европейская карта',
               },
               {
                 icon: "MapPin",
-                title: "Европейская карта",
-                desc: "Выпущена в ЕС",
+                title: locale === 'en' ? 'European card' : 'Европейская карта',
+                desc: locale === 'en' ? 'Issued in EU' : 'Выпущена в ЕС',
               },
               {
                 icon: "Zap",
-                title: "Исходящий Swift",
-                desc: "Переводы по миру",
+                title: locale === 'en' ? 'Outgoing Swift' : 'Исходящий Swift',
+                desc: locale === 'en' ? 'Worldwide transfers' : 'Переводы по миру',
               },
               {
                 icon: "Smartphone",
-                title: "Поддержка платежей",
-                desc: "GooglePay, ApplePay",
+                title: locale === 'en' ? 'Payment support' : 'Поддержка платежей',
+                desc: 'GooglePay, ApplePay',
               },
             ].map((feature, index) => (
               <div
@@ -180,14 +183,14 @@ export default function WiseModal({ isOpen, onClose }: WiseModalProps) {
               className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 rounded-lg text-lg font-semibold"
             >
               <Icon name="ShoppingCart" className="h-5 w-5 mr-2" />
-              Заказать за 8 000 ₽
+{locale === 'en' ? 'Order for 100 USD' : 'Заказать за 8 000 ₽'}
             </Button>
             <Button
               variant="outline"
               onClick={onClose}
               className="px-8 py-3 text-lg"
             >
-              Закрыть
+{locale === 'en' ? 'Close' : 'Закрыть'}
             </Button>
           </div>
         </div>

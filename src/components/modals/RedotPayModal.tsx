@@ -15,7 +15,7 @@ interface RedotPayModalProps {
 }
 
 export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
-  const { t, locale } = useLanguage();
+  const { locale } = useLanguage();
   
   const getPrice = () => {
     return locale === 'en' ? '40 USD' : '3 100 ₽';
@@ -42,10 +42,10 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
               </div>
             </div>
             <DialogTitle className="text-3xl font-bold text-center text-white">
-              {t('modals.redotpay.title')}
+              {locale === 'en' ? 'RedotPay Virtual Card' : 'RedotPay виртуальная карта'}
             </DialogTitle>
             <p className="text-center text-purple-100 text-lg mt-2">
-              {t('modals.redotpay.subtitle')}
+              {locale === 'en' ? 'Cryptocurrency payment solution' : 'Криптовалютное платежное решение'}
             </p>
           </DialogHeader>
         </div>
@@ -59,10 +59,10 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
                 variant="secondary"
                 className="bg-purple-100 text-purple-800"
               >
-                {t('modals.redotpay.virtualCard')}
+{locale === 'en' ? 'Virtual Card' : 'Виртуальная карта'}
               </Badge>
               <Badge variant="secondary" className="bg-pink-100 text-pink-800">
-                {t('modals.redotpay.visa')}
+{locale === 'en' ? 'Visa' : 'Visa'}
               </Badge>
             </div>
             <div className="text-3xl font-bold text-gray-900 mb-2">{getPrice()}</div>
@@ -73,7 +73,7 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
             <div className="space-y-4">
               <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
                 <Icon name="Star" className="h-5 w-5 text-purple-600" />
-                {t('modals.redotpay.keyBenefits')}
+{locale === 'en' ? 'Key Benefits' : 'Основные преимущества'}
               </h3>
               <div className="space-y-2">
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
@@ -84,10 +84,10 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
                     />
                     <div>
                       <h4 className="font-semibold text-sm text-blue-800">
-                        {t('modals.redotpay.cryptoSupport')}
+{locale === 'en' ? 'Crypto Support' : 'Поддержка криптовалют'}
                       </h4>
                       <p className="text-xs text-blue-700 mt-1">
-                        {t('modals.redotpay.cryptoDesc')}
+{locale === 'en' ? 'Direct funding with cryptocurrencies' : 'Прямое пополнение криптовалютами'}
                       </p>
                     </div>
                   </div>

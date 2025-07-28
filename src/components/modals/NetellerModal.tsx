@@ -7,6 +7,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
+import { useLanguage } from "@/lib/i18n/context";
 
 interface NetellerModalProps {
   isOpen: boolean;
@@ -14,6 +15,12 @@ interface NetellerModalProps {
 }
 
 export default function NetellerModal({ isOpen, onClose }: NetellerModalProps) {
+  const { locale } = useLanguage();
+  
+  const getPrice = () => {
+    return locale === 'en' ? '100 USD' : '8 000 ₽';
+  };
+  
   const handleOrderClick = () => {
     window.open("https://t.me/m/l0fyHDctZTFk", "_blank");
     onClose();
@@ -35,10 +42,10 @@ export default function NetellerModal({ isOpen, onClose }: NetellerModalProps) {
               </div>
             </div>
             <DialogTitle className="text-3xl font-bold text-center text-white">
-              Neteller E-Wallet
+              {locale === 'en' ? 'Neteller E-Wallet' : 'Neteller E-Wallet'}
             </DialogTitle>
             <p className="text-center text-green-100 text-lg mt-2">
-              Глобальная электронная платежная система
+              {locale === 'en' ? 'Global electronic payment system' : 'Глобальная электронная платежная система'}
             </p>
           </DialogHeader>
         </div>
@@ -52,13 +59,13 @@ export default function NetellerModal({ isOpen, onClose }: NetellerModalProps) {
                 variant="secondary"
                 className="bg-green-100 text-green-800"
               >
-                E-wallet + карта
+{locale === 'en' ? 'E-wallet + Card' : 'E-wallet + карта'}
               </Badge>
               <Badge variant="secondary" className="bg-teal-100 text-teal-800">
-                Глобальная система
+{locale === 'en' ? 'Global System' : 'Глобальная система'}
               </Badge>
             </div>
-            <div className="text-3xl font-bold text-gray-900 mb-2">8 000 ₽</div>
+            <div className="text-3xl font-bold text-gray-900 mb-2">{getPrice()}</div>
           </div>
 
           {/* Features Grid */}
@@ -66,7 +73,7 @@ export default function NetellerModal({ isOpen, onClose }: NetellerModalProps) {
             <div className="space-y-4">
               <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
                 <Icon name="Star" className="h-5 w-5 text-green-600" />
-                E-wallet возможности
+{locale === 'en' ? 'E-wallet Features' : 'E-wallet возможности'}
               </h3>
               <div className="space-y-2">
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
@@ -74,10 +81,10 @@ export default function NetellerModal({ isOpen, onClose }: NetellerModalProps) {
                     <Icon name="Zap" className="h-5 w-5 text-blue-600 mt-0.5" />
                     <div>
                       <h4 className="font-semibold text-sm text-blue-800">
-                        Мгновенные переводы
+{locale === 'en' ? 'Instant Transfers' : 'Мгновенные переводы'}
                       </h4>
                       <p className="text-xs text-blue-700 mt-1">
-                        Быстрые платежи по всему миру
+{locale === 'en' ? 'Fast payments worldwide' : 'Быстрые платежи по всему миру'}
                       </p>
                     </div>
                   </div>
@@ -90,10 +97,10 @@ export default function NetellerModal({ isOpen, onClose }: NetellerModalProps) {
                     />
                     <div>
                       <h4 className="font-semibold text-green-800">
-                        Низкие комиссии
+{locale === 'en' ? 'Low Fees' : 'Низкие комиссии'}
                       </h4>
                       <p className="text-sm text-green-700 mt-1">
-                        Выгодные тарифы на операции
+{locale === 'en' ? 'Competitive transaction rates' : 'Выгодные тарифы на операции'}
                       </p>
                     </div>
                   </div>
@@ -106,10 +113,10 @@ export default function NetellerModal({ isOpen, onClose }: NetellerModalProps) {
                     />
                     <div>
                       <h4 className="font-semibold text-purple-800">
-                        26 валют
+{locale === 'en' ? '26 Currencies' : '26 валют'}
                       </h4>
                       <p className="text-sm text-purple-700 mt-1">
-                        Поддержка множества валют
+{locale === 'en' ? 'Multiple currency support' : 'Поддержка множества валют'}
                       </p>
                     </div>
                   </div>
@@ -120,15 +127,15 @@ export default function NetellerModal({ isOpen, onClose }: NetellerModalProps) {
             <div className="space-y-4">
               <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
                 <Icon name="Package" className="h-5 w-5 text-green-600" />
-                Что входит в пакет
+{locale === 'en' ? 'Package Includes' : 'Что входит в пакет'}
               </h3>
               <div className="bg-gray-50 rounded-lg p-6">
                 <div className="space-y-2">
-                  {[
-                    "Верифицированный аккаунт",
-                    "Активированная Net+ карта",
-                    "Настройка лимитов",
-                    "Инструкции по использованию",
+                  [
+                    locale === 'en' ? 'Verified Account' : 'Верифицированный аккаунт',
+                    locale === 'en' ? 'Activated Net+ Card' : 'Активированная Net+ карта',
+                    locale === 'en' ? 'Limit Configuration' : 'Настройка лимитов',
+                    locale === 'en' ? 'Usage Instructions' : 'Инструкции по использованию',
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-3">
                       <Icon
@@ -145,26 +152,26 @@ export default function NetellerModal({ isOpen, onClose }: NetellerModalProps) {
 
           {/* Features Cards */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
+            [
               {
                 icon: "CreditCard",
-                title: "Net+ карта",
-                desc: "Mastercard по всему миру",
+                title: locale === 'en' ? 'Net+ Card' : 'Net+ карта',
+                desc: locale === 'en' ? 'Mastercard worldwide' : 'Mastercard по всему миру',
               },
               {
                 icon: "Banknote",
-                title: "Снятие наличных",
-                desc: "В банкоматах по миру",
+                title: locale === 'en' ? 'Cash Withdrawal' : 'Снятие наличных',
+                desc: locale === 'en' ? 'ATMs worldwide' : 'В банкоматах по миру',
               },
               {
                 icon: "ShoppingCart",
-                title: "Покупки",
-                desc: "В магазинах и онлайн",
+                title: locale === 'en' ? 'Shopping' : 'Покупки',
+                desc: locale === 'en' ? 'In-store and online' : 'В магазинах и онлайн',
               },
               {
                 icon: "Smartphone",
-                title: "Мобильное приложение",
-                desc: "Контроль через смартфон",
+                title: locale === 'en' ? 'Mobile App' : 'Мобильное приложение',
+                desc: locale === 'en' ? 'Smartphone control' : 'Контроль через смартфон',
               },
             ].map((feature, index) => (
               <div
@@ -192,14 +199,14 @@ export default function NetellerModal({ isOpen, onClose }: NetellerModalProps) {
               className="flex-1 bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white py-3 rounded-lg text-lg font-semibold"
             >
               <Icon name="ShoppingCart" className="h-5 w-5 mr-2" />
-              Купить за 8 000 ₽
+{locale === 'en' ? `Buy for ${getPrice()}` : `Купить за ${getPrice()}`}
             </Button>
             <Button
               variant="outline"
               onClick={onClose}
               className="px-8 py-3 text-lg"
             >
-              Закрыть
+{locale === 'en' ? 'Close' : 'Закрыть'}
             </Button>
           </div>
         </div>

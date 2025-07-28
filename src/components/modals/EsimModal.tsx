@@ -7,6 +7,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
+import { useLanguage } from "@/lib/i18n/context";
 
 interface EsimModalProps {
   isOpen: boolean;
@@ -14,6 +15,12 @@ interface EsimModalProps {
 }
 
 export default function EsimModal({ isOpen, onClose }: EsimModalProps) {
+  const { locale } = useLanguage();
+  
+  const getPrice = () => {
+    return locale === 'en' ? '30 USD' : '2 400 ₽';
+  };
+  
   const handleOrderClick = () => {
     window.open("https://t.me/m/s3YBfElRZGRk", "_blank");
     onClose();
@@ -35,10 +42,10 @@ export default function EsimModal({ isOpen, onClose }: EsimModalProps) {
               </div>
             </div>
             <DialogTitle className="text-3xl font-bold text-center text-white">
-              eSIM Европа
+{locale === 'en' ? 'eSIM Europe' : 'eSIM Европа'}
             </DialogTitle>
             <p className="text-center text-blue-100 text-lg mt-2">
-              Виртуальная SIM-карта для путешествий по Европе
+{locale === 'en' ? 'Virtual SIM card for traveling in Europe' : 'Виртуальная SIM-карта для путешествий по Европе'}
             </p>
           </DialogHeader>
         </div>
@@ -49,13 +56,13 @@ export default function EsimModal({ isOpen, onClose }: EsimModalProps) {
           <div className="text-center">
             <div className="inline-flex items-center gap-2 bg-blue-50 rounded-xl px-4 py-2 mb-2">
               <Badge variant="secondary" className="bg-blue-100 text-blue-800">
-                eSIM технология
+{locale === 'en' ? 'eSIM technology' : 'eSIM технология'}
               </Badge>
               <Badge variant="secondary" className="bg-cyan-100 text-cyan-800">
-                27 стран Европы
+{locale === 'en' ? '27 European Countries' : '27 стран Европы'}
               </Badge>
             </div>
-            <div className="text-3xl font-bold text-gray-900 mb-2">2 400 ₽</div>
+            <div className="text-3xl font-bold text-gray-900 mb-2">{getPrice()}</div>
           </div>
 
           {/* Features Grid */}
@@ -63,7 +70,7 @@ export default function EsimModal({ isOpen, onClose }: EsimModalProps) {
             <div className="space-y-3">
               <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
                 <Icon name="Star" className="h-5 w-5 text-blue-600" />
-                Покрытие и возможности
+{locale === 'en' ? 'Coverage and features' : 'Покрытие и возможности'}
               </h3>
               <div className="space-y-2">
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
@@ -74,10 +81,10 @@ export default function EsimModal({ isOpen, onClose }: EsimModalProps) {
                     />
                     <div>
                       <h4 className="font-semibold text-sm text-blue-800">
-                        27 стран Европы
+{locale === 'en' ? '27 European countries' : '27 стран Европы'}
                       </h4>
                       <p className="text-xs text-blue-700 mt-1">
-                        Полное покрытие Европейского союза
+{locale === 'en' ? 'Full European Union coverage' : 'Полное покрытие Европейского союза'}
                       </p>
                     </div>
                   </div>
@@ -90,10 +97,10 @@ export default function EsimModal({ isOpen, onClose }: EsimModalProps) {
                     />
                     <div>
                       <h4 className="font-semibold text-green-800">
-                        Высокоскоростной интернет
+{locale === 'en' ? 'High-speed internet' : 'Высокоскоростной интернет'}
                       </h4>
                       <p className="text-sm text-green-700 mt-1">
-                        4G/5G сеть без ограничений
+{locale === 'en' ? 'Unlimited 4G/5G network' : '4G/5G сеть без ограничений'}
                       </p>
                     </div>
                   </div>
@@ -106,10 +113,10 @@ export default function EsimModal({ isOpen, onClose }: EsimModalProps) {
                     />
                     <div>
                       <h4 className="font-semibold text-purple-800">
-                        Экономия до 90%
+{locale === 'en' ? 'Up to 90% savings' : 'Экономия до 90%'}
                       </h4>
                       <p className="text-sm text-purple-700 mt-1">
-                        По сравнению с роумингом
+{locale === 'en' ? 'Compared to roaming' : 'По сравнению с роумингом'}
                       </p>
                     </div>
                   </div>
@@ -120,15 +127,15 @@ export default function EsimModal({ isOpen, onClose }: EsimModalProps) {
             <div className="space-y-3">
               <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
                 <Icon name="Package" className="h-5 w-5 text-blue-600" />
-                Что входит в пакет
+{locale === 'en' ? 'Package includes' : 'Что входит в пакет'}
               </h3>
               <div className="bg-gray-50 rounded-lg p-6">
                 <div className="space-y-2">
                   {[
-                    "eSIM профиль",
-                    "QR-код для активации",
-                    "Инструкция по установке",
-                    "Техническая поддержка",
+                    locale === 'en' ? 'eSIM profile' : 'eSIM профиль',
+                    locale === 'en' ? 'QR code for activation' : 'QR-код для активации',
+                    locale === 'en' ? 'Installation instructions' : 'Инструкция по установке',
+                    locale === 'en' ? 'Technical support' : 'Техническая поддержка',
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-3">
                       <Icon
@@ -148,23 +155,23 @@ export default function EsimModal({ isOpen, onClose }: EsimModalProps) {
             {[
               {
                 icon: "Zap",
-                title: "Мгновенная активация",
-                desc: "Активация за несколько минут",
+                title: locale === 'en' ? 'Instant activation' : 'Мгновенная активация',
+                desc: locale === 'en' ? 'Activation in minutes' : 'Активация за несколько минут',
               },
               {
                 icon: "Smartphone",
-                title: "Нет физической SIM",
-                desc: "Полностью виртуальная",
+                title: locale === 'en' ? 'No physical SIM' : 'Нет физической SIM',
+                desc: locale === 'en' ? 'Fully virtual' : 'Полностью виртуальная',
               },
               {
                 icon: "Settings",
-                title: "Удобное управление",
-                desc: "Через мобильное приложение",
+                title: locale === 'en' ? 'Easy management' : 'Удобное управление',
+                desc: locale === 'en' ? 'Via mobile app' : 'Через мобильное приложение',
               },
               {
                 icon: "Shield",
-                title: "Без роуминга",
-                desc: "Фиксированная стоимость",
+                title: locale === 'en' ? 'No roaming' : 'Без роуминга',
+                desc: locale === 'en' ? 'Fixed cost' : 'Фиксированная стоимость',
               },
             ].map((feature, index) => (
               <div
@@ -192,14 +199,14 @@ export default function EsimModal({ isOpen, onClose }: EsimModalProps) {
               className="flex-1 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white py-3 rounded-lg text-lg font-semibold"
             >
               <Icon name="ShoppingCart" className="h-5 w-5 mr-2" />
-              Купить за 2 400 ₽
+{locale === 'en' ? `Buy for ${getPrice()}` : `Купить за ${getPrice()}`}
             </Button>
             <Button
               variant="outline"
               onClick={onClose}
               className="px-8 py-3 text-lg"
             >
-              Закрыть
+{locale === 'en' ? 'Close' : 'Закрыть'}
             </Button>
           </div>
         </div>

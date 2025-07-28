@@ -7,6 +7,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
+import { useLanguage } from "@/lib/i18n/context";
 
 interface StripeModalProps {
   isOpen: boolean;
@@ -123,15 +124,15 @@ export default function StripeModal({ isOpen, onClose }: StripeModalProps) {
             <div className="space-y-3">
               <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
                 <Icon name="Package" className="h-5 w-5 text-indigo-600" />
-                Что входит в пакет
+{locale === 'en' ? 'Package includes' : 'Что входит в пакет'}
               </h3>
               <div className="bg-gray-50 rounded-lg p-6">
                 <div className="space-y-2">
                   {[
-                    "Аккаунт Stripe",
-                    "Полная верификация",
-                    "Настройка платежей",
-                    "Техническая интеграция",
+                    locale === 'en' ? 'Stripe Account' : 'Аккаунт Stripe',
+                    locale === 'en' ? 'Full Verification' : 'Полная верификация',
+                    locale === 'en' ? 'Payment Setup' : 'Настройка платежей',
+                    locale === 'en' ? 'Technical Integration' : 'Техническая интеграция',
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-3">
                       <Icon
@@ -202,7 +203,7 @@ export default function StripeModal({ isOpen, onClose }: StripeModalProps) {
               onClick={onClose}
               className="px-8 py-3 text-lg"
             >
-              Закрыть
+{locale === 'en' ? 'Close' : 'Закрыть'}
             </Button>
           </div>
         </div>
