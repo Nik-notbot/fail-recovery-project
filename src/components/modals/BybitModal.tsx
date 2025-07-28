@@ -74,10 +74,10 @@ export default function BybitModal({ isOpen, onClose }: BybitModalProps) {
                 </h3>
                 <div className="space-y-2">
                   {[
-                    "Споттовая торговля",
-                    "Фьючерсная торговля",
-                    "Маржинальная торговля",
-                    "Копи-трейдинг",
+                    locale === 'en' ? 'Spot trading' : 'Споттовая торговля',
+                    locale === 'en' ? 'Futures trading' : 'Фьючерсная торговля',
+                    locale === 'en' ? 'Margin trading' : 'Маржинальная торговля',
+                    locale === 'en' ? 'Copy trading' : 'Копи-трейдинг',
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-3">
                       <Icon
@@ -95,10 +95,10 @@ export default function BybitModal({ isOpen, onClose }: BybitModalProps) {
                 </h3>
                 <div className="space-y-2">
                   {[
-                    "Виртуальная карта",
-                    "Пополнение криптой",
-                    "Покупки в интернете",
-                    "Низкие комиссии",
+                    locale === 'en' ? 'Virtual card' : 'Виртуальная карта',
+                    locale === 'en' ? 'Crypto funding' : 'Пополнение криптой',
+                    locale === 'en' ? 'Online purchases' : 'Покупки в интернете',
+                    locale === 'en' ? 'Low fees' : 'Низкие комиссии',
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-3">
                       <Icon
