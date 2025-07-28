@@ -15,6 +15,12 @@ interface StripeModalProps {
 }
 
 export default function StripeModal({ isOpen, onClose }: StripeModalProps) {
+  const { locale } = useLanguage();
+  
+  const getPrice = () => {
+    return locale === 'en' ? '100 USD' : '8 000 ₽';
+  };
+  
   const handleOrderClick = () => {
     window.open("https://t.me/forbidden_john", "_blank");
     onClose();
@@ -36,10 +42,10 @@ export default function StripeModal({ isOpen, onClose }: StripeModalProps) {
               </div>
             </div>
             <DialogTitle className="text-3xl font-bold text-center text-white">
-              Stripe для бизнеса
+              {locale === 'en' ? 'Stripe for Business' : 'Stripe для бизнеса'}
             </DialogTitle>
             <p className="text-center text-indigo-100 text-lg mt-2">
-              Ведущая платформа для онлайн платежей
+              {locale === 'en' ? 'Leading platform for online payments' : 'Ведущая платформа для онлайн платежей'}
             </p>
           </DialogHeader>
         </div>
@@ -53,13 +59,13 @@ export default function StripeModal({ isOpen, onClose }: StripeModalProps) {
                 variant="secondary"
                 className="bg-indigo-100 text-indigo-800"
               >
-                Для бизнеса
+{locale === 'en' ? 'For Business' : 'Для бизнеса'}
               </Badge>
               <Badge variant="secondary" className="bg-blue-100 text-blue-800">
-                Платежный процессинг
+{locale === 'en' ? 'Payment Processing' : 'Платежный процессинг'}
               </Badge>
             </div>
-            <div className="text-3xl font-bold text-gray-900 mb-2">8 000 ₽</div>
+            <div className="text-3xl font-bold text-gray-900 mb-2">{getPrice()}</div>
           </div>
 
           {/* Features Grid */}
@@ -67,7 +73,7 @@ export default function StripeModal({ isOpen, onClose }: StripeModalProps) {
             <div className="space-y-3">
               <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
                 <Icon name="Star" className="h-5 w-5 text-indigo-600" />
-                Возможности для бизнеса
+{locale === 'en' ? 'Business Features' : 'Возможности для бизнеса'}
               </h3>
               <div className="space-y-2">
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
@@ -78,10 +84,10 @@ export default function StripeModal({ isOpen, onClose }: StripeModalProps) {
                     />
                     <div>
                       <h4 className="font-semibold text-blue-800">
-                        Прием онлайн платежей
+{locale === 'en' ? 'Accept Online Payments' : 'Прием онлайн платежей'}
                       </h4>
                       <p className="text-sm text-blue-700 mt-1">
-                        Обработка платежей в реальном времени
+{locale === 'en' ? 'Real-time payment processing' : 'Обработка платежей в реальном времени'}
                       </p>
                     </div>
                   </div>
@@ -94,10 +100,10 @@ export default function StripeModal({ isOpen, onClose }: StripeModalProps) {
                     />
                     <div>
                       <h4 className="font-semibold text-green-800">
-                        135+ валют
+{locale === 'en' ? '135+ Currencies' : '135+ валют'}
                       </h4>
                       <p className="text-sm text-green-700 mt-1">
-                        Международные платежи
+{locale === 'en' ? 'International payments' : 'Международные платежи'}
                       </p>
                     </div>
                   </div>
@@ -110,10 +116,10 @@ export default function StripeModal({ isOpen, onClose }: StripeModalProps) {
                     />
                     <div>
                       <h4 className="font-semibold text-purple-800">
-                        Аналитика продаж
+{locale === 'en' ? 'Sales Analytics' : 'Аналитика продаж'}
                       </h4>
                       <p className="text-sm text-purple-700 mt-1">
-                        Детальная отчетность
+{locale === 'en' ? 'Detailed reporting' : 'Детальная отчетность'}
                       </p>
                     </div>
                   </div>
@@ -149,26 +155,26 @@ export default function StripeModal({ isOpen, onClose }: StripeModalProps) {
 
           {/* Features Cards */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {[
+            [
               {
                 icon: "Code",
-                title: "API интеграция",
-                desc: "Простая интеграция с сайтом",
+                title: locale === 'en' ? 'API Integration' : 'API интеграция',
+                desc: locale === 'en' ? 'Easy website integration' : 'Простая интеграция с сайтом',
               },
               {
                 icon: "Shield",
-                title: "PCI DSS",
-                desc: "Максимальная безопасность",
+                title: locale === 'en' ? 'PCI DSS' : 'PCI DSS',
+                desc: locale === 'en' ? 'Maximum security' : 'Максимальная безопасность',
               },
               {
                 icon: "AlertTriangle",
-                title: "Защита от мошенничества",
-                desc: "Встроенная защита",
+                title: locale === 'en' ? 'Fraud Protection' : 'Защита от мошенничества',
+                desc: locale === 'en' ? 'Built-in protection' : 'Встроенная защита',
               },
               {
                 icon: "Award",
-                title: "SOC 2 Type II",
-                desc: "Международные стандарты",
+                title: locale === 'en' ? 'SOC 2 Type II' : 'SOC 2 Type II',
+                desc: locale === 'en' ? 'International standards' : 'Международные стандарты',
               },
             ].map((feature, index) => (
               <div
@@ -196,7 +202,7 @@ export default function StripeModal({ isOpen, onClose }: StripeModalProps) {
               className="flex-1 bg-gradient-to-r from-indigo-600 to-blue-700 hover:from-indigo-700 hover:to-blue-800 text-white py-3 rounded-lg text-lg font-semibold"
             >
               <Icon name="ShoppingCart" className="h-5 w-5 mr-2" />
-              Купить за 8 000 ₽
+{locale === 'en' ? `Buy for ${getPrice()}` : `Купить за ${getPrice()}`}
             </Button>
             <Button
               variant="outline"

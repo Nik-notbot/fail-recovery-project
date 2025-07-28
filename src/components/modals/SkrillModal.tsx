@@ -7,6 +7,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
+import { useLanguage } from "@/lib/i18n/context";
 
 interface SkrillModalProps {
   isOpen: boolean;
@@ -14,6 +15,12 @@ interface SkrillModalProps {
 }
 
 export default function SkrillModal({ isOpen, onClose }: SkrillModalProps) {
+  const { locale } = useLanguage();
+  
+  const getPrice = () => {
+    return locale === 'en' ? '100 USD' : '8 000 ₽';
+  };
+  
   const handleOrderClick = () => {
     window.open("https://t.me/m/5dpj--uyYjg0", "_blank");
     onClose();
@@ -35,10 +42,10 @@ export default function SkrillModal({ isOpen, onClose }: SkrillModalProps) {
               </div>
             </div>
             <DialogTitle className="text-3xl font-bold text-center text-white">
-              Skrill E-Wallet
+              {locale === 'en' ? 'Skrill E-Wallet' : 'Skrill E-Wallet'}
             </DialogTitle>
             <p className="text-center text-pink-100 text-lg mt-2">
-              Международная платежная система с FCA лицензией
+              {locale === 'en' ? 'International payment system with FCA license' : 'Международная платежная система с FCA лицензией'}
             </p>
           </DialogHeader>
         </div>
@@ -49,16 +56,16 @@ export default function SkrillModal({ isOpen, onClose }: SkrillModalProps) {
           <div className="text-center">
             <div className="inline-flex items-center gap-2 bg-pink-50 rounded-xl px-4 py-2 mb-2">
               <Badge variant="secondary" className="bg-pink-100 text-pink-800">
-                E-wallet + карта
+{locale === 'en' ? 'E-wallet + Card' : 'E-wallet + карта'}
               </Badge>
               <Badge
                 variant="secondary"
                 className="bg-purple-100 text-purple-800"
               >
-                FCA лицензия
+{locale === 'en' ? 'FCA License' : 'FCA лицензия'}
               </Badge>
             </div>
-            <div className="text-3xl font-bold text-gray-900 mb-2">8 000 ₽</div>
+            <div className="text-3xl font-bold text-gray-900 mb-2">{getPrice()}</div>
           </div>
 
           {/* Features Grid */}
@@ -66,7 +73,7 @@ export default function SkrillModal({ isOpen, onClose }: SkrillModalProps) {
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
                 <Icon name="Star" className="h-5 w-5 text-pink-600" />
-                Электронный кошелек
+{locale === 'en' ? 'Electronic Wallet' : 'Электронный кошелек'}
               </h3>
               <div className="space-y-3">
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
@@ -74,10 +81,10 @@ export default function SkrillModal({ isOpen, onClose }: SkrillModalProps) {
                     <Icon name="Zap" className="h-5 w-5 text-blue-600 mt-0.5" />
                     <div>
                       <h4 className="font-semibold text-blue-800">
-                        Быстрые переводы
+{locale === 'en' ? 'Fast Transfers' : 'Быстрые переводы'}
                       </h4>
                       <p className="text-sm text-blue-700 mt-1">
-                        Мгновенные международные переводы
+{locale === 'en' ? 'Instant international transfers' : 'Мгновенные международные переводы'}
                       </p>
                     </div>
                   </div>
@@ -90,10 +97,10 @@ export default function SkrillModal({ isOpen, onClose }: SkrillModalProps) {
                     />
                     <div>
                       <h4 className="font-semibold text-green-800">
-                        Поддержка 40 валют
+{locale === 'en' ? '40 Currencies Support' : 'Поддержка 40 валют'}
                       </h4>
                       <p className="text-sm text-green-700 mt-1">
-                        Широкий выбор валют
+{locale === 'en' ? 'Wide selection of currencies' : 'Широкий выбор валют'}
                       </p>
                     </div>
                   </div>
@@ -106,10 +113,10 @@ export default function SkrillModal({ isOpen, onClose }: SkrillModalProps) {
                     />
                     <div>
                       <h4 className="font-semibold text-purple-800">
-                        Криптовалюты
+{locale === 'en' ? 'Cryptocurrencies' : 'Криптовалюты'}
                       </h4>
                       <p className="text-sm text-purple-700 mt-1">
-                        Поддержка популярных криптовалют
+{locale === 'en' ? 'Support for popular cryptocurrencies' : 'Поддержка популярных криптовалют'}
                       </p>
                     </div>
                   </div>
@@ -120,15 +127,15 @@ export default function SkrillModal({ isOpen, onClose }: SkrillModalProps) {
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
                 <Icon name="Package" className="h-5 w-5 text-pink-600" />
-                Что входит в пакет
+{locale === 'en' ? 'Package Includes' : 'Что входит в пакет'}
               </h3>
               <div className="bg-gray-50 rounded-lg p-6">
                 <div className="space-y-3">
-                  {[
-                    "Верифицированный аккаунт",
-                    "Активированная карта",
-                    "Доступ к криптовалютам",
-                    "Поддержка 24/7",
+                  [
+                    locale === 'en' ? 'Verified Account' : 'Верифицированный аккаунт',
+                    locale === 'en' ? 'Activated Card' : 'Активированная карта',
+                    locale === 'en' ? 'Cryptocurrency Access' : 'Доступ к криптовалютам',
+                    locale === 'en' ? '24/7 Support' : 'Поддержка 24/7',
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-3">
                       <Icon
@@ -145,26 +152,26 @@ export default function SkrillModal({ isOpen, onClose }: SkrillModalProps) {
 
           {/* Features Cards */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
+            [
               {
                 icon: "CreditCard",
-                title: "Skrill карта",
-                desc: "Mastercard Prepaid",
+                title: locale === 'en' ? 'Skrill Card' : 'Skrill карта',
+                desc: locale === 'en' ? 'Mastercard Prepaid' : 'Mastercard Prepaid',
               },
               {
                 icon: "Banknote",
-                title: "Снятие наличных",
-                desc: "В банкоматах по миру",
+                title: locale === 'en' ? 'Cash Withdrawal' : 'Снятие наличных',
+                desc: locale === 'en' ? 'ATMs worldwide' : 'В банкоматах по миру',
               },
               {
                 icon: "ShoppingCart",
-                title: "Покупки онлайн",
-                desc: "Интернет-магазины",
+                title: locale === 'en' ? 'Online Shopping' : 'Покупки онлайн',
+                desc: locale === 'en' ? 'Online stores' : 'Интернет-магазины',
               },
               {
                 icon: "Contactless",
-                title: "Бесконтактные платежи",
-                desc: "NFC технология",
+                title: locale === 'en' ? 'Contactless Payments' : 'Бесконтактные платежи',
+                desc: locale === 'en' ? 'NFC technology' : 'NFC технология',
               },
             ].map((feature, index) => (
               <div
@@ -192,14 +199,14 @@ export default function SkrillModal({ isOpen, onClose }: SkrillModalProps) {
               className="flex-1 bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white py-3 rounded-lg text-lg font-semibold"
             >
               <Icon name="ShoppingCart" className="h-5 w-5 mr-2" />
-              Купить за 8 000 ₽
+{locale === 'en' ? `Buy for ${getPrice()}` : `Купить за ${getPrice()}`}
             </Button>
             <Button
               variant="outline"
               onClick={onClose}
               className="px-8 py-3 text-lg"
             >
-              Закрыть
+{locale === 'en' ? 'Close' : 'Закрыть'}
             </Button>
           </div>
         </div>

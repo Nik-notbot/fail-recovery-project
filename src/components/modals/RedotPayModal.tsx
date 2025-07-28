@@ -100,10 +100,10 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
                     />
                     <div>
                       <h4 className="font-semibold text-purple-800">
-                        {t('modals.redotpay.globalUse')}
+{locale === 'en' ? 'Global Usage' : 'Глобальное использование'}
                       </h4>
                       <p className="text-sm text-purple-700 mt-1">
-                        {t('modals.redotpay.globalDesc')}
+{locale === 'en' ? 'Accepted worldwide for online payments' : 'Принимается по всему миру для онлайн-платежей'}
                       </p>
                     </div>
                   </div>
@@ -114,16 +114,16 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
             <div className="space-y-4">
               <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
                 <Icon name="Package" className="h-5 w-5 text-purple-600" />
-                {t('modals.redotpay.packageIncludes')}
+{locale === 'en' ? 'Package Includes' : 'Что входит в пакет'}
               </h3>
               <div className="bg-gray-50 rounded-lg p-6">
                 <div className="space-y-2">
-                  {[
-                    "Готовый аккаунт RedotPay",
-                    "Виртуальная карта Visa",
-                    "Доступ к мобильному приложению",
-                    "Инструкции по использованию",
-                    "Техподдержка 24/7",
+                  [
+                    locale === 'en' ? 'Ready RedotPay Account' : 'Готовый аккаунт RedotPay',
+                    locale === 'en' ? 'Virtual Visa Card' : 'Виртуальная карта Visa',
+                    locale === 'en' ? 'Mobile App Access' : 'Доступ к мобильному приложению',
+                    locale === 'en' ? 'Usage Instructions' : 'Инструкции по использованию',
+                    locale === 'en' ? '24/7 Technical Support' : 'Техподдержка 24/7',
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-3">
                       <Icon
@@ -140,7 +140,28 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
 
           {/* Features Cards */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {t('modals.redotpay.features').map((feature: any, index: number) => (
+            [
+              {
+                icon: "CreditCard",
+                title: locale === 'en' ? 'Virtual Card' : 'Виртуальная карта',
+                desc: locale === 'en' ? 'Instant issuance' : 'Мгновенный выпуск',
+              },
+              {
+                icon: "Coins",
+                title: locale === 'en' ? 'Crypto Top-up' : 'Пополнение криптой',
+                desc: locale === 'en' ? 'Multiple cryptocurrencies' : 'Множество криптовалют',
+              },
+              {
+                icon: "Globe",
+                title: locale === 'en' ? 'Global Payments' : 'Глобальные платежи',
+                desc: locale === 'en' ? 'Worldwide acceptance' : 'Принимается по всему миру',
+              },
+              {
+                icon: "Smartphone",
+                title: locale === 'en' ? 'Mobile App' : 'Мобильное приложение',
+                desc: locale === 'en' ? 'Easy management' : 'Удобное управление',
+              },
+            ].map((feature, index) => (
               <div
                 key={index}
                 className="bg-white border border-gray-200 rounded-lg p-3 hover:shadow-md transition-shadow"
@@ -166,14 +187,14 @@ export default function RedotPayModal({ isOpen, onClose }: RedotPayModalProps) {
               className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-3 rounded-lg text-lg font-semibold"
             >
               <Icon name="ShoppingCart" className="h-5 w-5 mr-2" />
-              {t('modals.common.orderButton')} {getPrice()}
+{locale === 'en' ? `Buy for ${getPrice()}` : `Купить за ${getPrice()}`}
             </Button>
             <Button
               variant="outline"
               onClick={onClose}
               className="px-8 py-3 text-lg"
             >
-              {t('modals.common.closeButton')}
+{locale === 'en' ? 'Close' : 'Закрыть'}
             </Button>
           </div>
         </div>
